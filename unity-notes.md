@@ -41,15 +41,14 @@ Has the messages: Awake, OnApplicationPause, OnCollision, etc
 ```
 
 <br>
+
+**Fields:**  
+Variables at the top of the class need to be set in the inspector. They are only declared at the top not set there.
+
+<br>
 <br>
 
 ---
-
-<br>
-<br>
-
-### Prefab
-The prefab asset type allows you to store a GameObject with components and settings. The prefab acts as a template from which you can create new object instances in the scene. Any edits made to a prefab asset are immediately reflected in all instances produced from it but you can also override components and settings for each instance individually. This could be used for trees, bullet shells, swords, etc.
 
 <br>
 <br>
@@ -94,6 +93,51 @@ Start is called on the frame when a script is enabled just before any of the Upd
 <br>
 <br>
 
+### Prefabs and Instantiating them
+The prefab asset type allows you to store a GameObject with components and settings. The prefab acts as a template from which you can create new object instances in the scene. Any edits made to a prefab asset are immediately reflected in all instances produced from it but you can also override components and settings for each instance individually. This could be used for trees, bullet shells, swords, etc. Prefabs only exist as unused GameObjects in the asset folder, but instatiated prefabs exist as GameObjects in the scene.
+
+```c#
+// Instantiate a prefab
+public GameObject prefabName;
+GameObject instObjName = Instantiate(prefabName, new Vector3(x,y,z), Quaternion.identity) as GameObject;
+
+// Quaternion.identity - means no rotation
+// there is a transform parent parameter you can add in declaration but idk how
+```
+
+<br>
+
+Instantiation example:
+```c#   
+public GameObject tilePrefab;
+
+void SetupTiles()
+{
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            GameObject tile = Instantiate(tilePrefab, new Vector3(i, j, 0), Quaternion.identity) as GameObject;
+
+            tile.name = "Tile ("+i+","+j+")"; // The object in the hierarchy will have the name "Tile (i,j)"
+
+            m_allTiles[i, j] = tile.GetComponent<Tile>(); // m_allTiles[i,j] == the current object being instantiated
+            // ^ example: m_allTiles[2,6] == the Tile (2,6) GameObject aka the tile at 2,6
+
+            tile.transform.parent = transform;
+            // it's technically "= GameObject.transform" but if you do "= transform" it will use the GO this component is attached to
+            // this current instantiated tile's parent becomes the GameObject's transform (the GO being the GO this board component is attached to)
+            
+            m_allTiles[i, j].Init(i, j, this); // m_allTiles is an object of the Tile class and calls the Init method from it
+            // this = the current component, which would be the current instance of this board class.
+        }
+    }
+}
+```
+
+<br>
+<br>
+
 ### Coroutine:
 When you call a function, it runs to completion before returning. This means that any action taking place in a function must happen within a single frame update; a function call can’t be used to contain a procedural animation or a sequence of events over time. As an example, consider a function that gradually reducing an object’s alpha (opacity) value until it becomes completely invisible. The function will execute in its entirety within a single frame update and the intermediate values will never be seen and the object will disappear instantly.
 
@@ -106,7 +150,9 @@ IEnumerator FunctionName()
     for (condition) // put a loop here
     {
         // code
-        yield return null;
+        yield return null; // wait until the next frame
+        // yield return new WaitForSeconds(n); - wait until n seconds
+        // yield return StartCoroutine(); - starts new coroutine; used for chaining sequential events
     }
 }
 
@@ -119,7 +165,55 @@ void Update()
 }
 ```
 
+<br>
 
+Coroutine example:
+```c#
+void Update ()
+{
+    if (Input.GetKeyDown(KeyCode.RightArrow))
+    {
+        Move((int)transform.position.x + 1, (int)transform.position.y, 0.5f);
+    }
+}
+
+
+public void Move(int destX, int destY, float timeToMove)
+{
+    if (m_isMoving == false)
+    {
+        StartCoroutine(MoveRoutine(new Vector3(destX, destY, 0), timeToMove));
+    }
+}
+
+
+IEnumerator MoveRoutine(Vector3 destination, float timeToMove)
+{
+    Vector3 startPosition = transform.position;
+    bool reachedDestination = false;
+    float elapsedTime = 0f;
+    m_isMoving = true;
+
+    while(reachedDestination == false)
+    {
+        // execute if statement if we are close enough to destination
+        if (Vector3.Distance(transform.position, destination) < 0.01f)
+        {
+            reachedDestination = true;
+            transform.position = destination; // make sure our position is exact integers of destination and not a float.
+            SetCoord((int)destination.x, (int)destination.y);
+            break;
+        }
+
+        elapsedTime += Time.deltaTime;
+        float t = elapsedTime / timeToMove;
+        transform.position = Vector3.Lerp(startPosition, destination, t); // move the game piece
+
+        yield return null; // wait until next frame
+    }
+    m_isMoving = false;
+}
+```
 
 
 <!---
@@ -147,6 +241,8 @@ declared outside class in just the script
 
 local var:
 declared inside a function
+
+Fields that aren't assigned when declared will automatically be assigned to null, but local variables aren't automatically set to null.
 
 
 
