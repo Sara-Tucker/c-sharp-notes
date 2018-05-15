@@ -1,5 +1,105 @@
 # C# Notes
 
+**Print to console:**  
+```c#
+// C#
+Console.WriteLine("hello world");
+
+// Unity
+Debug.Log("hello world");
+```
+
+<br>
+<br>
+
+**String interpolation:**  
+```c#
+// C#
+string stringName = $"A is {a} and B is {b}"; // Example 1
+Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."); // Example 2
+
+// Unity
+// To enable .NET 4.6 go to Edit -> Project Settings -> Player
+// Other Settings -> Configuration -> Scripting Runtime Version.
+```
+
+<br>
+<br>
+
+**Get input:**  
+```c#
+// C#
+string input = Console.ReadLine();
+
+
+// Unity
+// 1. Create new project: GetInput
+// 2. Create an empty GameObject, Text, and Input Field
+// 3. Create script: GetInput
+// 4. Attach script to GameObject
+// 5. Write script
+// 6. Attach Text and Input Field to the GetInput script on GameObject in the inspector
+
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GetInput : MonoBehaviour {
+
+    public InputField inputField;
+    public Text textDisplay;
+
+    void Start ()
+    {
+        inputField.onEndEdit.AddListener(ProcessUserInput);
+        inputField.ActivateInputField();
+    }
+
+    void ProcessUserInput(string userInput)
+    {
+        textDisplay.text = userInput;
+        Debug.Log(userInput);
+        inputField.ActivateInputField();
+        inputField.text = null;
+    }
+}
+```
+
+<br>
+<br>
+
+**Type conversion:**  
+```c#
+// Cast float to int
+float x = 1234.7f;
+int a = (int)x;
+
+
+// Convert input (does not account for an exception)
+int input = Convert.ToInt32(Console.ReadLine());
+
+
+// Convert input (accounts for an exception)
+using System;
+public class ConvertInput {
+    public static void Main()
+    {
+        string consoleInput;
+        int input;
+	
+        do
+        {
+            //Console.WriteLine("Enter a number: ");
+            consoleInput = Console.ReadLine();
+        } while (!int.TryParse(consoleInput, out input));
+	
+        // input is now == (int)consoleInput
+    }
+}
+```
+
+<br>
+<br>
+
 **Methods:**
 ```c#
 // Creating a method
@@ -7,17 +107,6 @@ dataTypeMethodReturns MethodName(parameters){}
 
 // Calling a method
 Class.Method(arguments);
-
-// Parameter - A variable in the declaration of a function.
-// Argument - The value of the variable that gets passed to the function.
-```
-
-<br>
-<br>
-
-**String interpolation:**
-```c#
-string stringName = $"A is {a} and B is {b}";
 ```
 
 <br>
@@ -28,6 +117,10 @@ string stringName = $"A is {a} and B is {b}";
 datatype[] arrayName = new datatype[size] { value, value.. };
 
 int numbers = new int[] { 1, 2, 3 };
+
+// numbers[0] == 1
+// numbers[1] == 2
+// numbers[2] == 3
 ```
 
 <br>
@@ -89,60 +182,6 @@ Public - visible/accessible anywhere
 Private - only visible/accessible in the entire block where it's defined
 
 Private is the default access modifier if none was declared.
-```
-
-<br>
-<br>
-
----
-
-<br>
-<br>
-
-### For Loop:
-Repeats a codeblock until a condition evaluates to false. Used when you know when to stop looping because you know the condition that needs to change.
-```c#
-// Create a for loop:
-// for + Tab + Tab
-
-for (initializer; condition; iterator)
-    codeblock
-
-for (i = 1; i <= 5; i++)
-    codeblock
-```
-
-<br>
-
-### foreach Loop:
-Executes a codeblock for each element in an array. Used when you know when to stop looping because you know it will loop until every element has been iterated over.
-```c#
-foreach (Datatype elementName(i) in listName)
-    codeblock
-
-foreach (int purchase in myReceipt)
-    codeblock
-```
-
-<br>
-
-### While Loop:
-Repeats a codeblock until a condition evaluates to false.
-
-How to make:  
-The while condition should be made with: ==  or  >  or  <  
-The condition should be defined outside of the loop.  
-The code block will alter a variable that is part of the condition.  
-Eventually the condition will evaluate to false.
-```c#
-defined condition;
-while (condition is true)
-    codeblock
-
-int count = 0;
-while (int count < 5)
-    Console.WriteLine(count);
-    count++;
 ```
 
 <br>
@@ -366,7 +405,3 @@ A declarative tag that is used to convey information to runtime about the behavi
 ```
 
 <br>
-
-https://en.wikipedia.org/wiki/Scope_(computer_science)  
-https://en.wikipedia.org/wiki/Local_variable  
-https://en.wikipedia.org/wiki/Non-local_variable
