@@ -4,9 +4,6 @@
 ```c#
 // C#
 Console.WriteLine("hello world");
-
-// Unity
-Debug.Log("hello world");
 ```
 
 <br>
@@ -17,10 +14,6 @@ Debug.Log("hello world");
 // C#
 string stringName = $"A is {a} and B is {b}"; // Example 1
 Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."); // Example 2
-
-// Unity
-// To enable .NET 4.6 go to Edit -> Project Settings -> Player
-// Other Settings -> Configuration -> Scripting Runtime Version.
 ```
 
 <br>
@@ -30,38 +23,6 @@ Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} 
 ```c#
 // C#
 string input = Console.ReadLine();
-
-
-// Unity
-// 1. Create new project: GetInput
-// 2. Create an empty GameObject, Text, and Input Field
-// 3. Create script: GetInput
-// 4. Attach script to GameObject
-// 5. Write script
-// 6. Attach Text and Input Field to the GetInput script on GameObject in the inspector
-
-using UnityEngine;
-using UnityEngine.UI;
-
-public class GetInput : MonoBehaviour {
-
-    public InputField inputField;
-    public Text textDisplay;
-
-    void Start ()
-    {
-        inputField.onEndEdit.AddListener(ProcessUserInput);
-        inputField.ActivateInputField();
-    }
-
-    void ProcessUserInput(string userInput)
-    {
-        textDisplay.text = userInput;
-        Debug.Log(userInput);
-	inputField.text = null;
-        inputField.ActivateInputField();
-    }
-}
 ```
 
 <br>
