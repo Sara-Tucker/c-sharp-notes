@@ -58,8 +58,8 @@ public class GetInput : MonoBehaviour {
     {
         textDisplay.text = userInput;
         Debug.Log(userInput);
+	inputField.text = null;
         inputField.ActivateInputField();
-        inputField.text = null;
     }
 }
 ```
@@ -107,6 +107,17 @@ dataTypeMethodReturns MethodName(parameters){}
 
 // Calling a method
 Class.Method(arguments);
+```
+
+<br>
+<br>
+
+**Conditional Operator: '?:'** - Returns one of two values depending on the value of a Boolean expression.  
+```c#
+// The condition evaluates to true or false. If true then #1 is returned, if false then #2 is returned.
+condition ? first_expression : second_expression;
+
+classify = (input > 0) ? "positive" : "negative";  
 ```
 
 <br>
@@ -347,47 +358,188 @@ public class SurrealismPainting : Painting
 <br>
 <br>
 
+### Struct:
+1. Within a struct declaration, fields cannot be initialized unless they are declared as const or static.  
+2. A struct cannot declare a default constructor (a constructor without parameters).  
+3. The struct type is suitable for representing lightweight objects such as Point, Rectangle, and Color.
+
+```c#
+public struct Point
+{
+    public int x, y;
+
+    public Point(int xParam, int yParam)
+    {
+        x = xParam;
+        y = yParam;
+    }
+}
+```
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-know-the-difference-passing-a-struct-and-passing-a-class-to-a-method
+
+<br>
+<br>
+
 ---
 
 <br>
 <br>
 
 ### Properties:
-A class member that provides access to fields of a class. A get property accessor is used to return the value, and a set property accessor is used to assign a new value.
+Explained:
+```c#
+using System;
+public class PlayerInput
+{
+    private float horizontalData;
+    private float verticalData;
+    // We don't want other classes changing this data so it is private.
+    // However, another class needs to read the data from these variables.
+    // But since they are private they are only visable in this class.
+
+
+    // We could write public methods that allow us to get or set these private variables:
+    public float GetHorizontalData()
+    {
+        return horizontalData;
+    }
+
+    public void SetHorizontalData(float hData)
+    {
+        horizontalData = hData;
+    }
+}
+
+
+// And then call them from another class:
+public class IDK
+{
+    float hInput;
+
+    public void Main()
+    {
+        PlayerInput PIObject = new PlayerInput();
+	
+	hInput = PIObject.horizontalData;
+	// Error: PIObject.horizontalData is private and not accessable outside of PIObject.
+        // You cannot get the private data.
+	
+	PIObject.horizontalData = 3.22f;
+	// Error: PIObject.horizontalData is private and not accessable outside of PIObject.
+        // You cannot set the private data.
+
+        // Using the public methods to access the private data:
+        hInput = PIObject.GetHorizontalData();
+        PIObject.SetHorizontalData(3.22f);
+	
+        Console.WriteLine(hInput);
+        Console.WriteLine(PIObject.GetHorizontalData());
+    }
+}
+
+// But instead you could do it in a much easier way using properties.
+```
+
+<br>
+
+Property - A class member that provides access to fields of a class.  
+A get property accessor is used to return the value, and a set property accessor is used to assign a new value.
+
+<br>
+
+Example:
 ```c#
 // Create a property:
 // prop + Tab
 
 
-class Customer
+//Get input data
+float m_h;
+public float H { get { return m_h; } } //Read only
+float m_v;
+public float V { get { return m_v; } } //Read only 
+
+bool m_inputEnabled = false;
+public bool InputEnabled { get { return m_inputEnabled; } set { m_inputEnabled = value; } }
+
+
+public void GetInputKey()
 {
-    public double TotalPurchases { get; set; }
-    public string Name { get; set; }
-    public int CustomerID { get; set; }
-
-    // Constructor
-    public Customer(double purchases, string name, int ID)
+    if (m_inputEnabled)
     {
-        TotalPurchases = purchases;
-        Name = name;
-        CustomerID = ID;
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        // Intialize a new object.
-        Customer cust1 = new Customer (4987.63, "Northwind", 90108);
-
-        //Modify a property
-        cust1.TotalPurchases += 499.99;
+        m_h = Input.GetAxisRaw("Horizontal");
+        m_v = Input.GetAxisRaw("Vertical");
     }
 }
 
 
-// Initialize an auto-implemented property:
+
+// And then from another class:
+void Update ()
+{
+    if (playerMover.isMoving)
+    {
+        return;
+    }
+
+    playerInput.GetInputKey();
+
+    if (playerInput.V == 0)
+    {
+        if (playerInput.H < 0)
+        {
+            playerMover.MoveLeft();
+        }
+        else if (playerInput.H > 0)
+        {
+            playerMover.MoveRight();
+        }
+    }
+    else if (playerInput.H == 0)
+    {
+        if (playerInput.V < 0)
+        {
+            playerMover.MoveBackward();
+        }
+        else if (playerInput.V > 0)
+        {
+            playerMover.MoveForward();
+        }
+    }
+}
+```
+
+<br>
+
+Useful things you can do with properties but can't if the variables were just public:
+```c#
+public bool InputEnabled
+{
+    get { return inputEnabled; }
+    set
+    {
+        inputEnabled = value;
+        Debug.Log("Input changed to: " + inputEnabled;
+        // Everytime the value is changed its value is printed to the console.
+    }
+}
+
+public float Health
+{
+    get { return health; }
+    set
+    {
+        health = value;
+	Object.UpdateHPUI(health);
+	// When hp is changed the property automatically updates the UI.
+    }
+}
+```
+
+<br>
+
+Initialize an auto-implemented property:
+```c#
 public string FirstName { get; set; } = "Jane";
 ```
 

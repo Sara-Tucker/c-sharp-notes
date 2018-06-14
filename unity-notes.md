@@ -43,7 +43,22 @@ Has the messages: Awake, OnApplicationPause, OnCollision, etc
 <br>
 
 **Fields:**  
-Variables at the top of the class need to be set in the inspector. They are only declared at the top not set there.
+Variables at the top of the class need to be set in the inspector. They are usually only declared at the top, not set there.  
+Fields that aren't assigned when declared will automatically be assigned to null, but local variables aren't automatically set to null.
+
+<br>
+
+**Misc:**  
+perpendicular - two lines that make a 90 degree angle  
+vertex - a point where lines intersect  
+vertices - a group of points where lines intersect
+
+<br>
+
+**Vectors:**  
+A line from the origin to a transform point that has magnitude (size) and direction. The length of the line shows its magnitude and the arrow shows the direction. If you were to copy a vector and put it somewhere else, the two vectors would still be equal, just in different positions.  
+https://docs.unity3d.com/Manual/UnderstandingVectorArithmetic.html  
+https://docs.unity3d.com/Manual/DirectionDistanceFromOneObjectToAnother.html
 
 <br>
 <br>
@@ -107,7 +122,7 @@ GameObject instObjName = Instantiate(prefabName, new Vector3(x,y,z), Quaternion.
 
 <br>
 
-Instantiation example:
+Instantiation examples:
 ```c#   
 public GameObject tilePrefab;
 
@@ -133,6 +148,36 @@ void SetupTiles()
         }
     }
 }
+
+
+
+void Awake()
+{
+    cells = new HexCell[height * width];
+
+    //loops through all x values first, z stay 0 until x is done.
+
+    for (int z = 0, i = 0; z < height; z++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            CreateCell(x, z, i++);
+        }
+    }
+}
+
+void CreateCell(int x, int z, int i)
+{
+    Vector3 position;
+    position.x = x * 10f;
+    position.y = 0f;
+    position.z = z * 10f;
+    // [0] = 0,0    [1] = 10,0    [2] = 20, 0
+
+    HexCell cell = cells[i] = Instantiate<HexCell>(cellPrefab);
+    cell.transform.SetParent(transform, false);
+    cell.transform.localPosition = position;
+}
 ```
 
 <br>
@@ -147,12 +192,12 @@ It is essentially a function declared with a return type of IEnumerator and with
 ```c#
 IEnumerator FunctionName()
 {
-    for (condition) // put a loop here
+    for (condition) // put a loop in the coroutine
     {
         // code
         yield return null; // wait until the next frame
-        // yield return new WaitForSeconds(n); - wait until n seconds
-        // yield return StartCoroutine(); - starts new coroutine; used for chaining sequential events
+        yield return new WaitForSeconds(n); // wait until n seconds
+        yield return StartCoroutine(); // starts new coroutine; used for chaining sequential events
     }
 }
 
@@ -160,7 +205,7 @@ void Update()
 {
     if(condition)
     {
-        StartCoroutine("FunctionName");
+        StartCoroutine(CoroutineName);
     }
 }
 ```
@@ -215,34 +260,49 @@ IEnumerator MoveRoutine(Vector3 destination, float timeToMove)
 }
 ```
 
+<br>
+<br>
+
+### UnityEvent:
+UnityEvent - a way of sending messages from one component to another.
+
+A UnityEvent is added to a MonoBehaviour and when it is invoked it broadcasts a signal to any listening components. There is the Broadcaster and the Listeners. Other MonoBehaviours that are Listeners run an Action once they receive the signal. Actions are set up in the inspector. Each Listener can run any Action or do what they see fit and aren't dependant on the other Listeners.
+
+UnityEvents are useful because the Broadcaster doesn't care what the Listeners do, it just broadcasts the signal. Actions are useful because they persist if you save and reload scenes.
+
+An Event implements the design pattern: Observer Pattern.
+
+<br>
+
+```
+https://docs.unity3d.com/Manual/UnityEvents.html
+https://unity3d.college/2016/10/05/unity-events-actions-delegates/
+```
+
+<br>
+<br>
+
+### Canvas:
+The Canvas is the area that all UI elements should be inside. The Canvas is a Game Object with a Canvas component on it. All UI elements must be children of a GameObject that has a Canvas component attached. UI elements in the Canvas are drawn in the same order they appear in the Hierarchy. Children at the top are in the background, children at the bottom are in front.
+
+<br>
+
+Render modes:
+```
+https://docs.unity3d.com/Manual/UICanvas.html
+https://docs.unity3d.com/Manual/class-Canvas.html
+```
+
 
 <!---
 
 Check the Unity manual and then the Unity scripting api.
 
 
-
-https://www.youtube.com/watch?v=tGmnZdY5Y-E
-https://www.youtube.com/watch?time_continue=226&v=AXUvnk7Jws4
-https://github.com/stella3d/job-system-cookbook
-https://github.com/Unity-Technologies/EntityComponentSystemSamples
-
-
-
-
 having lots of images/sprites on one image is a lot more performance efficient.
 
 is displaying an entire map on one large image more efficient than having all the assets on one small image where each asset is only on the image once, separated by selected sprites?
 
-
-
-public and private vars:
-declared outside class in just the script
-
-local var:
-declared inside a function
-
-Fields that aren't assigned when declared will automatically be assigned to null, but local variables aren't automatically set to null.
 
 
 

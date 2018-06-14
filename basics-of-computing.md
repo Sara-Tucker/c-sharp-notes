@@ -1,5 +1,38 @@
 # Programming Notes
 
+## Recursion
+Recursion - A function that calls itself.  
+A recursive function must always check for a condition to determine if it should call itself again or not.
+
+<br>
+
+Dictionary definition:
+```
+recursive - characterized by recurrence (repetition)  
+recursion - repeated application of a recursive prodedure
+```
+
+<br>
+
+Example:
+```
+public static long Factorial(long number) //Give a number as an argument first.
+{
+    if (number <= 1)
+        return 1;
+    else
+    {
+        return number * Factorial(number - 1);
+    }
+}
+
+// 4*(4-1)*(3-1)*(2-1)
+// 4*3*2*1 == 24
+```
+
+<br>
+<br>
+
 ## Good Compound Conditional (two end conditions) and Function examples
 ```python
 keepGoing = True
@@ -38,7 +71,6 @@ def cylinder_volume(height, radius):
 <br>
 
 ## Parameter and Argument
-
 Parameter - A variable in the declaration of a function.  
 Argument - The value of the variable that gets passed to the function.
 ```
@@ -51,6 +83,32 @@ function_name(argument)
 <br>
 
 ## Scope and Variables
+**Explained:**  
+Variables declared at top blocks can be used in downward blocks.  
+Variables declared at bottom blocks can't be used in upward blocks.  
+Variables declared in one function can't be accessed by another.
+```python
+def Outer():
+    x = 1
+    
+    def Inner():
+        print(x) #Prints 1
+        x = 2
+        print(x) #Prints 2
+        y = 3
+        
+    Inner()
+    print(y) #Error
+
+def SamePlace():
+    print(x) #Error
+
+Outer()
+SamePlace()
+```
+
+<br>
+
 Scope:  
 The region where variables and methods are visable/accessible.
 
@@ -70,13 +128,6 @@ A variable that is given local scope. Local variable references in the block in 
 
 Non-local variable:  
 A variable that is not defined in the local scope. Non-local variables are used in the context of nested functions.
-```
-def outer():
-    int x = 1 # X is local to outer but non-local to inner.
-    def inner():
-        int x = 2
-        print(x)
-```
 
 <br>
 <br>
@@ -153,7 +204,6 @@ Functional programming - running values through a "stream" of functions that man
 <br>
 
 ## Programming Basics:
-
 Machine code:  
 A set of instructions executed directly by the CPU. The CPU can only understand machine code.
 
