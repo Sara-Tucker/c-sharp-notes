@@ -1,4 +1,4 @@
-### For Loop:
+## for loop:
 Repeats a codeblock until a condition evaluates to false. Used when you know when to stop looping because you know the condition that needs to change.
 ```c#
 // Create a for loop:
@@ -7,13 +7,14 @@ Repeats a codeblock until a condition evaluates to false. Used when you know whe
 for (initializer; condition; iterator)
     codeblock
 
+//Example:
 for (i = 1; i <= 5; i++)
     codeblock
 ```
 
 <br>
 
-### foreach Loop:
+## foreach loop:
 Executes a codeblock for each element in an array. Used when you know when to stop looping because you know it will loop until every element has been iterated over.
 ```c#
 foreach (Datatype elementName(i) in listName)
@@ -25,7 +26,7 @@ foreach (int purchase in myReceipt)
 
 <br>
 
-### While Loop:
+## while loop:
 Repeats a codeblock until a condition evaluates to false.
 
 How to make:  
@@ -38,13 +39,76 @@ defined condition;
 while (condition is true)
     codeblock
 
+
 int count = 0;
 while (int count < 5)
+{
     Console.WriteLine(count);
     count++;
+}
+
+
+bool finished = false;
+while (finished == false)
+{
+    if condition
+        finished = true;
+    else
+    {
+        codeblock
+        codeblock
+    }
+}
+```
+
+<br>
+
+## do-while loop:
+```c#
+string consoleInput;
+int input;
+
+do
+{
+    Console.WriteLine("Enter a number: ");
+    consoleInput = Console.ReadLine();
+} while (!int.TryParse(consoleInput, out input));
+
+// input is now == (int)consoleInput
 ```
 
 <br>
 <br>
 
-### Use break statements !!
+## break statement:
+Weird example..
+```c#
+int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+char[] letters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j' };
+
+for (int x = 0; x < numbers.Length; x++)
+{
+    Console.WriteLine("num = {0}", numbers[x]);
+
+    for (int y = 0; y < letters.Length; y++)
+    {
+        if (y == x)
+        {
+            break;
+            // the break is used only once, to skip printing the letter 'a' at 0
+            // its a weird example.
+        }
+        Console.Write("{0}", letters[y]);
+    }
+    Console.WriteLine();
+}
+
+// Output:
+// num = 0
+// num = 1
+//  a
+// num = 2
+//  a  b
+// num = 3
+//  a  b  c
+```
