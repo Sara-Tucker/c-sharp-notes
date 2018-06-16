@@ -61,18 +61,6 @@ public class ConvertInput {
 <br>
 <br>
 
-**Methods:**
-```c#
-// Creating a method
-dataTypeMethodReturns MethodName(parameters){}
-
-// Calling a method
-Class.Method(arguments);
-```
-
-<br>
-<br>
-
 **Conditional Operator: '?:'** - Returns one of two values depending on the value of a Boolean expression.  
 ```c#
 // The condition evaluates to true or false. If true then #1 is returned, if false then #2 is returned.
