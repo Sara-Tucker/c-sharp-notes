@@ -276,7 +276,7 @@ modifier class ChildClassName : BaseClassName {}
 <br>
 
 ### Abstract and Override modifiers:
-The abstract modifier enables you to create classes and class members that are incomplete and must be implemented in a derived class. Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes. An abstract class cannot be instantiated. Members marked as abstract, or included in an abstract class, must be implemented by classes that derive from the abstract class. 
+The abstract modifier enables you to create classes and class members that are incomplete and must be implemented in a derived class. Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes. An abstract class cannot be instantiated. Members marked as abstract, or included in an abstract class, must be implemented by classes that derive from the abstract class.
 
 Abstract classes may also define abstract methods by adding the keyword abstract before the return type of the method. Abstract methods have no implementation, so the method definition is followed by a semicolon instead of a normal method block. Derived classes of the abstract class must implement all abstract methods.
 ```c#
@@ -289,16 +289,16 @@ public abstract class Animal
 public class Cat : Animal
 {     
     public abstract void Speak()
-	{
-	    Console.WriteLine("Meow");
+    {
+        Console.WriteLine("Meow");
     }
 }
 
 public class Dog : Animal
 {     
     public abstract void Speak()
-	{
-	    Console.WriteLine("Bark");
+    {
+        Console.WriteLine("Bark");
     }
 }
 ```
