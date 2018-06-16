@@ -34,26 +34,33 @@ public static long Factorial(long number) //Give a number as an argument first.
 <br>
 
 ## Good Compound Conditional (two end conditions) and Function examples
-```python
-keepGoing = True
-correct = "Python"
-tries = 3
+```c#
+bool keepGoing = true;
+string correct = "Csharp";
+int tries = 3;
 
-while keepGoing == True:
-    guess = input("Please enter the password: ")
-    tries = tries - 1
+while (keepGoing == true)
+{
+    string guess = Console.ReadLine("Please enter the password: ");
+    tries -= 1;
     
-    if guess == correct:
-        print "You may proceed"
-        keepGoing = False
-    else:
-        print "That's not correct."
+    if (guess == correct)
+    {
+        Console.WriteLine("You may proceed.");
+        keepGoing = false;
+    }
+    else
+    {
+        Console.WriteLine("That's not correct.")
 
-        if tries <= 0:
-            print "Sorry. You only had three tries"
-            keepGoing = False
+        if (tries == 0)
+        {
+            Console.WriteLine("Sorry, you only had three tries.")
+            keepGoing = false;
+        }
         else:
-            print "You have %d tries left" % tries
+            Console.WriteLine("You have {tries} tries left.");
+}
 ```
 
 <br>
