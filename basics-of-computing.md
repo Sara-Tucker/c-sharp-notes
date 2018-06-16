@@ -70,13 +70,18 @@ def cylinder_volume(height, radius):
 <br>
 <br>
 
-## Parameter and Argument
+## Methods, Parameters, and Arguments
 Parameter - A variable in the declaration of a function.  
 Argument - The value of the variable that gets passed to the function.
-```
-def function_name(parameter):
-    #code
-function_name(argument)
+```c#
+// Creating a method:
+typereturned MethodName(parameters)
+{
+    //code
+}
+
+// Calling a method:
+Class.Method(arguments);
 ```
 
 <br>
