@@ -51,7 +51,7 @@ while (int count < 5)
 bool finished = false;
 while (finished == false)
 {
-    if condition
+    if (condition)
         finished = true;
     else
     {
