@@ -59,9 +59,9 @@ while keepGoing == True:
 <br>
 
 ```c#
-float CylinderVolume(float height, float radius)
+static double CylinderVolume(double height, double radius)
 {
-    const float pi = 3.14159f;
+    const double pi = 3.14159;
     return pi * Math.Pow(radius, 2) * height;
 }
     
