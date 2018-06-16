@@ -282,7 +282,8 @@ Abstract classes may also define abstract methods by adding the keyword abstract
 ```c#
 public abstract class Animal
 {
-    public abstract void Speak(); //Since abstract methods have no implementation there is no curly bracket block.
+    public abstract void Speak();
+    // Since abstract methods have no implementation there is no curly bracket block.
 }
 
 public class Cat : Animal
