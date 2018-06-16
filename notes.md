@@ -280,26 +280,24 @@ The abstract modifier enables you to create classes and class members that are i
 
 Abstract classes may also define abstract methods by adding the keyword abstract before the return type of the method. Abstract methods have no implementation, so the method definition is followed by a semicolon instead of a normal method block. Derived classes of the abstract class must implement all abstract methods.
 ```c#
-public abstract class Painting
+public abstract class Animal
 {
-    public abstract void LookAtPainting();
+    public abstract void Speak(); //Since abstract methods have no implementation there is no curly bracket block.
 }
 
-
-public class RealismPainting : Painting
-{
-    public override void LookAtPainting()
-    {
-        ShowRealismPainting();
+public class Cat : Animal
+{     
+    public abstract void Speak()
+	{
+	    Console.WriteLine("Meow");
     }
 }
 
-
-public class SurrealismPainting : Painting
-{
-    public override void LookAtPainting()
-    {
-        ShowSurrealismPainting();
+public class Dog : Animal
+{     
+    public abstract void Speak()
+	{
+	    Console.WriteLine("Bark");
     }
 }
 ```
