@@ -64,9 +64,6 @@ static double CylinderVolume(double height, double radius)
     const double pi = 3.14159;
     return pi * Math.Pow(radius, 2) * height;
 }
-    
->>> CylinderVolume(10, 3)
-282.7431
 ```
 
 <br>
