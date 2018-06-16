@@ -58,12 +58,14 @@ while keepGoing == True:
 
 <br>
 
-```python
-def cylinder_volume(height, radius):
-    pi = 3.14159
-    return height * pi * radius ** 2
+```c#
+float CylinderVolume(float height, float radius)
+{
+    const float pi = 3.14159f;
+    return pi * Math.Pow(radius, 2) * height;
+}
     
->>> cylinder_volume(10, 3)
+>>> CylinderVolume(10, 3)
 282.7431
 ```
 
