@@ -58,8 +58,8 @@ while (keepGoing == true)
             Console.WriteLine("Sorry, you only had three tries.")
             keepGoing = false;
         }
-        else:
-            Console.WriteLine("You have {tries} tries left.");
+        else
+            Console.WriteLine($"You have {tries} tries left.");
 }
 ```
 
