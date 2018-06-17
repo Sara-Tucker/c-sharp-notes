@@ -1,21 +1,36 @@
 # Dictionary / Hash / Hash Table:
 Holds a collection of key-value pairs called pairs.
 
-using System.Collections.Generic;
+Dictionaries are imported from ```using System.Collections.Generic;```
 
 <br>
 
 #### Create a dictionary:
 ```c#
+// Declare as empty:
 Dictionary<keytype, valuetype> dictName = new Dictionary<keytype, valuetype>();
 
+
+// Declare with values:
 var dictName = new Dictionary<string, int>
 {
     ["one"] = 1,
     ["two"] = 2,
     ["three"] = 3
 };
+
+
+// Create a dictionary from arrays or lists:
+using System.Linq; //Enumerable requires Linq.
+
+// Arrays:
+var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
+
+// Lists:
+var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
 ```
+
+<br>
 
 
 // Add to a dictionary
@@ -61,19 +76,6 @@ https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx?f=255&MSPPError
 
 <br>
 
-#### Create a dictionary from arrays or lists:
-```c#
-using System.Collections.Generic;
-using System.Linq;
-
-// Arrays:
-var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
-
-// Lists:
-var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
-```
-
-<br>
 
 #### Access a value using its key:
 ```python
