@@ -85,6 +85,7 @@ while (keepGoing == true)
         }
         else
             Console.WriteLine($"You have {tries} tries left.");
+    }
 }
 ```
 
