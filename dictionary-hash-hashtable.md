@@ -74,11 +74,13 @@ foreach (KeyValuePair<keytype, valuetype> pair in dictName)
 }
 
 
+// Only keys
 foreach (keytype key in dictName.Keys)
 {
     Console.WriteLine($"Key: {key}");
 }
 
+// Only values
 foreach (valuetype value in dictName.Values)
 {
     Console.WriteLine($"Value: {value}");
