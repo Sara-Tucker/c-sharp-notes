@@ -218,7 +218,7 @@ Objects:
 
 Setting a field and calling a method:
     john.Name = "John";
-    john.Talk(string "Hello!");
+    mary.Talk($"Hello {john.Name}!");
 ```
 
 <br>
