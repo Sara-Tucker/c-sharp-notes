@@ -68,9 +68,6 @@ https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx?f=255&MSPPError
 using System.Collections.Generic;
 
 // Arrays:
-string[] keysArray = new string[] { "a", "b", "c" };
-int[] valuesArray = new int[] { 1, 2, 3 };
-
 var dictName = new Dictionary<string, int>();
 for (int index = 0; index < keysArray.Length; index++)
 {
@@ -78,9 +75,6 @@ for (int index = 0; index < keysArray.Length; index++)
 }
 
 // Lists:
-List<string> keysList = new List<string>() { "a", "b", "c" };
-List<int> valuesList = new List<int>() { 1, 2, 3 };
-
 var dictName = new Dictionary<string, int>();
 for (int index = 0; index < keysList.Count; index++)
 {
