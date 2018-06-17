@@ -65,31 +65,27 @@ https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx?f=255&MSPPError
 
 #### Create a dictionary from arrays or lists:
 ```c#
-using System.Collections.Generic;
-
-// Arrays:
 var dictName = new Dictionary<string, int>();
 for (int index = 0; index < keysArray.Length; index++)
 {
     dictName.Add(keysArray[index], valuesArray[index]);
 }
-
+```
+```c#
 // Lists:
 var dictName = new Dictionary<string, int>();
 for (int index = 0; index < keysList.Count; index++)
 {
     dictName.Add(keysList[index], valuesList[index]);
 }
-
+```
+```c#
 // Simple version, but needs Linq imported, so meh.
 using System.Linq;
 var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
 var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
 
-// All result in the same thing:
-// Key: a, Value: 1
-// Key: b, Value: 2
-// Key: c, Value: 3
+// All methods result in the same thing: Key: a, Value: 1; Key: b, Value: 2; Key: c, Value: 3
 ```
 
 <br>
