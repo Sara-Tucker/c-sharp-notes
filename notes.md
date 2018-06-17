@@ -146,9 +146,13 @@ Hierarchy of a class:
 
 Declaring a class:
 ```c#
-modifier class ClassName{}
-
-
+modifier class ClassName
+{
+    // Members
+}
+```
+```c#
+// Example
 public class Person
 {
     // Fields
