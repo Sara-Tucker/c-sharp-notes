@@ -2,7 +2,6 @@
 
 **Print to console:**  
 ```c#
-// C#
 Console.WriteLine("hello world");
 ```
 
@@ -11,7 +10,6 @@ Console.WriteLine("hello world");
 
 **String interpolation:**  
 ```c#
-// C#
 string stringName = $"A is {a} and B is {b}"; // Example 1
 Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."); // Example 2
 ```
@@ -21,7 +19,6 @@ Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} 
 
 **Get input:**  
 ```c#
-// C#
 string input = Console.ReadLine();
 ```
 
