@@ -133,7 +133,7 @@ Private is the default access modifier if none was declared.
 ### Class:
 A template for creating objects that provides initial fields and methods for an object.
 
-Field - A variable that is declared directly in a class.
+Field - A variable that is declared directly in a class.  
 Member - Things that a class contains: Fields, Properties, Constructors, Methods.  
 Namespace - A container for classes. "using Namespace;"
 
