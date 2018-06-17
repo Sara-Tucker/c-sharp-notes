@@ -10,16 +10,36 @@ Console.WriteLine("hello world");
 
 **String interpolation:**  
 ```c#
-string stringName = $"A is {a} and B is {b}"; // Example 1
-Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now."); // Example 2
+// Example 1
+string stringName = $"A is {variableA} and B is {variableB}.";
+
+// Example 2
+Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now.");
 ```
 
 <br>
 <br>
 
-**Get input:**  
+**Get input and convert input:**  
 ```c#
 string input = Console.ReadLine();
+```
+```c#
+// Convert input (does not account for an exception)
+int input = Convert.ToInt32(Console.ReadLine());
+```
+```c#
+// Convert input (accounts for an exception)
+string consoleInput;
+int input;
+
+do
+{
+    Console.WriteLine("Enter a number: ");
+    consoleInput = Console.ReadLine();
+} while (int.TryParse(consoleInput, out input) == False);
+
+// input is now == (int)consoleInput
 ```
 
 <br>
@@ -30,29 +50,6 @@ string input = Console.ReadLine();
 // Cast float to int
 float x = 1234.7f;
 int a = (int)x;
-
-
-// Convert input (does not account for an exception)
-int input = Convert.ToInt32(Console.ReadLine());
-
-
-// Convert input (accounts for an exception)
-using System;
-public class ConvertInput {
-    public static void Main()
-    {
-        string consoleInput;
-        int input;
-	
-        do
-        {
-            //Console.WriteLine("Enter a number: ");
-            consoleInput = Console.ReadLine();
-        } while (!int.TryParse(consoleInput, out input));
-	
-        // input is now == (int)consoleInput
-    }
-}
 ```
 
 <br>
