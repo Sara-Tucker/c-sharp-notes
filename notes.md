@@ -60,6 +60,18 @@ int a = (int)x;
 <br>
 <br>
 
+**Random:**  
+```c#
+Random random = new Random();
+
+random.Next(maxValue);
+random.Next(minValue, maxValue);
+random.NextDouble(); //Returns a random number between 0.0 and 1.0
+```
+
+<br>
+<br>
+
 **Conditional Operator: '?:'** - Returns one of two values depending on the value of a Boolean expression.  
 ```c#
 // The condition evaluates to true or false. If true then #1 is returned, if false then #2 is returned.
