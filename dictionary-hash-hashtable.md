@@ -1,7 +1,7 @@
 # Dictionary / Hash / Hash Table:
 Holds a collection of key-value pairs called pairs.
 
-Dictionaries are imported from ```using System.Collections.Generic;```
+Dictionaries are imported with ```using System.Collections.Generic;```
 
 <br>
 
