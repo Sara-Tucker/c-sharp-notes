@@ -96,27 +96,6 @@ List<int> numbers = new List<int>() { 1, 2, 3 };
 <br>
 <br>
 
-**Dictionary** - Holds a collection of key-value pairs called pairs.
-```c#
-// Create a dictionary
-Dictionary<keytype, valuetype> dictName = new Dictionary<keytype, valuetype>();
-
-// Add to a dictionary
-dictName.Add(key,value);
-
-// Access values by their keys
-Console.WriteLine(dictName[key]);
-
-// Loop through dictionary
-foreach (KeyValuePair<keytype, valuetype> pair in dictName)
-{
-    Console.WriteLine($"Key: {pair.Key}, Value: {pair.Value}");
-}
-```
-
-<br>
-<br>
-
 **enum** - A set of name-value pairs that are constants.
 ```c#
 public enum ShippingMethod
