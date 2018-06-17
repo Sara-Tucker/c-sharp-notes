@@ -7,11 +7,10 @@ Dictionaries are imported from ```using System.Collections.Generic;```
 
 #### Create a dictionary:
 ```c#
-// Declare as empty:
 Dictionary<keytype, valuetype> dictName = new Dictionary<keytype, valuetype>();
 
 
-// Declare with values:
+// Declare with values
 var dictName = new Dictionary<string, int>
 {
     ["one"] = 1,
@@ -20,102 +19,74 @@ var dictName = new Dictionary<string, int>
 };
 
 
-// Create a dictionary from arrays or lists:
-using System.Linq; //Enumerable requires Linq.
+// Create a dictionary from arrays or lists (using Linq's Enumerable)
+using System.Linq;
 
-// Arrays:
+// Arrays
 var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
 
-// Lists:
+// Lists
 var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
 ```
 
 <br>
 
-
+#### Adding, changing, or deleting pairs:
+```c#
 // Add to a dictionary
 dictName.Add(key,value);
 
-// Access values by their keys
-Console.WriteLine(dictName[key]);
 
-// Loop through dictionary
+// Change a pair (adds the pair if it doesn't exist)
+dictName[key] = value;
+
+
+// Delete a pair
+dictName.Remove(key);
+```
+
+<br>
+
+
+_____________________________________________________________________________
+
+
+### Access a value using its key:
+```c#
+value = dictName[key];
+
+Console.WriteLine(dictName[key]);
+```
+
+<br>
+
+### Check if a key or value is in a dictionary:
+```c#
+Console.WriteLine(dictName.ContainsKey(key));
+
+Console.WriteLine(dictName.ContainsValue(value));
+```
+
+<br>
+
+### Loop through a dictionary:
+(All items will be processed but in random order.) ?? This true??
+```c#
 foreach (KeyValuePair<keytype, valuetype> pair in dictName)
 {
     Console.WriteLine($"Key: {pair.Key}, Value: {pair.Value}");
 }
 
-if (dict.ContainsKey("four") == true)
+
+foreach (keytype key in dictName.Keys)
 {
-    MessageBox.Show(dict["four"].ToString ());
-}
-    else
-    {
-        MessageBox.Show("Key does not exist");
-    }
+    Console.WriteLine($"Key: {key}");
 }
 
-        if (values.TryGetValue("cat", out test)) // Returns true.
-        {
-            Console.WriteLine(test); // This is the value at cat.
-        }
-
-if (phonebook.ContainsKey("Alex"))
+foreach (valuetype value in dictName.Values)
 {
-    Console.WriteLine("Alex's number is " + phonebook["Alex"]);
+    Console.WriteLine($"Value: {value}");
 }
-
-phonebook["Jessica"] = 4159484588;
-
-var dictionary = new Dictionary<string, int>();
-// Acquire keys and sort them.
-var list = dictionary.Keys.ToList();
-list.Sort();
-
-https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx?f=255&MSPPError=-2147217396&cs-save-lang=1&cs-lang=csharp#code-snippet-2
-
-<br>
-
-
-#### Access a value using its key:
-```python
-dictionaryName[key]
-# outputs the value for that key
-```
-
-<br>
-
-#### Delete a pair:
-```c#
-dictName.Remove(Key);
-```
-
-<br>
-
-### Check if a key is in a dictionary: ???
-```python
-if key in dictionary.keys():
-    print('dictionary[key])
-
-# ????
-print(value in dictionaryName.keys())
-```
-
-<br>
-
-### Check if a value is in a dictionary: ???
-```python
-print(key in dictionaryName.values())
-```
-
-<br>
-
-### Loop through dictionary:
-All items will be processed but in random order.
-```python
-for key in dictionaryName:
-	print('The value for {} is {}.'.format(key, dictionaryName[key]))
-# actually use the word key instead of i
 ```
 
 <br>
@@ -127,6 +98,11 @@ for key, value in dictionaryName.items():
 # actually use the words key and value instead of i
 ```
 
-<br>
+// Loop through dictionary
 
-Advanced dictionary stuff, like web and idk- https://www.datacamp.com/community/tutorials/python-dictionary-tutorial
+
+
+var dictionary = new Dictionary<string, int>();
+// Acquire keys and sort them.
+var list = dictionary.Keys.ToList();
+list.Sort();
