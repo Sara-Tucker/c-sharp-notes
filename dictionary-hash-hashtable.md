@@ -1,6 +1,8 @@
 # Dictionary / Hash / Hash Table:
 Holds a collection of key-value pairs called pairs.
 
+using System.Collections.Generic;
+
 <br>
 
 #### Create a dictionary:
@@ -57,30 +59,43 @@ list.Sort();
 
 https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx?f=255&MSPPError=-2147217396&cs-save-lang=1&cs-lang=csharp#code-snippet-2
 
+
+
 <br>
 
-var result = Enumerable.Range(0, a.Length).ToDictionary(i => a[i], i => b[i]);
+#### Create a dictionary from arrays or lists:
+```c#
+using System.Collections.Generic;
 
-Dictionary<string,int> vals = new Dictionary<string,int>();
-for(int i = 0; i < size; i++)
+string[] keysArray = new string[] { "a", "b", "c" };
+int[] valuesArray = new int[] { 1, 2, 3 };
+
+List<string> keysList = new List<string>() { "a", "b", "c" };
+List<int> valuesList = new List<int>() { 1, 2, 3 };
+
+
+// Arrays: Only difference is array.Length
+var dictName = new Dictionary<string, int>();
+for (int index = 0; index < keysArray.Length; index++)
 {
-    vals.Add(a[i],b[i]);
+    dictName.Add(keysArray[index], valuesArray[index]);
 }
 
-var dictionary = new Dictionary<string, int>();
-for (int index = 0; index < myInts.Length; index++)
+// Lists: Only difference is list.count
+var dictName = new Dictionary<string, int>();
+for (int index = 0; index < keysList.Count; index++)
 {
-    dictionary.Add(myStrings[index], myInts[index]);
+    dictName.Add(keysList[index], valuesList[index]);
 }
 
-#### Create a dictionary from lists:
-```python
-keysList = ['a', 'b', 'c']
-valuesList = [1, 2, 3]
-dictionaryName = dict(zip(keysList, valuesList))
+// Simple version for either arrays or lists, but needs Linq imported.
+using System.Linq;
+var dictName = Enumerable.Range(0, array1.Length).ToDictionary(i => array1[i], i => array2[i]);
 
-print(dictionary)
-# prints {'a': 1, 'b': 2, 'c': 3}
+// All result in the same thing:
+// Key: a, Value: 1
+// Key: b, Value: 2
+// Key: c, Value: 3
 ```
 
 <br>
