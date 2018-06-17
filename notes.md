@@ -374,6 +374,7 @@ A get property accessor is used to return the value, and a set property accessor
 Example:
 ```c#
 // Create a property:
+// propfull + Tab
 // prop + Tab
 
 
