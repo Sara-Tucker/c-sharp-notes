@@ -31,6 +31,24 @@ var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i]
 
 <br>
 
+#### Access a value using its key:
+```c#
+value = dictName[key];
+
+Console.WriteLine(dictName[key]);
+```
+
+<br>
+
+#### Check if a key or value is in a dictionary:
+```c#
+Console.WriteLine(dictName.ContainsKey(key));
+
+Console.WriteLine(dictName.ContainsValue(value));
+```
+
+<br>
+
 #### Adding, changing, or deleting pairs:
 ```c#
 // Add to a dictionary
@@ -47,30 +65,8 @@ dictName.Remove(key);
 
 <br>
 
-
-_____________________________________________________________________________
-
-
-### Access a value using its key:
-```c#
-value = dictName[key];
-
-Console.WriteLine(dictName[key]);
-```
-
-<br>
-
-### Check if a key or value is in a dictionary:
-```c#
-Console.WriteLine(dictName.ContainsKey(key));
-
-Console.WriteLine(dictName.ContainsValue(value));
-```
-
-<br>
-
-### Loop through a dictionary:
-(All items will be processed but in random order.) ?? This true??
+#### Loop through a dictionary:
+All items will be processed but in random order. (maybe)
 ```c#
 foreach (KeyValuePair<keytype, valuetype> pair in dictName)
 {
@@ -88,21 +84,3 @@ foreach (valuetype value in dictName.Values)
     Console.WriteLine($"Value: {value}");
 }
 ```
-
-<br>
-
-### Loop with two variables: (same as above)
-```python
-for key, value in dictionaryName.items():
-	print('The value for {} is {}.'.format(key, value))
-# actually use the words key and value instead of i
-```
-
-// Loop through dictionary
-
-
-
-var dictionary = new Dictionary<string, int>();
-// Acquire keys and sort them.
-var list = dictionary.Keys.ToList();
-list.Sort();
