@@ -152,15 +152,14 @@ modifier class ClassName
 }
 ```
 ```c#
-// Example
 public class Person
 {
     // Fields
-    
+
     public Person()
-        {
-        }
-    
+    {
+    }
+
     // Methods
 }
 ```
