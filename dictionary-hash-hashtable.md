@@ -88,9 +88,11 @@ for (int index = 0; index < keysList.Count; index++)
     dictName.Add(keysList[index], valuesList[index]);
 }
 
-// Simple version for either arrays or lists, but needs Linq imported.
+
+// Simple version, but needs Linq imported.
 using System.Linq;
-var dictName = Enumerable.Range(0, array1.Length).ToDictionary(i => array1[i], i => array2[i]);
+var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
+var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
 
 // All result in the same thing:
 // Key: a, Value: 1
