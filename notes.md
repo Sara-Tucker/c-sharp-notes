@@ -76,7 +76,7 @@ classify = (input > 0) ? "positive" : "negative";
 ```c#
 datatype[] arrayName = new datatype[size] { value, value.. };
 
-int numbers = new int[] { 1, 2, 3 };
+int[] numbers = new int[] { 1, 2, 3 };
 
 // numbers[0] == 1
 // numbers[1] == 2
