@@ -5,7 +5,7 @@ Dictionaries are imported with ```using System.Collections.Generic;```
 
 <br>
 
-#### Create a dictionary:
+### Create a dictionary:
 ```c#
 Dictionary<keytype, valuetype> dictName = new Dictionary<keytype, valuetype>();
 ```
@@ -31,7 +31,7 @@ var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i]
 
 <br>
 
-#### Access a value using its key:
+### Access a value using its key:
 ```c#
 // value == dictName[key]
 
@@ -40,7 +40,7 @@ Console.WriteLine(dictName[key]);
 
 <br>
 
-#### Check if a key or value is in a dictionary:
+### Check if a key or value is in a dictionary:
 ```c#
 Console.WriteLine(dictName.ContainsKey(key));
 
@@ -49,7 +49,7 @@ Console.WriteLine(dictName.ContainsValue(value));
 
 <br>
 
-#### Adding, changing, or deleting pairs:
+### Adding, changing, or deleting pairs:
 ```c#
 // Add to a dictionary
 dictName.Add(key,value);
@@ -65,7 +65,7 @@ dictName.Remove(key);
 
 <br>
 
-#### Loop through a dictionary:
+### Loop through a dictionary:
 All items will be processed but in random order. (maybe)
 ```c#
 foreach (KeyValuePair<keytype, valuetype> pair in dictName)
