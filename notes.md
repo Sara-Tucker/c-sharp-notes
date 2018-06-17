@@ -32,12 +32,17 @@ int input = Convert.ToInt32(Console.ReadLine());
 // Convert input (accounts for an exception)
 string consoleInput;
 int input;
+bool incorrect = false;
 
 do
 {
+    if (incorrect)
+        Console.WriteLine("Your input was not valid. Please try again.\r\n");
+	
     Console.WriteLine("Enter a number: ");
     consoleInput = Console.ReadLine();
-} while (int.TryParse(consoleInput, out input) == False);
+    incorrect = true;
+} while (int.TryParse(consoleInput, out input) == false);
 
 // input is now == (int)consoleInput
 ```
