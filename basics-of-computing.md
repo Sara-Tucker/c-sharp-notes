@@ -1,5 +1,23 @@
 # Programming Notes
 
+## Visual Studio / Resharper notes:
+```
+Ctrl + arrow - move cursor one word at a time  
+End         - move cursor to end of the line
+Home        - move cursor to beginning of the line
+
+Shift       - activate selection with ^
+Ctrl + W    - expand selection
+
+Ctrl + BS   - delete one word left of the cursor
+
+Ctrl + F5   - run program without heavy debug mode
+
+Ctrl + Space - auto-detect (infer) typing
+
+Alt + Enter - Resharper menu
+```
+
 ## foo
 The terms foo, bar, and foobar are used as placeholder names when exact identity is unimportant.
 
