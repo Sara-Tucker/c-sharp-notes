@@ -476,9 +476,9 @@ public string FirstName { get; set; } = "Jane";
 <br>
 
 ### Attributes:
-Attributes add metadata to your program. Metadata is information about the types defined in a program.
-
 A declarative tag that is used to convey information to runtime about the behaviors of various elements like classes, methods, structures, enumerators, etc. in your program.
+
+Attributes add metadata to your program. Metadata is information about the types defined in a program.
 ```c#
 // Declaring an attribute:
 [attribute(positional_parameters, name_parameter = value, ...)] element;
