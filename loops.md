@@ -15,9 +15,9 @@ for (i = 1; i <= 5; i++)
 <br>
 
 ## foreach loop:
-Executes a codeblock for each element in an array. Used when you know when to stop looping because you know it will loop until every element has been iterated over.
+Executes a codeblock for each element in a collection. Used when you know when to stop looping because you know it will loop until every element has been iterated over.
 ```c#
-foreach (Datatype elementName(i) in listName)
+foreach (datatype elementName in collectionName)
     codeblock
 
 foreach (int purchase in myReceipt)
@@ -81,6 +81,8 @@ do
 <br>
 
 ## break statement:
+The break statement terminates the entire loop.
+
 Weird example..
 ```c#
 int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -111,4 +113,24 @@ for (int x = 0; x < numbers.Length; x++)
 //  a  b
 // num = 3
 //  a  b  c
+```
+
+<br>
+<br>
+
+## continue statement:
+The continue statement passes control to the next iteration of the loop.
+```c#
+for (int i = 1; i <= 10; i++)
+{
+    if (i < 9)
+    {
+        continue;
+    }
+    Console.WriteLine(i);
+}
+
+// Output:
+// 9
+// 10
 ```
