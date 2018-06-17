@@ -8,8 +8,8 @@ Dictionaries are imported from ```using System.Collections.Generic;```
 #### Create a dictionary:
 ```c#
 Dictionary<keytype, valuetype> dictName = new Dictionary<keytype, valuetype>();
-
-
+```
+```c#
 // Declare with values
 var dictName = new Dictionary<string, int>
 {
@@ -17,8 +17,8 @@ var dictName = new Dictionary<string, int>
     ["two"] = 2,
     ["three"] = 3
 };
-
-
+```
+```c#
 // Create a dictionary from arrays or lists (using Linq's Enumerable)
 using System.Linq;
 
