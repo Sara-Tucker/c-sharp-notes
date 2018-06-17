@@ -449,7 +449,7 @@ public bool InputEnabled
     set
     {
         inputEnabled = value;
-        Debug.Log("Input changed to: " + inputEnabled;
+        Debug.Log("Input changed to: " + inputEnabled);
         // Everytime the value is changed its value is printed to the console.
     }
 }
