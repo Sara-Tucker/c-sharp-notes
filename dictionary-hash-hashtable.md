@@ -59,33 +59,18 @@ list.Sort();
 
 https://msdn.microsoft.com/en-us/library/xfhwa508(v=vs.110).aspx?f=255&MSPPError=-2147217396&cs-save-lang=1&cs-lang=csharp#code-snippet-2
 
-
-
 <br>
 
 #### Create a dictionary from arrays or lists:
 ```c#
-var dictName = new Dictionary<string, int>();
-for (int index = 0; index < keysArray.Length; index++)
-{
-    dictName.Add(keysArray[index], valuesArray[index]);
-}
-```
-```c#
-// Lists:
-var dictName = new Dictionary<string, int>();
-for (int index = 0; index < keysList.Count; index++)
-{
-    dictName.Add(keysList[index], valuesList[index]);
-}
-```
-```c#
-// Simple version, but needs Linq imported, so meh.
+using System.Collections.Generic;
 using System.Linq;
-var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
-var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
 
-// All methods result in the same thing: Key: a, Value: 1; Key: b, Value: 2; Key: c, Value: 3
+// Arrays:
+var dictName = Enumerable.Range(0, keysArray.Length).ToDictionary(i => keysArray[i], i => valuesArray[i]);
+
+// Lists:
+var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i], i => valuesList[i]);
 ```
 
 <br>
