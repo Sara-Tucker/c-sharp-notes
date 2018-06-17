@@ -18,6 +18,8 @@ Ctrl + Space - auto-detect (infer) typing
 Alt + Enter - Resharper menu
 ```
 
+<br>
+
 ## foo
 The terms foo, bar, and foobar are used as placeholder names when exact identity is unimportant.
 
