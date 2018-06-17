@@ -33,7 +33,7 @@ var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i]
 
 #### Access a value using its key:
 ```c#
-value = dictName[key];
+// value == dictName[key]
 
 Console.WriteLine(dictName[key]);
 ```
