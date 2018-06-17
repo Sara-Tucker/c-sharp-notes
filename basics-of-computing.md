@@ -34,14 +34,14 @@ A recursive function must always check for a condition to determine if it should
 Dictionary definition:
 ```
 recursive - characterized by recurrence (repetition)  
-recursion - repeated application of a recursive prodedure
+recursion - repeated application of a recursive procedure
 ```
 
 <br>
 
 Example:
-```
-public static long Factorial(long number) //Give a number as an argument first.
+```c#
+public static long Factorial(long number)
 {
     if (number <= 1)
         return 1;
