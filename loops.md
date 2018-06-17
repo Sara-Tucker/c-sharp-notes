@@ -69,12 +69,17 @@ while (finished == false)
 ```c#
 string consoleInput;
 int input;
+bool incorrect = false;
 
 do
 {
+    if (incorrect)
+        Console.WriteLine("Your input was not valid. Please try again.\r\n");
+	
     Console.WriteLine("Enter a number: ");
     consoleInput = Console.ReadLine();
-} while (!int.TryParse(consoleInput, out input));
+    incorrect = true;
+} while (int.TryParse(consoleInput, out input) == false);
 
 // input is now == (int)consoleInput
 ```
