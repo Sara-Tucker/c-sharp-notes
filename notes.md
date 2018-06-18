@@ -487,6 +487,52 @@ public string FirstName { get; set; } = "Jane";
 
 <br>
 
+### Anonymous Function (lambda expression):
+A function definition that is not bound to an identifier and contains only one executable statement.
+
+Lambdas allow you to write quick throw away functions without naming them. They also provide a nice way to write closures.
+
+Anonymous functions are often referred to as lambdas and often are introduced using the keyword lambda.
+
+This anonymous function allows you to create functions from functions:
+```python
+def add(x):
+    return lambda y: x + y
+foo = add(5)
+foo(1)
+
+
+def add**(x)**:
+    return lambda y: **x** + y
+# The x variable in the lambda expression is referencing the parameter x, so x = x.
+
+def add(x):
+    return lambda **y**: x + y
+# The lamdba requires the parameter y.
+
+def add(x):
+    **return lambda y: x + y**
+# Add() returns a lambda.
+
+foo = add(5)
+# "foo = lambda y: 5 + y"
+
+foo(1)
+# "foo = lambda 1: 5 + 1"
+>>> 6
+```
+
+<br>
+<br>
+<br>
+
+Closure:  
+https://stackoverflow.com/a/7464475/9020002  
+https://stackoverflow.com/questions/4103750/closure-because-of-what-it-can-do-or-because-it-does  
+https://www.google.com/search?q=programming+closure&ie=utf-8&oe=utf-8&client=firefox-b-1-ab
+
+<br>
+
 ### Attributes:
 A declarative tag that is used to convey information to runtime about the behaviors of various elements like classes, methods, structures, enumerators, etc. in your program.
 
