@@ -488,6 +488,8 @@ public string FirstName { get; set; } = "Jane";
 <br>
 
 ### Anonymous Function (lambda expression):
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions
+
 A function definition that is not bound to an identifier and contains only one executable statement.
 
 Lambdas allow you to write quick throw away functions without naming them. They also provide a nice way to write closures.
