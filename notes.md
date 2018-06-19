@@ -107,14 +107,14 @@ List<int> numbers = new List<int>() { 1, 2, 3 };
 <br>
 <br>
 
-**enum** - A set of name-value pairs that are constants.
+**enum** - An enum/enumeration is a set of named integer constants.
 ```c#
 public enum ShippingMethod
 {
     Regular = 1,
     Priority = 2,
     Express = 3;
-}
+};
 
 var shMethod = ShippingMethod.Express;
 Console.WriteLine(shMethod); // 3
