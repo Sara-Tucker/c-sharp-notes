@@ -92,6 +92,28 @@ int[] numbers = new int[] { 1, 2, 3 };
 // numbers[0] == 1
 // numbers[1] == 2
 // numbers[2] == 3
+
+
+Multidimensional arrays:
+// Rectangular: (5x3)
+ 0 1 2 3 4
+ 0 1 2 3 4
+ 0 1 2 3 4
+
+// 2D and 3D arrays
+int[] matrixNums = int[3, 5];
+int[] matrixNums = int[3, 5, 2];
+
+// Jagged: (an array of arrays) (each row is an array)
+ 0 1 2 3
+ 0 1 2 3 4
+ 0 1 2
+
+// Declare above Jagged array:
+int[] numbers = int[3][];
+number[0] = new int[4];
+number[1] = new int[5];
+number[2] = new int[3];
 ```
 
 <br>
