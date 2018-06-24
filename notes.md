@@ -94,7 +94,7 @@ int[] numbers = new int[] { 1, 2, 3 };
 // numbers[2] == 3
 
 
-Multidimensional arrays:
+// Multidimensional arrays:
 // Rectangular: (5x3)
  0 1 2 3 4
  0 1 2 3 4
@@ -114,6 +114,12 @@ int[] numbers = int[3][];
 number[0] = new int[4];
 number[1] = new int[5];
 number[2] = new int[3];
+
+methods of array class
+clear
+copy
+indexof
+sort
 ```
 
 <br>
