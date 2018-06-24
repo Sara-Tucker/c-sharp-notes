@@ -115,11 +115,18 @@ number[0] = new int[4];
 number[1] = new int[5];
 number[2] = new int[3];
 
-methods of array class
-clear
-copy
-indexof
-sort
+
+Console.WriteLine(arrayName.Length);
+
+// Searches for the specified object and returns the index of its first occurrence in a one-dimensional array.
+int index = Array.IndexOf(arrayName, value);
+
+Array.Clear(arrayName, Starting Index, Number of elements to clear);
+
+int[] newArray = new int[3];
+Array.Copy(sourceArray, newArray, Num of elements to copy);
+
+Array.Sort(arrayName);
 ```
 
 <br>
