@@ -137,6 +137,22 @@ Array.Sort(arrayName);
 List<datatype> listName = new List<datatype>() { value, value.. };
 
 List<int> numbers = new List<int>() { 1, 2, 3 };
+
+// Adds an object to the end of the List.
+numbers.Add(4);
+
+// Searches for the specified object and returns the zero-based index of the first occurrence within the entire List.
+numbers.IndexOf(value);
+
+Console.WriteLine(numbers.Count);
+
+// You can't use a foreach loop on lists in C#, you have to use a for loop.
+numbers.Remove(1);
+
+for (int i = 0; i < numbers.Count; i++)
+{
+    if (numbers[i] == 1)
+        numbers.Remove(numbers[i]);
 ```
 
 <br>
