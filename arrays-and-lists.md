@@ -3,20 +3,30 @@ A data structure with a fixed size used to store variables of the same type.
 
 <br>
 
+**Create an array:**  
 ```c#
-// Create an array:
 datatype[] arrayName = new datatype[size] { value, value.. };
 int[] numbers = new int[] { 3, 4, 5 };
+```
 
+<br>
 
-// Access an object in an array:
+**Access an object in an array:**  
+```c#
 numbers[0]; // == 3
+```
 
+<br>
 
+**Find the number of objects in an array:**  
+```c#
 // Find number of objects in an array:
 Console.WriteLine(arrayName.Length);
+```
 
+<br>
 
+```c#
 // Searches for the specified object and returns the index of its first occurrence (for 1D arrays)
 int index = Array.IndexOf(arrayName, value);
 
