@@ -61,6 +61,9 @@ Convert.ToInt32(x);
 
 // Numbers to string:
 y = x.ToString();
+
+// Other:
+Convert.To{DataTypesHere}(x);
 ```
 
 <br>
