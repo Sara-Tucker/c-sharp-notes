@@ -552,7 +552,7 @@ var dateTime = new DataTime(2015, 1, 1);
 var now = DateTime.Now;
 var today = DateTime.Today;
 
-// Print part of DateTime:
+// Access units of DateTime:
 Console.WriteLine(now.Hour);
 Console.WriteLine(now.Minute);
 
@@ -566,5 +566,5 @@ Console.WriteLine(now.ToShortDateString);
 Console.WriteLine(now.ToLongTimeString);
 Console.WriteLine(now.ToShortTimeString);
 
-Console.WriteLine(now.ToString("")); // inside "" shows all the options for printing.
+Console.WriteLine(now.ToString("")); //inside "" shows all the options for printing.
 ```
