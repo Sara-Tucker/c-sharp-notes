@@ -462,6 +462,12 @@ public string FirstName { get; set; } = "Jane";
 ```
 
 <br>
+<br>
+
+---
+
+<br>
+<br>
 
 ### Anonymous Function (lambda expression):
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions
@@ -502,13 +508,18 @@ foo(1)
 
 <br>
 <br>
-<br>
 
 Closure:  
 https://stackoverflow.com/a/7464475/9020002  
 https://stackoverflow.com/questions/4103750/closure-because-of-what-it-can-do-or-because-it-does  
 https://www.google.com/search?q=programming+closure&ie=utf-8&oe=utf-8&client=firefox-b-1-ab
 
+<br>
+<br>
+
+---
+
+<br>
 <br>
 
 ### Attributes:
@@ -523,3 +534,37 @@ Attributes add metadata to your program. Metadata is information about the types
 ```
 
 <br>
+<br>
+
+---
+
+<br>
+<br>
+
+### DateTime:
+```c#
+using System;
+
+// Create a DateTime:
+var dateTime = new DataTime(2015, 1, 1);
+
+// Get current date:
+var now = DateTime.Now;
+var today = DateTime.Today;
+
+// Print part of DateTime:
+Console.WriteLine(now.Hour);
+Console.WriteLine(now.Minute);
+
+// Add or subtract units to DateTime:
+var tomorrow = now.AddDays(1);
+var yesterday = now.AddDays(-1);
+
+// Print DateTimes:
+Console.WriteLine(now.ToLongDateString);
+Console.WriteLine(now.ToShortDateString);
+Console.WriteLine(now.ToLongTimeString);
+Console.WriteLine(now.ToShortTimeString);
+
+Console.WriteLine(now.ToString("")); // inside "" shows all the options for printing.
+```
