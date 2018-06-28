@@ -20,32 +20,42 @@ numbers[0]; // == 3
 
 **Find the number of objects in an array:**  
 ```c#
-// Find number of objects in an array:
 Console.WriteLine(arrayName.Length);
 ```
 
 <br>
 
+**Searches for the specified object and returns the index of its first occurrence:**  
 ```c#
-// Searches for the specified object and returns the index of its first occurrence (for 1D arrays)
 int index = Array.IndexOf(arrayName, value);
+```
 
+<br>
 
-// Sets a range of elements in an array to the default value of each element type:
+**Sets a range of elements in an array to the default value of each element type:**  
+```c#
 Array.Clear(arrayName, Starting Index, Number of elements to clear);
+```
 
+<br>
 
-// Copy an array:
+**Copy an array:**  
+```c#
 int[] newArray = new int[3];
 Array.Copy(sourceArray, newArray, Num of elements to copy);
+```
 
+<br>
 
-// Sort an array from smallest to largest or alphabetically:
+**Sort an array from smallest to largest or alphabetically:**  
+```c#
 Array.Sort(arrayName);
+```
 
+<br>
 
-
-// Multidimensional arrays:
+**Multidimensional arrays:**  
+```c#
 // Rectangular: (5x3)
  0 1 2 3 4
  0 1 2 3 4
@@ -106,6 +116,7 @@ for (int i = 0; i < numbers.Count; i++)
 {
     if (numbers[i] == 1)
         numbers.Remove(numbers[i]);
+}
 ```
 
 <br>
