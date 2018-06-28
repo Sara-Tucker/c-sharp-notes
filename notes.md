@@ -52,9 +52,15 @@ do
 
 **Type conversion:**  
 ```c#
-// Cast float to int
+// Cast float to int:
 float x = 1234.7f;
 int a = (int)x;
+
+// String to int:
+Convert.ToInt32(x);
+
+// Numbers to string:
+y = x.ToString();
 ```
 
 <br>
