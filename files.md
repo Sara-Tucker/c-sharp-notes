@@ -122,13 +122,6 @@ foreach (string file in files)
 string[] directories = directory.GetDirectories(*.*, SearchOption.AllDirectories);
 foreach (string dir in directories)
     Console.WriteLine(dir);
-
-
-// Exists
-if (Directory.Exists(directoryName))
-{
-    //
-}
 ```
 
 
