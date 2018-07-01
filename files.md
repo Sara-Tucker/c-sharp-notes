@@ -140,7 +140,8 @@ Works with a string that is a directory or file path.
 ### Path
 ```c#
 Console.WriteLine(Path.GetFileName(pathName));
+Console.WriteLine(Path.GetFileNameWithoutExtension(pathName));
 Console.WriteLine(Path.GetExtension(pathName));
 Console.WriteLine(Path.GetDirectoryName(pathName));
-Console.WriteLine(Path.GetTempPath(pathName)); // - user's temp folder
+tempPath = Path.GetTempPath(); // - user's temp folder
 ```
