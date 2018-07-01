@@ -137,10 +137,10 @@ if (Directory.Exists(directoryName))
 Path Class:  
 Works with a string that is a directory or file path.
 
-Methods:
-```
-GetDirectoryName()
-GetFileName()
-GetExtension()
-GetTempPath() - user's temp folder
+### Path
+```c#
+Console.WriteLine(Path.GetFileName(pathName));
+Console.WriteLine(Path.GetExtension(pathName));
+Console.WriteLine(Path.GetDirectoryName(pathName));
+Console.WriteLine(Path.GetTempPath(pathName)); // - user's temp folder
 ```
