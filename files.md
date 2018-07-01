@@ -73,10 +73,65 @@ CreateDirectory()
 Delete()
 Exists()
 GetCurrentDirectory()
-GetAllFiles()
+GetFiles()
 Move()
 GetLogicalDrives()
 ```
+
+
+### Directory:
+```c#
+// CreateDirectory
+string directoryName = @"c:\temp\folder1";
+
+Directory.CreateDirectory(directoryName);
+
+
+// GetFiles
+string[] files = Directory.GetFiles(directoryName, *.*, SearchOption.AllDirectories); //*.jpg, *.txt, etc
+foreach (string file in files)
+    Console.WriteLine(file);
+
+
+// GetDirectories
+string[] directories = Directory.GetDirectories(directoryName, *.*, SearchOption.AllDirectories);
+foreach (string directory in directories)
+    Console.WriteLine(directory);
+
+
+// Exists
+if (Directory.Exists(directoryName))
+{
+    //
+}
+```
+
+### DirectoryInfo:
+```c#
+// Instantiate
+DirectoryInfo directory = new DirectoryInfo(@"c:\temp\folder1");
+
+
+// GetFiles
+string[] files = directory.GetFiles(*.*, SearchOption.AllDirectories); //*.jpg, *.txt, etc
+foreach (string file in files)
+    Console.WriteLine(file);
+
+
+// GetDirectories
+string[] directories = directory.GetDirectories(*.*, SearchOption.AllDirectories);
+foreach (string dir in directories)
+    Console.WriteLine(dir);
+
+
+// Exists
+if (Directory.Exists(directoryName))
+{
+    //
+}
+```
+
+
 
 
 Path Class:  
