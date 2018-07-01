@@ -20,6 +20,50 @@ Move()
 ReadAllText()
 ```
 
+### File:
+```c#
+string pathName = @"c:\temp\myfile.txt";
+
+
+// Copy
+File.Copy(pathName, @"c:\temp\newtext.txt");
+
+
+// Delete
+File.Delete(pathName);
+
+
+// Exists
+if (File.Exists(pathName))
+{
+    //
+}
+```
+
+
+
+### FileInfo:
+```c#
+// Instantiate
+FileInfo file = new FileInfo(@"c:\temp\myfile.txt");
+
+
+// CopyTo
+file.CopyTo(@"c:\temp\text.txt");
+
+
+// Delete
+file.Delete();
+
+
+// Exists property
+if (file.Exists)
+{
+    //
+}
+```
+
+
 DirectoryInfo - provides instance methods
 Directory - provides static methods
 
