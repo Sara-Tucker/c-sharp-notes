@@ -14,6 +14,15 @@ Set breakpoints and watch variable values with: Debug -> Windows -> Watch
 <br>
 <br>
 
+**Keep the console window open:**  
+```c#
+Console.WriteLine("Press any key to exit.");
+System.Console.ReadKey();
+```
+
+<br>
+<br>
+
 **String interpolation:**  
 ```c#
 // Example 1
