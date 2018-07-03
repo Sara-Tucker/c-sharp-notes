@@ -7,7 +7,9 @@ End         - move cursor to end of the line
 Home        - move cursor to beginning of the line
 
 Shift       - activate selection with ^
-Ctrl + W    - expand selection
+
+Ctrl + Alt + ->    - expand selection
+Ctrl + Alt + <-    - shrink selection
 
 Ctrl + BS   - delete one word left of the cursor
 
