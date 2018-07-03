@@ -8,6 +8,12 @@ Console.WriteLine("hello world");
 <br>
 <br>
 
+**Debugging:**  
+Set breakpoints and watch variable values with: Debug -> Windows -> Watch
+
+<br>
+<br>
+
 **String interpolation:**  
 ```c#
 // Example 1
