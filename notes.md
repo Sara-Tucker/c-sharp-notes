@@ -9,7 +9,7 @@ Console.WriteLine("hello world");
 <br>
 
 **Debugging:**  
-Set breakpoints and watch variable values with: Debug -> Windows -> Watch
+Set breakpoints and watch variable values with: Debug -> Windows -> Autos/Locales
 
 <br>
 <br>
