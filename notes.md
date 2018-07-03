@@ -86,11 +86,8 @@ Convert.To{DataTypesHere}(x);
 
 **Random:**  
 ```c#
-Random random = new Random();
-
-int randNum = random.Next(maxValue);
-int randNum = random.Next(minValue, maxValue);
-int randNum = random.NextDouble(); //Returns a random double between 0.0 and 1.0
+int randNum = new Random().Next(minValue, maxValue);
+int randNum = new Random().NextDouble(); //Returns a random double between 0.0 and 1.0
 ```
 
 <br>
