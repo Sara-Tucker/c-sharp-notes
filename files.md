@@ -1,24 +1,19 @@
+# Files
 
-
-## Files
-
-File, FileInfo Classes:  
+## File and FileInfo Classes:  
 Provide methods for creating, copying, deleting, moving, and opening files.
 
-FileInfo - provides instance methods  
-File - provides static methods
-
-File:
-faster to program since methods are static, but slower to run because the operating system has to do security checks to see if you can access a file.
-
-Methods:
+Methods with no examples yet:
 ```
 Create()
 GetAttributes()
 Move()
 ```
 
+<br>
+
 ### File:
+File provides static methods. It makes programming faster since methods are static, but it's slower to run because the operating system has to do security checks to see if you can access a file.
 ```c#
 string pathName = @"c:\temp\myfile.txt";
 
@@ -62,7 +57,10 @@ using (StreamWriter file = new StreamWriter(pathName, true))
 }
 ```
 
+<br>
+
 ### FileInfo:
+FileInfo provides instance methods.
 ```c#
 // Instantiate
 FileInfo file = new FileInfo(@"c:\temp\myfile.txt");
@@ -94,6 +92,9 @@ Move()
 GetLogicalDrives()
 ```
 
+<br>
+<br>
+<br>
 
 ### Directory:
 ```c#
@@ -121,6 +122,8 @@ if (Directory.Exists(directoryName))
 }
 ```
 
+<br>
+
 ### DirectoryInfo:
 ```c#
 // Instantiate
@@ -146,13 +149,12 @@ if (directory.Exists)
 }
 ```
 
+<br>
+<br>
+<br>
 
-
-
-Path Class:  
-Works with a string that is a directory or file path.
-
-### Path
+### Path Class
+The Path class provides static methods for working with a string that is a directory or file path.
 ```c#
 Console.WriteLine(Path.GetFileName(pathName));
 Console.WriteLine(Path.GetFileNameWithoutExtension(pathName));
