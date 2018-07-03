@@ -13,43 +13,56 @@ Move()
 
 ### File:
 File provides static methods. It makes programming faster since methods are static, but it's slower to run because the operating system has to do security checks to see if you can access a file.
+
 ```c#
 string pathName = @"c:\temp\myfile.txt";
+```
 
-
-// File.Copy()
+### File.Copy()
+```c#
 File.Copy(pathName, @"c:\temp\newtext.txt");
+```
 
-
-// File.Delete()
+### File.Delete()
+```c#
 File.Delete(pathName);
+```
 
-
-// File.Exists()
+### File.Exists()
+```c#
 if (File.Exists(pathName))
 {
     //
 }
+```
 
-
-// File.ReadAllText() - Read the file as one string
+### File.ReadAllText()
+Read the file as one string.
+```c#
 string text = File.ReadAllText(pathName);
+```
 
-// File.ReadAllLines() - Each element of an array is one line of the file
+### File.ReadAllLines()
+Creates an array where each element is one line of the file.
+```c#
 string[] lines = File.ReadAllLines(pathName);
 
 foreach (string line in lines)
 {
     Console.WriteLine(line);
 }
+```
 
+### File.WriteAllLines()
+```c#
+// There's also WriteAllText (string instead of string[])
 
-// File.WriteAllLines() (there's also WriteAllText string instead of string[])
 string[] lines = { "First line", "Second line", "Third line" };
 File.WriteAllLines(pathName, lines);
+```
 
-
-// Append new text to an existing file.
+### Append new text to an existing file
+```c#
 using (StreamWriter file = new StreamWriter(pathName, true))
 {
     file.WriteLine("Fourth line");
