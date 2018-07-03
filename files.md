@@ -1,7 +1,6 @@
 # Files
 
-## File and FileInfo Classes:  
-Provide methods for creating, copying, deleting, moving, and opening files.
+The File and FileInfo classes provide methods for creating, copying, deleting, moving, and opening files.
 
 Methods with no examples yet:
 ```
@@ -81,11 +80,17 @@ if (file.Exists)
 }
 ```
 
+<br>
+<br>
 
-DirectoryInfo - provides instance methods
-Directory - provides static methods
+---
 
-Methods:
+<br>
+<br>
+
+The Directory and DirectoryInfo classes provide methods for creating, copying, deleting, moving, and opening files.
+
+Methods with no examples yet:
 ```
 Delete()
 Move()
@@ -93,10 +98,9 @@ GetLogicalDrives()
 ```
 
 <br>
-<br>
-<br>
 
 ### Directory:
+Directory provides static methods.
 ```c#
 // Directory.CreateDirectory()
 string directoryName = @"c:\temp\folder1";
@@ -125,6 +129,7 @@ if (Directory.Exists(directoryName))
 <br>
 
 ### DirectoryInfo:
+DirectoryInfo provides instance methods.
 ```c#
 // Instantiate
 DirectoryInfo directory = new DirectoryInfo(@"c:\temp\folder1");
