@@ -14,7 +14,7 @@ Set breakpoints and watch variable values with: Debug -> Windows -> Watch
 <br>
 <br>
 
-**Keep the console window open:**  
+**Keep the console window open in debug mode:**  
 ```c#
 Console.WriteLine("Press any key to exit.");
 System.Console.ReadKey();
