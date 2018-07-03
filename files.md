@@ -1,3 +1,5 @@
+
+
 ## Files
 
 File, FileInfo Classes:  
@@ -35,8 +37,29 @@ if (File.Exists(pathName))
     //
 }
 
-// File.ReadAllText()
+
+// File.ReadAllText() - Read the file as one string
 string text = File.ReadAllText(pathName);
+
+// File.ReadAllLines() - Each element of an array is one line of the file
+string[] lines = File.ReadAllLines(pathName);
+
+foreach (string line in lines)
+{
+    Console.WriteLine(line);
+}
+
+
+// File.WriteAllLines() (there's also WriteAllText string instead of string[])
+string[] lines = { "First line", "Second line", "Third line" };
+File.WriteAllLines(pathName, lines);
+
+
+// Append new text to an existing file.
+using (StreamWriter file = new StreamWriter(pathName, true))
+{
+    file.WriteLine("Fourth line");
+}
 ```
 
 ### FileInfo:
