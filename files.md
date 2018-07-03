@@ -18,6 +18,58 @@ File provides static methods. It makes programming faster since methods are stat
 string pathName = @"c:\temp\myfile.txt";
 ```
 
+### Read a file:
+```c#
+//Read the file as one string:
+string text = File.ReadAllText(pathName);
+
+
+//Create an array where each element is one line of the file:
+string[] lines = File.ReadAllLines(pathName);
+
+foreach (string line in lines)
+{
+    Console.WriteLine(line);
+}
+```
+
+<br>
+
+### Write to a file:
+```c#
+//Overwrite with an array of strings:
+string[] lines = { "First line", "Second line", "Third line" };
+File.WriteAllLines(pathName, lines);
+//File.WriteAllText(pathName, string);
+
+
+//Append new text to an existing file:
+using (StreamWriter file = new StreamWriter(pathName, true))
+{
+    file.WriteLine("Fourth line");
+}
+```
+<br>
+
+### Other:
+```c#
+// File.Copy()
+File.Copy(pathName, @"c:\temp\newtext.txt");
+
+
+// File.Delete()
+File.Delete(pathName);
+
+
+// File.Exists()
+if (File.Exists(pathName))
+{
+    //
+}
+```
+
+<br>
+
 ### File.Copy()
 ```c#
 File.Copy(pathName, @"c:\temp\newtext.txt");
