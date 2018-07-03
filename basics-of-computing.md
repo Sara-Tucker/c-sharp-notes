@@ -16,6 +16,8 @@ Ctrl + F5   - run program without heavy debug mode
 Ctrl + Space - auto-detect (infer) typing
 
 Alt + Enter - Resharper menu
+
+cw - Type for Console.WriteLine(); shortcut
 ```
 
 <br>
