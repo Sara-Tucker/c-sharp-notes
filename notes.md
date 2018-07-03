@@ -590,9 +590,9 @@ Console.WriteLine(now.ToString("")); //inside "" shows all the options for print
 A length of time.
 ```c#
 // Create TimeSpan objects
-TimeSpan timeSpan = new TimeSpan(1, 2, 3);
+TimeSpan timeSpan1 = new TimeSpan(1, 2, 3);
 
-TimeSpan.From[[AllOtherMethodsHere]]Hours(1); // Same as ^ 1, 0, 0
+TimeSpan timeSpan2 = TimeSpan.From[[AllOtherMethodsHere]]Hours(1); // Same as ^ 1, 0, 0
 
 DateTime start = DateTime.Now;
 DateTime end = DateTime.Now.AddMinutes(2);
