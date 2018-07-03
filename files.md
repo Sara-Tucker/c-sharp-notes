@@ -88,8 +88,6 @@ if (file.Exists)
 <br>
 <br>
 
-The Directory and DirectoryInfo classes provide methods for creating, copying, deleting, moving, and opening files.
-
 Methods with no examples yet:
 ```
 Delete()
