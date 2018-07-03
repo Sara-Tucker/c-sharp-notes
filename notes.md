@@ -600,6 +600,6 @@ TimeSpan duration = end - start;
 
 
 // Access info of TimeSpans with their Properties
-Console.WriteLine("Minutes: " + timeSpan.Minutes);
-Console.WriteLine("Total minutes: " + timeSpan.TotalMinutes);
+Console.WriteLine("Minutes: " + timeSpan1.Minutes);
+Console.WriteLine("Total minutes: " + timeSpan1.TotalMinutes);
 ```
