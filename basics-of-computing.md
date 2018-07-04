@@ -20,6 +20,11 @@ Ctrl + Space - auto-detect (infer) typing
 Alt + Enter - Resharper menu
 
 cw - Type for Console.WriteLine(); shortcut
+
+
+JoinLines:
+Join multiple lines into a one-liner.
+Highlight text, right-click in the editor and select 'Join Lines' or use the keyboard shortcut 'Alt+j'.
 ```
 
 <br>
