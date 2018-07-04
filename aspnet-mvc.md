@@ -67,3 +67,7 @@ More maintainable applications
 packages.config - used by NuGet package manager. Package managers manage the dependencies of the app.
     - Example: if app has dependencies on 5 external libraries. instead of going to 5 different sites and downloading them, NuGet gets all the packages for you.
 - Web.config - xml doc of the apps config. <connectionStrings> and <appSettings> are most used.
+
+
+Partial View - not a complete page. A widget that can be used on different Views.
+Layout page - a template or master page. if you want all your pages to have the same look and feel use a layout.
