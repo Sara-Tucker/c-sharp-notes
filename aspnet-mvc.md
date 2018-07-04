@@ -1,4 +1,4 @@
-# C# Notes
+# ASP.NET MVC
 
 MVC Architectural Pattern
 Model View Controller
@@ -37,3 +37,24 @@ Almost always part of MVC but not in the acronym. Selects the right Controller t
 MVC allows for:
 Separation of concerns
 More maintainable applications
+
+
+#### Project solution explorer:
+App_Data = where the database file will be stored
+App_Start = classes that are called when the application is started
+    RouteConfig - the configuration of the routing rules
+        url: "{controller}/{action}/{id}"
+            the controller used, the Action of that controller, id is an argument passed to that Action
+            Example: request to /movies/popular
+            {controller} = MoviesController
+            {action} = Popular()
+            Example: request to /movies/edit/351
+            {controller} = MoviesController
+            {action} = Edit(int id)
+        defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            Example: if url doesn't have anything in the url ^ thing above -> passed to HomeController
+            Example: /movies -> handled by the MoviesController.Index() Action
+            id is an optional parameter
+Content - store client side assets (.css, images)
+Controllers
+    AccountController
