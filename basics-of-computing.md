@@ -38,8 +38,6 @@ The terms foo, bar, and foobar are used as placeholder names when exact identity
 Recursion - A function that calls itself.  
 A recursive function must always check for a condition to determine if it should call itself again or not.
 
-<br>
-
 Dictionary definition:
 ```
 recursive - characterized by recurrence (repetition)  
