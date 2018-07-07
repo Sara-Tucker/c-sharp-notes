@@ -10,7 +10,7 @@ for (initializer; condition; iterator)
     codeblock
 
 //Example:
-for (i = 1; i <= 5; i++)
+for (int i; i <= 5; i++)
     codeblock
 ```
 
@@ -127,7 +127,7 @@ for (int x = 0; x < numbers.Length; x++)
 ## continue statement:
 The continue statement passes control to the next iteration of the loop.
 ```c#
-for (int i = 1; i <= 10; i++)
+for (int i = 1; i < 11; i++)
 {
     if (i < 9)
     {
