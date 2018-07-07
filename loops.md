@@ -39,7 +39,7 @@ Eventually the condition will evaluate to false.
 ```c#
 defined condition;
 while (condition is true)
-    codeblock
+    //codeblock
 
 
 int count = 0;
@@ -57,8 +57,7 @@ while (finished == false)
         finished = true;
     else
     {
-        codeblock
-        codeblock
+        //codeblock
     }
 }
 ```
