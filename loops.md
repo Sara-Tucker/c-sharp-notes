@@ -96,7 +96,7 @@ char[] letters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j' };
 
 for (int x = 0; x < numbers.Length; x++)
 {
-    Console.WriteLine("num = {0}", numbers[x]);
+    Console.WriteLine($"num = {numbers[x]}");
 
     for (int y = 0; y < letters.Length; y++)
     {
@@ -106,7 +106,7 @@ for (int x = 0; x < numbers.Length; x++)
             // the break is used only once, to skip printing the letter 'a' at 0
             // its a weird example.
         }
-        Console.Write("{0}", letters[y]);
+        Console.Write(letters[y]);
     }
     Console.WriteLine();
 }
