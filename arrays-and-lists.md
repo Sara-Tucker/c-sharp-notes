@@ -1,4 +1,4 @@
-## Array
+# Array
 A data structure with a fixed size used to store variables of the same type.
 
 <br>
@@ -58,7 +58,7 @@ A data structure with a fixed size used to store variables of the same type.
 
 #### Multidimensional arrays:
 ```c#
-// Rectangular: (5x3)
+// Rectangular: (3x5)
  0 1 2 3 4
  0 1 2 3 4
  0 1 2 3 4
@@ -67,23 +67,24 @@ A data structure with a fixed size used to store variables of the same type.
 int[] matrixNums = int[3, 5];
 int[] matrixNums = int[3, 5, 2];
 
+
 // Jagged: (an array of arrays) (each row is an array)
  0 1 2 3
  0 1 2 3 4
  0 1 2
 
-// Declare above Jagged array:
+// Declare the Jagged array above:
 int[] numbers = int[3][];
-number[0] = new int[4];
-number[1] = new int[5];
-number[2] = new int[3];
+numbers[0] = new int[4];
+numbers[1] = new int[5];
+numbers[2] = new int[3];
 ```
 
 <br>
 <br>
 <br>
 
-## List
+# List
 A data structure with a dynamic size used to store variables of the same type.
 
 <br>
