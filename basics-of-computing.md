@@ -55,19 +55,16 @@ public static long Factorial(long number)
     if (number <= 1)
         return 1;
     else
-    {
         return number * Factorial(number - 1);
-    }
 }
-
 // 4*(4-1)*(3-1)*(2-1)
-// 4*3*2*1 == 24
+// 4*3*2*1 == 24 == Factorial(4)
 ```
 
 <br>
 <br>
 
-### Good example of returning values with functions:
+### Good examples of returning values with functions:
 ```c#
 static double CylinderVolume(double radius, double height)
 {
@@ -75,6 +72,9 @@ static double CylinderVolume(double radius, double height)
     return pi * Math.Pow(radius, 2) * height;
 }
 ```
+
+<br>
+
 ```c#
 static string ReadableTimeDelta(int days)
 {
@@ -91,31 +91,32 @@ static string ReadableTimeDelta(int days)
 ### Good example of a Compound Conditional (two end conditions):
 ```c#
 bool keepGoing = true;
-string correct = "Csharp";
+string password = "Csharp";
 int tries = 3;
 
-while (keepGoing == true)
+while (keepGoing)
 {
-    string guess = Console.ReadLine("Please enter the password: ");
-    tries -= 1;
-    
-    if (guess == correct)
-    {
-        Console.WriteLine("You may proceed.");
-        keepGoing = false;
-    }
-    else
-    {
-        Console.WriteLine("That's not correct.")
+	Console.Write("Please enter the password: ");
+	string guess = Console.ReadLine();
+	tries -= 1;
 
-        if (tries == 0)
-        {
-            Console.WriteLine("Sorry, you only had three tries.")
-            keepGoing = false;
-        }
-        else
-            Console.WriteLine($"You have {tries} tries left.");
-    }
+	if (guess == password)
+	{
+		Console.WriteLine("You may proceed.");
+		keepGoing = false;
+	}
+	else
+	{
+		Console.WriteLine("That's not correct.");
+
+		if (tries == 0)
+		{
+			Console.WriteLine("Sorry, you only had three tries.");
+			keepGoing = false;
+		}
+		else
+			Console.WriteLine($"You have {tries} tries left.\r\n");
+	}
 }
 ```
 
