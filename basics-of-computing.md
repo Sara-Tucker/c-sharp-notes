@@ -1,26 +1,28 @@
 # Programming Notes
 
-## Visual Studio / Resharper notes:
+## Keyboard shortcuts:
 ```
-Ctrl + arrow - move cursor one word at a time  
+Ctrl + any arrow - move cursor one word at a time  
 End         - move cursor to end of the line
 Home        - move cursor to beginning of the line
 
 Shift       - activate selection with ^
 
+Ctrl + BS   - delete one word left of the cursor
+```
+
+## VS / Resharper notes:
+```
 Ctrl + Alt + ->    - expand selection
 Ctrl + Alt + <-    - shrink selection
 
-Ctrl + BS   - delete one word left of the cursor
+Ctrl + F5          - run program without heavy debug mode
 
-Ctrl + F5   - run program without heavy debug mode
+Ctrl + Space       - auto-detect (infer) typing
 
-Ctrl + Space - auto-detect (infer) typing
+Alt + Enter        - Resharper menu
 
-Alt + Enter - Resharper menu
-
-cw - Type for Console.WriteLine(); shortcut
-
+cw                 - Type for Console.WriteLine(); shortcut
 
 JoinLines:
 Join multiple lines into a one-liner.
