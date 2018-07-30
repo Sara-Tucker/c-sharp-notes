@@ -36,8 +36,8 @@ A data structure with a fixed size used to store variables of the same type.
     arrayName.Length;
 
 // Find the largest and smallest elements in an array:
-    int max = array.Max();
-    int min = array.Min();
+    int max = arrayName.Max();
+    int min = arrayName.Min();
 
 // Search for a specified object and return the index of its first occurrence:
     int index = Array.IndexOf(arrayName, value);
@@ -89,33 +89,108 @@ A data structure with a dynamic size used to store variables of the same type.
 
 <br>
 
+#### Create a list:
 ```c#
 // Create a list:
-List<datatype> listName = new List<datatype>() { value, value.. };
-List<int> numbers = new List<int>() { 3, 4, 5 };
+    List<datatype> listName = new List<datatype>() { item1, item2, itemN };
+    List<datatype> listName = new List<datatype>();
+    
+// Shallow copy a list:
+    List<datatype> newList = new List<datatype>(sourceList);
+```
 
+<br>
 
+#### Access objects in a list:
+```c#
 // Access an object in a list:
-numbers[0]; // == 3
+    list[0];
+    
+// Last indices:
+    list[list.Count - 1];
+
+// Print all items in a list on seperate lines:
+    foreach (elementName in collectionName)
+        Console.WriteLine(elementName);
+
+# Access lists in a list:
+list = [[10, 13, 17], [3, 5, 1], [13, 11, 12]]
+print(list1[0][2]) #17
+```
+
+<br>
+
+#### Find:
+```c#
+// Find number of objects in a list:
+    listName.Count;
+
+// Find the largest and smallest elements in a list:
+    int max = listName.Max();
+    int min = listName.Min();
+
+// Search for a specified object and return the index of its first occurrence:
+    int index = listName.IndexOf(value);
+```
+
+<br>
+
+#### Other:
+```c#
+// Sort a list from smallest to largest or alphabetically:
+    listName.Sort();
+
+// Set a range of elements in an array to the default value of its element type:
+    Array.Clear(arrayName, Starting Index, Number of elements to clear);
+
+// Remove duplicates from a list:
+    var newList = new HashSet<T>(oldList).ToList();
 
 
+// Operations with two lists:
+a = [1, 2, 3]
+b = [4, 5, 6]
+a_times_b = []
+
+for i in range(0, len(a)):
+	a_times_b.append(a[i] * b[i])
+#prints 4, 10, 18
+```
+
+<br>
+
+List Comprehensions:  
+Create new lists where each item is the result of some operation applied to each member of another list
+```python
+a = [1, 2, 3]
+doubled_a = [i * 2 for i in a]
+#prints 2, 4, 6
+
+# Take a list where elements are a fucked up float decimal and
+# change to 2 decimals while still remaining a float type
+list_name = [float('%.2f' % i) for i in list_name]
+
+
+# Remove items from a list while iterating
+new_list = [x for x in old_list if determine(x)]
+new_list = [x for x in old_list if not determine(x)]
+
+same_list[:] = [x for x in same_list if determine(x)]
+same_list[:] = [x for x in same_list if not determine(x)]
+# same but makes a copy of the list, then overwrites it
+```
+
+
+Old
+```c#
 // Add an object to the end of a list:
 numbers.Add(6);
-
-
-// Find number of objects in a list:
-Console.WriteLine(numbers.Count);
-
-
-// Searches for the specified object and returns the index of the first occurrence within the entire list:
-listName.IndexOf(value);
-
 
 // Remove an object from a list:
 listName.Remove(value);
 
 
-// You can't use a foreach loop on lists in C#, you have to use a for loop.
+// You can't use a foreach loop on lists in C#, you have to use a for loop. <-- WRONG!
 for (int i = 0; i < numbers.Count; i++)
 {
     if (numbers[i] == 1)
