@@ -85,18 +85,19 @@ numbers[2] = new int[3];
 <br>
 
 # List
-A data structure with a dynamic size used to store variables of the same type.
+A data structure with a dynamic size used to store variables of the same type.  
+List<T> &nbsp;&nbsp;T = element type (data type)
 
 <br>
 
 #### Create a list:
 ```c#
 // Create a list:
-    List<datatype> listName = new List<datatype>() { item1, item2, itemN };
-    List<datatype> listName = new List<datatype>();
+    List<T> listName = new List<T>() { item1, item2, itemN };
+    List<T> listName = new List<T>();
     
 // Shallow copy a list:
-    List<datatype> newList = new List<datatype>(sourceList);
+    List<T> newList = new List<T>(sourceList);
 ```
 
 <br>
@@ -137,6 +138,13 @@ print(list1[0][2]) #17
 
 #### Other:
 ```c#
+// Add an object to the end of a list:
+numbers.Add(6);
+
+// Remove an object from a list:
+listName.Remove(value);
+
+
 // Sort a list from smallest to largest or alphabetically:
     listName.Sort();
 
@@ -159,7 +167,7 @@ for i in range(0, len(a)):
 
 <br>
 
-List Comprehensions:  
+#### List Comprehensions:  
 Create new lists where each item is the result of some operation applied to each member of another list
 ```python
 a = [1, 2, 3]
@@ -178,25 +186,10 @@ new_list = [x for x in old_list if not determine(x)]
 same_list[:] = [x for x in same_list if determine(x)]
 same_list[:] = [x for x in same_list if not determine(x)]
 # same but makes a copy of the list, then overwrites it
-```
 
-
-Old
-```c#
-// Add an object to the end of a list:
-numbers.Add(6);
-
-// Remove an object from a list:
-listName.Remove(value);
-
-
-// You can't use a foreach loop on lists in C#, you have to use a for loop. <-- WRONG!
 for (int i = 0; i < numbers.Count; i++)
 {
     if (numbers[i] == 1)
         numbers.Remove(numbers[i]);
 }
 ```
-
-<br>
-<br>
