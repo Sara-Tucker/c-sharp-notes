@@ -3,31 +3,104 @@ A data structure with a fixed size used to store variables of the same type.
 
 <br>
 
-**Create an array:**  
+#### Create an array:
 ```c#
-datatype[] arrayName = new datatype[size] { value, value.. };
-int[] numbers = new int[] { 3, 4, 5 };
+// Create an array:
+    datatype[] arrayName = new datatype[size] { item1, item2, itemN };
+    datatype[] arrayName = new datatype[size];
+
+// Copy an array:
+    Array.Copy(sourceArray, newArray, Num of elements to copy);
 ```
 
 <br>
 
-**Access an object in an array:**  
+
+#### Access objects in an array:
 ```c#
-numbers[0]; // == 3
+// Access an object in a array:
+    array[0];
+    
+// Last indices:
+    array[array.Length - 1];
+
+// Print all items in an array on seperate lines:
+    foreach (elementName in collectionName)
+        Console.WriteLine(elementName);
+
+# Access lists in a list:
+list = [[10, 13, 17], [3, 5, 1], [13, 11, 12]]
+print(list1[0][2]) #17
 ```
 
 <br>
 
-**Find the number of objects in an array:**  
+#### Find:
 ```c#
-Console.WriteLine(arrayName.Length);
+// Find number of objects in an array:
+    arrayName.Length;
+
+// Find largest and smallest elements in an array:
+    int max = array.Max();
+    int min = array.Min();
+
+// Search for a specified object and return the index of its first occurrence:
+    int index = Array.IndexOf(arrayName, value);
 ```
 
 <br>
 
-**Searches for the specified object and returns the index of its first occurrence:**  
-```c#
-int index = Array.IndexOf(arrayName, value);
+#### Advanced:
+```python
+# Sort a list from smallest to largest or alphabetically:
+    # sorted(list_name) - Returns a new sorted list, it does not sort the list it is passed
+    # list_name.sorted() - This method sorts the list it is called on, it returns None
+
+
+# Remove duplicates from a list:
+def remove_duplicates(source_list):
+    new_list = []
+
+    for i in source_list:
+        if i not in new_list:
+            new_list.append(i)
+
+    return new_list
+
+new = remove_duplicates(list)
+
+
+# Operations with two lists
+a = [1, 2, 3]
+b = [4, 5, 6]
+a_times_b = []
+
+for i in range(0, len(a)):
+	a_times_b.append(a[i] * b[i])
+#prints 4, 10, 18
+```
+
+<br>
+
+List Comprehensions:  
+Create new lists where each item is the result of some operation applied to each member of another list
+```python
+a = [1, 2, 3]
+doubled_a = [i * 2 for i in a]
+#prints 2, 4, 6
+
+# Take a list where elements are a fucked up float decimal and
+# change to 2 decimals while still remaining a float type
+list_name = [float('%.2f' % i) for i in list_name]
+
+
+# Remove items from a list while iterating
+new_list = [x for x in old_list if determine(x)]
+new_list = [x for x in old_list if not determine(x)]
+
+same_list[:] = [x for x in same_list if determine(x)]
+same_list[:] = [x for x in same_list if not determine(x)]
+# same but makes a copy of the list, then overwrites it
 ```
 
 <br>
@@ -35,14 +108,6 @@ int index = Array.IndexOf(arrayName, value);
 **Sets a range of elements in an array to the default value of each element type:**  
 ```c#
 Array.Clear(arrayName, Starting Index, Number of elements to clear);
-```
-
-<br>
-
-**Copy an array:**  
-```c#
-int[] newArray = new int[3];
-Array.Copy(sourceArray, newArray, Num of elements to copy);
 ```
 
 <br>
