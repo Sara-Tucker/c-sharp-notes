@@ -15,7 +15,6 @@ A data structure with a fixed size used to store variables of the same type.
 
 <br>
 
-
 #### Access objects in an array:
 ```c#
 // Access an object in a array:
@@ -27,10 +26,6 @@ A data structure with a fixed size used to store variables of the same type.
 // Print all items in an array on seperate lines:
     foreach (elementName in collectionName)
         Console.WriteLine(elementName);
-
-# Access lists in a list:
-list = [[10, 13, 17], [3, 5, 1], [13, 11, 12]]
-print(list1[0][2]) #17
 ```
 
 <br>
@@ -40,7 +35,7 @@ print(list1[0][2]) #17
 // Find number of objects in an array:
     arrayName.Length;
 
-// Find largest and smallest elements in an array:
+// Find the largest and smallest elements in an array:
     int max = array.Max();
     int min = array.Min();
 
@@ -50,76 +45,18 @@ print(list1[0][2]) #17
 
 <br>
 
-#### Advanced:
-```python
-# Sort a list from smallest to largest or alphabetically:
-    # sorted(list_name) - Returns a new sorted list, it does not sort the list it is passed
-    # list_name.sorted() - This method sorts the list it is called on, it returns None
-
-
-# Remove duplicates from a list:
-def remove_duplicates(source_list):
-    new_list = []
-
-    for i in source_list:
-        if i not in new_list:
-            new_list.append(i)
-
-    return new_list
-
-new = remove_duplicates(list)
-
-
-# Operations with two lists
-a = [1, 2, 3]
-b = [4, 5, 6]
-a_times_b = []
-
-for i in range(0, len(a)):
-	a_times_b.append(a[i] * b[i])
-#prints 4, 10, 18
-```
-
-<br>
-
-List Comprehensions:  
-Create new lists where each item is the result of some operation applied to each member of another list
-```python
-a = [1, 2, 3]
-doubled_a = [i * 2 for i in a]
-#prints 2, 4, 6
-
-# Take a list where elements are a fucked up float decimal and
-# change to 2 decimals while still remaining a float type
-list_name = [float('%.2f' % i) for i in list_name]
-
-
-# Remove items from a list while iterating
-new_list = [x for x in old_list if determine(x)]
-new_list = [x for x in old_list if not determine(x)]
-
-same_list[:] = [x for x in same_list if determine(x)]
-same_list[:] = [x for x in same_list if not determine(x)]
-# same but makes a copy of the list, then overwrites it
-```
-
-<br>
-
-**Sets a range of elements in an array to the default value of each element type:**  
+#### Other:
 ```c#
-Array.Clear(arrayName, Starting Index, Number of elements to clear);
+// Sort an array from smallest to largest or alphabetically:
+    Array.Sort(arrayName);
+
+// Set a range of elements in an array to the default value of its element type:
+    Array.Clear(arrayName, Starting Index, Number of elements to clear);
 ```
 
 <br>
 
-**Sort an array from smallest to largest or alphabetically:**  
-```c#
-Array.Sort(arrayName);
-```
-
-<br>
-
-**Multidimensional arrays:**  
+#### Multidimensional arrays:
 ```c#
 // Rectangular: (5x3)
  0 1 2 3 4
@@ -142,6 +79,7 @@ number[1] = new int[5];
 number[2] = new int[3];
 ```
 
+<br>
 <br>
 <br>
 
