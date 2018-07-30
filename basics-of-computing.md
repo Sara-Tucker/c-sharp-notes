@@ -67,7 +67,28 @@ public static long Factorial(long number)
 <br>
 <br>
 
-## Good Compound Conditional (two end conditions) and Function examples
+### Good example of returning values with functions:
+```c#
+static double CylinderVolume(double radius, double height)
+{
+    const double pi = 3.14159;
+    return pi * Math.Pow(radius, 2) * height;
+}
+```
+```c#
+static string ReadableTimeDelta(int days)
+{
+    // to get the numbers of weeks we use integers so it does integer division
+    int weeks = days / 7;
+    int remainder = days % 7;
+    
+    return $"{weeks} weeks and {remainder} days";
+}
+```
+
+<br>
+
+### Good example of a Compound Conditional (two end conditions):
 ```c#
 bool keepGoing = true;
 string correct = "Csharp";
@@ -100,13 +121,6 @@ while (keepGoing == true)
 
 <br>
 
-```c#
-static double CylinderVolume(double radius, double height)
-{
-    const double pi = 3.14159;
-    return pi * Math.Pow(radius, 2) * height;
-}
-```
 
 <br>
 <br>
