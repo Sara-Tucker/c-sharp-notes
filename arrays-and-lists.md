@@ -139,10 +139,14 @@ print(list1[0][2]) #17
 #### Other:
 ```c#
 // Add an object to the end of a list:
-numbers.Add(6);
+    numbers.Add(6);
 
-// Remove an object from a list:
-listName.Remove(value);
+// Remove the first occurrence of an object:
+    listName.Remove(value);
+
+// Remove the object at an index:
+    listName.RemoveAt(index);
+
 
 
 // Sort a list from smallest to largest or alphabetically:
