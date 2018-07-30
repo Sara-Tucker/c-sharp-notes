@@ -96,32 +96,29 @@ int tries = 3;
 
 while (keepGoing)
 {
-	Console.Write("Please enter the password: ");
-	string guess = Console.ReadLine();
-	tries -= 1;
+    Console.Write("Please enter the password: ");
+    string guess = Console.ReadLine();
+    tries -= 1;
 
-	if (guess == password)
-	{
-		Console.WriteLine("You may proceed.");
-		keepGoing = false;
-	}
-	else
-	{
-		Console.WriteLine("That's not correct.");
+    if (guess == password)
+    {
+        Console.WriteLine("You may proceed.");
+        keepGoing = false;
+    }
+    else
+    {
+        Console.WriteLine("That's not correct.");
 
-		if (tries == 0)
-		{
-			Console.WriteLine("Sorry, you only had three tries.");
-			keepGoing = false;
-		}
-		else
-			Console.WriteLine($"You have {tries} tries left.\r\n");
-	}
+        if (tries == 0)
+        {
+            Console.WriteLine("Sorry, you only had three tries.");
+            keepGoing = false;
+        }
+        else
+            Console.WriteLine($"You have {tries} tries left.\r\n");
+    }
 }
 ```
-
-<br>
-
 
 <br>
 <br>
