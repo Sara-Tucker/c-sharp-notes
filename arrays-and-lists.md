@@ -52,6 +52,16 @@ A data structure with a fixed size used to store variables of the same type.
 
 // Set a range of elements in an array to the default value of its element type:
     Array.Clear(arrayName, Starting Index, Number of elements to clear);
+
+
+// Operations with two arrays:
+    int[] a = new int[3] { 1, 2, 3 };
+    int[] b = new int[3] { 4, 5, 6 };
+    int[] aTimesB = new int[3];
+    
+    for (int i; i <= a.Length; i++)
+        aTimesB[i] = a[i] * b[i];
+    //prints 4, 10, 18
 ```
 
 <br>
@@ -144,7 +154,6 @@ List\<T\> &nbsp;&nbsp;T = element type (data type)
 
 // Remove the object at an index:
     listName.RemoveAt(index);
-
 
 
 // Sort a list from smallest to largest or alphabetically:
