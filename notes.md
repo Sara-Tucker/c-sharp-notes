@@ -56,20 +56,24 @@ do
 
 **Type conversion:**  
 ```c#
-// Cast float to int:
+// Cast float to int
 float x = 1234.7f;
 int a = (int)x;
-
-// String to int:
+```
+```c#
+// String to int
 Convert.ToInt32(x);
-
-// Numbers to string:
+```
+```c#
+// Numbers to string
 y = x.ToString();
-
-// Other:
+```
+```c#
+// Other
 Convert.To{DataTypesHere}(x);
-
-// Change float decimal places:
+```
+```c#
+// Change float decimal places
 x.ToString("0.##");
 ```
 
@@ -138,7 +142,12 @@ public void Move(Point newLocation) {}
 public void Move(Point newLocation, int speed) {}
 ```
 
-Params modifier:
+<br>
+
+Method Parameter Modifiers:
+
+Params modifier:  
+specifies that this parameter takes a varying number of arguments.
 ```c#
 public class Calculator
 {
@@ -156,11 +165,16 @@ public class Calculator
 }
 var result = calculator.Add(1, 2, 3, 4);
 ```
-
 Ref and Out modifier are bad to use.
+
+<br>
+<br>
+<br>
 
 Read only:  
 readonly int a;
+
+<br>
 
 OOP:
 - Encapsulation (information hiding)
@@ -169,10 +183,14 @@ OOP:
 - Inheritance
 - Polymorphism
 
+<br>
+
 ```c#
 if (!String.IsNullOrEmpty(stringName))
     //
 ```
+
+<br>
 
 private fields should be:  
 private int _camelCase;
