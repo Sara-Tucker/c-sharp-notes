@@ -1,6 +1,7 @@
 # Dictionary / Hash / Hash Table:
 Holds a collection of key-value pairs called pairs.
 
+Values are accessed by keys and that's all! It is unordered.  
 Dictionaries are imported with ```using System.Collections.Generic;```
 
 <br>
@@ -35,7 +36,7 @@ var dictName = Enumerable.Range(0, keysList.Count).ToDictionary(i => keysList[i]
 ```c#
 // value == dictName[key]
 
-Console.WriteLine(dictName[key]);
+dictName[key];
 ```
 
 <br>
@@ -66,7 +67,7 @@ dictName.Remove(key);
 <br>
 
 #### Loop through a dictionary:
-All items will be processed but in random order. (maybe)
+All items will be processed in random order. (maybe)
 ```c#
 foreach (KeyValuePair<keytype, valuetype> pair in dictName)
 {
