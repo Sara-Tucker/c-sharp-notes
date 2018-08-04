@@ -118,42 +118,42 @@ Move()
 
 ### File:
 File provides static methods. It makes programming faster since methods are static, but it's slower to run because the operating system has to do security checks to see if you can access a file.
-
 ```c#
 string pathName = @"c:\temp\myfile.txt";
 ```
 
 ### Read a file:
 ```c#
-//Read the file as one string:
+// .ReadAllText - Returns the file content as a single string
 string text = File.ReadAllText(pathName);
 
 
-//Create an array where each element is one line of the file:
+// .ReadAllLines - Returns an array of strings, where each string is a line in the file
 string[] lines = File.ReadAllLines(pathName);
 
 foreach (string line in lines)
-{
     Console.WriteLine(line);
-}
 ```
 
 <br>
 
 ### Write to a file:
 ```c#
-//Overwrite with an array of strings:
-string[] lines = { "First line", "Second line", "Third line" };
-File.WriteAllLines(pathName, lines);
-//File.WriteAllText(pathName, string);
-
-
-//Append new text to an existing file:
+// .WriteLine - Append a string to an existing file
 using (StreamWriter file = new StreamWriter(pathName, true))
 {
     file.WriteLine("Fourth line");
 }
+
+
+// .WriteAllLines - Overwrite a file with an array of strings
+string[] lines = { "First line", "Second line", "Third line" };
+File.WriteAllLines(pathName, lines);
+
+
+File.WriteAllText(pathName, string);
 ```
+
 <br>
 
 ### Other:
@@ -192,40 +192,6 @@ if (File.Exists(pathName))
     //
 }
 ```
-
-### File.ReadAllText()
-Read the file as one string.
-```c#
-string text = File.ReadAllText(pathName);
-```
-
-### File.ReadAllLines()
-Creates an array where each element is one line of the file.
-```c#
-string[] lines = File.ReadAllLines(pathName);
-
-foreach (string line in lines)
-{
-    Console.WriteLine(line);
-}
-```
-
-### File.WriteAllLines()
-```c#
-// There's also WriteAllText (string instead of string[])
-
-string[] lines = { "First line", "Second line", "Third line" };
-File.WriteAllLines(pathName, lines);
-```
-
-### Append new text to an existing file
-```c#
-using (StreamWriter file = new StreamWriter(pathName, true))
-{
-    file.WriteLine("Fourth line");
-}
-```
-
 <br>
 
 ### FileInfo:
@@ -258,3 +224,4 @@ if (file.Exists)
 <br>
 <br>
 
+#### Save variables:
