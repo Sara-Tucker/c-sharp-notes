@@ -175,25 +175,6 @@ if (File.Exists(pathName))
 
 <br>
 
-### File.Copy()
-```c#
-File.Copy(pathName, @"c:\temp\newtext.txt");
-```
-
-### File.Delete()
-```c#
-File.Delete(pathName);
-```
-
-### File.Exists()
-```c#
-if (File.Exists(pathName))
-{
-    //
-}
-```
-<br>
-
 ### FileInfo:
 FileInfo provides instance methods.
 ```c#
