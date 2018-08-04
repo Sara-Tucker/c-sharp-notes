@@ -1,3 +1,116 @@
+# Paths and directories
+```
+cwd - current working directory (abbreviation, not a keyword)  
+./  - the cwd  
+../ - the parent folder
+```
+
+<br>
+
+#### Absolute and relative paths
+```c#
+// Absolute path = full path name
+string pathName = "D:/zCsharp/currentfolder/subfolder/file.type"
+
+// Relative path = the program’s cwd is inferred as the start of the path
+string pathName = "./file.type"
+string pathName = "./subfolder/file.type"
+
+
+// 
+string filePath = "./subfolder/file.type"
+
+// idek:
+from pathlib import Path
+files_folder = Path('source_data/text_files/')
+```
+
+<br>
+
+### Directory:
+Directory provides static methods.
+```c#
+// Create Directory objects to make reusing easier
+string directoryName = @"c:\temp\folder1";
+Directory.CreateDirectory(directoryName);
+
+
+// Directory.GetFiles()
+string[] files = Directory.GetFiles(directoryName, *.*, SearchOption.AllDirectories); //*.jpg, *.txt, etc
+foreach (string file in files)
+    Console.WriteLine(file);
+
+
+// Directory.GetDirectories()
+string[] directories = Directory.GetDirectories(directoryName, *.*, SearchOption.AllDirectories);
+foreach (string directory in directories)
+    Console.WriteLine(directory);
+
+
+// Directory.Exists()
+if (Directory.Exists(directoryName))
+{
+    //
+}
+
+
+//Methods with no examples yet:
+//Delete()
+//Move()
+//GetLogicalDrives()
+```
+
+<br>
+
+### DirectoryInfo:
+DirectoryInfo provides instance methods.
+```c#
+// Instantiate
+DirectoryInfo directory = new DirectoryInfo(@"c:\temp\folder1");
+
+
+// .GetFiles()
+string[] files = directory.GetFiles(*., SearchOption.AllDirectories); //*.jpg, *.txt, etc
+foreach (string file in files)
+    Console.WriteLine(file);
+
+
+// .GetDirectories()
+string[] directories = directory.GetDirectories(*.*, SearchOption.AllDirectories);
+foreach (string dir in directories)
+    Console.WriteLine(dir);
+
+
+// .Exists Property
+if (directory.Exists)
+{
+    //
+}
+
+//Methods with no examples yet:
+//Delete()
+//Move()
+//GetLogicalDrives()
+```
+
+<br>
+
+### Path Class
+The Path class provides static methods for working with a string that is a directory or file path.
+```c#
+Console.WriteLine(Path.GetFileName(pathName));
+Console.WriteLine(Path.GetFileNameWithoutExtension(pathName));
+Console.WriteLine(Path.GetExtension(pathName));
+Console.WriteLine(Path.GetDirectoryName(pathName));
+tempPath = Path.GetTempPath(); // - user's temp folder
+```
+
+<br>
+
+---
+
+<br>
+
 # Files
 
 The File and FileInfo classes provide methods for creating, copying, deleting, moving, and opening files.
@@ -153,80 +266,3 @@ if (file.Exists)
 <br>
 <br>
 
-Methods with no examples yet:
-```
-Delete()
-Move()
-GetLogicalDrives()
-```
-
-<br>
-
-### Directory:
-Directory provides static methods.
-```c#
-// Directory.CreateDirectory()
-string directoryName = @"c:\temp\folder1";
-Directory.CreateDirectory(directoryName);
-
-
-// Directory.GetFiles()
-string[] files = Directory.GetFiles(directoryName, *.*, SearchOption.AllDirectories); //*.jpg, *.txt, etc
-foreach (string file in files)
-    Console.WriteLine(file);
-
-
-// Directory.GetDirectories()
-string[] directories = Directory.GetDirectories(directoryName, *.*, SearchOption.AllDirectories);
-foreach (string directory in directories)
-    Console.WriteLine(directory);
-
-
-// Directory.Exists()
-if (Directory.Exists(directoryName))
-{
-    //
-}
-```
-
-<br>
-
-### DirectoryInfo:
-DirectoryInfo provides instance methods.
-```c#
-// Instantiate
-DirectoryInfo directory = new DirectoryInfo(@"c:\temp\folder1");
-
-
-// .GetFiles()
-string[] files = directory.GetFiles(*.*, SearchOption.AllDirectories); //*.jpg, *.txt, etc
-foreach (string file in files)
-    Console.WriteLine(file);
-
-
-// .GetDirectories()
-string[] directories = directory.GetDirectories(*.*, SearchOption.AllDirectories);
-foreach (string dir in directories)
-    Console.WriteLine(dir);
-
-
-// .Exists Property
-if (directory.Exists)
-{
-    //
-}
-```
-
-<br>
-<br>
-<br>
-
-### Path Class
-The Path class provides static methods for working with a string that is a directory or file path.
-```c#
-Console.WriteLine(Path.GetFileName(pathName));
-Console.WriteLine(Path.GetFileNameWithoutExtension(pathName));
-Console.WriteLine(Path.GetExtension(pathName));
-Console.WriteLine(Path.GetDirectoryName(pathName));
-tempPath = Path.GetTempPath(); // - user's temp folder
-```
