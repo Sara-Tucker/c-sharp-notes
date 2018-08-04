@@ -15,14 +15,6 @@ string pathName = "D:/zCsharp/currentfolder/subfolder/file.type"
 // Relative path = the program’s cwd is inferred as the start of the path
 string pathName = "./file.type"
 string pathName = "./subfolder/file.type"
-
-
-// 
-string filePath = "./subfolder/file.type"
-
-// idek:
-from pathlib import Path
-files_folder = Path('source_data/text_files/')
 ```
 
 <br>
