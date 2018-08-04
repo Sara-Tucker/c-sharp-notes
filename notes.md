@@ -204,7 +204,6 @@ private int _camelCase;
 <br>
 
 ### Properties:
-Explained:
 ```c#
 using System;
 public class PlayerInput
@@ -260,7 +259,8 @@ public class IDK
 
 <br>
 
-Property - A class member that provides access to fields of a class.  
+**Property** - A class member that provides access to fields of a class.
+
 A get property accessor is used to return the value, and a set property accessor is used to assign a new value.
 
 <br>
