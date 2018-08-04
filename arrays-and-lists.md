@@ -177,27 +177,11 @@ List\<T\> &nbsp;&nbsp;T = element type (data type)
 
 #### List Comprehensions:  
 Create new lists where each item is the result of some operation applied to each member of another list
-```python
-a = [1, 2, 3]
-doubled_a = [i * 2 for i in a]
-#prints 2, 4, 6
+```c#
+List<int> a = new List<int>() { 1, 2, 3 };
+List<int> doubledA = (from i in a select i * 2).ToList();
+//prints 2, 4, 6
 
-# Take a list where elements are a fucked up float decimal and
-# change to 2 decimals while still remaining a float type
-list_name = [float('%.2f' % i) for i in list_name]
-
-
-# Remove items from a list while iterating
-new_list = [x for x in old_list if determine(x)]
-new_list = [x for x in old_list if not determine(x)]
-
-same_list[:] = [x for x in same_list if determine(x)]
-same_list[:] = [x for x in same_list if not determine(x)]
-# same but makes a copy of the list, then overwrites it
-
-for (int i = 0; i < numbers.Count; i++)
-{
-    if (numbers[i] == 1)
-        numbers.Remove(numbers[i]);
-}
+// Remove items from a list while iterating
+https://msdn.microsoft.com/en-us/library/wdka673a.aspx
 ```
