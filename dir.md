@@ -8,7 +8,7 @@
 
 <br>
 
-**[Loops](https://github.com/SethTucker/c-sharp-notes/blob/master/loops.md)**
+**[Loops](https://github.com/SethTucker/c-sharp-notes/blob/master/loops.md)**  
 **[Classes and inheritance](https://github.com/SethTucker/c-sharp-notes/blob/master/classes.md)**
 
 <br>
