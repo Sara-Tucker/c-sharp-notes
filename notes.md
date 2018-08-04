@@ -59,21 +59,12 @@ private int _camelCase;
 <br>
 <br>
 
-**Print to console:**  
-```c#
-Console.WriteLine("hello world");
-```
-
-<br>
-<br>
-
 **Debugging:**  
 Set breakpoints and watch variable values with: Debug -> Windows -> Autos/Locales
 
 <br>
-<br>
 
-**Keep the console window open in debug mode:**  
+Keep the console window open in debug mode:
 ```c#
 Console.WriteLine("Press any key to exit.");
 System.Console.ReadKey();
@@ -138,6 +129,9 @@ y = x.ToString();
 
 // Other:
 Convert.To{DataTypesHere}(x);
+
+// Change float decimal places:
+x.ToString("0.##");
 ```
 
 <br>
@@ -224,6 +218,7 @@ public class Person
 {
     // Fields
 
+    // Constructor
     public Person()
     {
     }
