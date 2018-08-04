@@ -89,7 +89,7 @@ int randNum = new Random().NextDouble(); //Returns a random double between 0.0 a
 <br>
 <br>
 
-**Conditional Operator: '?:'** - Returns one of two values depending on the value of a Boolean expression.  
+**Conditional Operator '?:'** - Returns one of two values depending on the value of a Boolean expression.  
 ```c#
 // The condition evaluates to true or false. If true then #1 is returned, if false then #2 is returned.
 condition ? first_expression : second_expression;
