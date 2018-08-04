@@ -1,68 +1,7 @@
 # C# Notes
 
-**Methods:**  
-```c#
-Method Signature = Name of the method, the number of parameters, and the type of parameters
-
-
-Method Overloading:
-Having a method with the same name but different signatures.
-
-public void Move(int x, int y) {}
-public void Move(Point newLocation) {}
-public void Move(Point newLocation, int speed) {}
-
-
-Params modifier:
-public class Calculator
-{
-    public int Add(int[] numbers)
-    {
-    }
-}
-var result = calculator.Add(new int[]{ 1, 2, 3, 4});
-
-public class Calculator
-{
-    public int Add(params int[] numbers)
-    {
-    }
-}
-var result = calculator.Add(1, 2, 3, 4);
-
-
-Ref and Out modifier are bad to use
-
-
-
-readonly int a;
-
-
-
-OOP:
-- Encapsulation (information hiding)
-    - Define fields as private
-	- Provide public getter/setter methods
-- Inheritance
-- Polymorphism
-
-
-
-if (!String.IsNullOrEmpty(stringName))
-    //
-	
-
-private fields should be:
-private int _camelCase;
-```
-
-<br>
-<br>
-
 **Debugging:**  
 Set breakpoints and watch variable values with: Debug -> Windows -> Autos/Locales
-
-<br>
 
 Keep the console window open in debug mode:
 ```c#
@@ -183,6 +122,60 @@ Private - only visible/accessible in the entire block where it's defined
 
 Private is the default access modifier if none was declared.
 ```
+
+<br>
+<br>
+
+**Methods:**  
+Method Signature:  
+Name of the method, the number of parameters, and the type of parameters.
+
+Method Overloading:  
+Having methods with the same name but different signatures.
+```c#
+public void Move(int x, int y) {}
+public void Move(Point newLocation) {}
+public void Move(Point newLocation, int speed) {}
+```
+
+Params modifier:
+```c#
+public class Calculator
+{
+    public int Add(int[] numbers)
+    {
+    }
+}
+var result = calculator.Add(new int[]{ 1, 2, 3, 4});
+
+public class Calculator
+{
+    public int Add(params int[] numbers)
+    {
+    }
+}
+var result = calculator.Add(1, 2, 3, 4);
+```
+
+Ref and Out modifier are bad to use.
+
+Read only:  
+readonly int a;
+
+OOP:
+- Encapsulation (information hiding)
+    - Define fields as private
+	- Provide public getter/setter methods
+- Inheritance
+- Polymorphism
+
+```c#
+if (!String.IsNullOrEmpty(stringName))
+    //
+```
+
+private fields should be:  
+private int _camelCase;
 
 <br>
 <br>
