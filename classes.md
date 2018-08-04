@@ -142,7 +142,7 @@ public abstract class Animal
 
 public class Cat : Animal
 {     
-    public abstract void Speak()
+    public override void Speak()
     {
         Console.WriteLine("Meow");
     }
@@ -150,7 +150,7 @@ public class Cat : Animal
 
 public class Dog : Animal
 {     
-    public abstract void Speak()
+    public override void Speak()
     {
         Console.WriteLine("Bark");
     }
