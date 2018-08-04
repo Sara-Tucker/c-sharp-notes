@@ -114,9 +114,7 @@ List\<T\> &nbsp;&nbsp;T = element type (data type)
     foreach (elementName in collectionName)
         Console.WriteLine(elementName);
 
-# Access lists in a list:
-list = [[10, 13, 17], [3, 5, 1], [13, 11, 12]]
-print(list1[0][2]) #17
+// Access lists in a list: ?
 ```
 
 <br>
@@ -152,21 +150,18 @@ print(list1[0][2]) #17
 // Sort a list from smallest to largest or alphabetically:
     listName.Sort();
 
-// Set a range of elements in an array to the default value of its element type:
-    Array.Clear(arrayName, Starting Index, Number of elements to clear);
-
 // Remove duplicates from a list:
     var newList = new HashSet<T>(oldList).ToList();
 
 
 // Operations with two lists:
-a = [1, 2, 3]
-b = [4, 5, 6]
-a_times_b = []
-
-for i in range(0, len(a)):
-	a_times_b.append(a[i] * b[i])
-#prints 4, 10, 18
+    List<int> a = new List<int>() { 1, 2, 3 };
+    List<int> b = new List<int>() { 4, 5, 6 };
+    List<int> aTimesB = new List<int>();
+    
+    for (int i; i <= a.Count; i++)
+        aTimesB.Add(a[i] * b[i]);
+    //prints 4, 10, 18
 ```
 
 <br>
