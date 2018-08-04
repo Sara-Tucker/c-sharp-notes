@@ -4,11 +4,12 @@
 <br>
 
 **[Arrays and Lists](https://github.com/SethTucker/c-sharp-notes/blob/master/arrays-and-lists.md)**  
-**[Dictionary, Hash, Hashtable](https://github.com/SethTucker/c-sharp-notes/blob/master/dictionary-hash-hashtable.md)**
+**[Dictionaries](https://github.com/SethTucker/c-sharp-notes/blob/master/dictionary-hash-hashtable.md)**
 
 <br>
 
 **[Loops](https://github.com/SethTucker/c-sharp-notes/blob/master/loops.md)**
+**[Classes and inheritance](https://github.com/SethTucker/c-sharp-notes/blob/master/classes.md)**
 
 <br>
 
