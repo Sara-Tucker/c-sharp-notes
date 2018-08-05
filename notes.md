@@ -1,5 +1,48 @@
 # C# Notes
 
+**Exception Handling:**  
+An exception is a problem that arises during the execution of a program.
+
+Exceptions provide a way to transfer control from one part of a program to another. C# exception handling is built upon four keywords:
+
+- try − try actions that may not succeed, and is followed by one or more catch blocks.
+- catch − defines an exception handler
+- finally − cleans up resources afterward. The finally block is used to execute a given set of statements, whether an exception is thrown or not thrown. For example, if you open a file, it must be closed whether an exception is raised or not.
+- throw − Creates an exception.
+
+<br>
+
+Use a try block around the statements that might throw exceptions.  
+Once an exception occurs in the try block, the flow of control jumps to the first associated exception handler (the catch keyword is used to define an exception handler)  
+If no exception handler for a given exception is present, the program stops executing with an error message.  
+Code in a finally block is executed even if an exception is thrown. Use a finally block to release resources, for example to close any streams or files that were opened in the try block.
+
+<br>
+
+```c#
+try {
+   // statements causing exception
+} catch( ExceptionName e1 ) {
+   // error handling code
+} catch( ExceptionName e2 ) {
+   // error handling code
+} catch( ExceptionName eN ) {
+   // error handling code
+} finally {
+   // statements to be executed
+}
+```
+```
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/using-exceptions
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/exception-handling
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/creating-and-throwing-exceptions
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/how-to-handle-an-exception-using-try-catch
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/how-to-execute-cleanup-code-using-finally
+```
+
+<br>
+<br>
+
 **Debugging:**  
 Set breakpoints and watch variable values with: Debug -> Windows -> Autos/Locales
 
