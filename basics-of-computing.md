@@ -174,7 +174,7 @@ Global scope:
 Variables or methods that are visable/accessible everywhere.
 
 Local scope:  
-Variables or methods that have local scope (this includes instances of classes) are accessible only in the current code block.
+Variables, methods, or objects that have local scope are accessible only in the current code block.
 
 <br>
 
