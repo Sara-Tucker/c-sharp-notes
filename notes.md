@@ -5,6 +5,7 @@
 https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf
 https://docs.microsoft.com/en-us/visualstudio/designers/creating-a-ui-by-using-xaml-designer-in-visual-studio
 https://docs.microsoft.com/en-us/dotnet/framework/wpf/getting-started/walkthrough-my-first-wpf-desktop-application
+https://www.youtube.com/watch?v=Vjldip84CXQ
 
 https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/using-application-settings-and-user-settings
 https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/application-settings-overview
