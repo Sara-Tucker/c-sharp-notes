@@ -1,5 +1,16 @@
 # C# Notes
 
+**WPF and saving state**:  
+```
+https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf
+https://docs.microsoft.com/en-us/visualstudio/designers/creating-a-ui-by-using-xaml-designer-in-visual-studio
+
+https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/using-application-settings-and-user-settings
+https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/application-settings-overview
+```
+
+<br>
+
 **Exception Handling:**  
 An exception is a problem that arises during the execution of a program.
 
