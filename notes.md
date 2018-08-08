@@ -46,11 +46,11 @@ public static void OpenFile
 {
     try
     {
-	    using (Stream stream = File.Open(pathName, FileMode.Open))
-	    {
-		    BinaryFormatter bin = new BinaryFormatter();
-		    var listName = (List<T>)bin.Deserialize(stream);
-	    }
+        using (Stream stream = File.Open(pathName, FileMode.Open))
+        {
+            BinaryFormatter bin = new BinaryFormatter();
+            var listName = (List<T>)bin.Deserialize(stream);
+        }
     }
     catch (IOException)
     {
