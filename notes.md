@@ -25,7 +25,7 @@ https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/application-
 
 
 // In another class (eg Main):
-public static void CreateFile
+public static void CreateFile()
 {
     try
     {
@@ -41,7 +41,7 @@ public static void CreateFile
     }
 }
 
-public static void OpenFile
+public static void OpenFile()
 {
     try
     {
