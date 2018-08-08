@@ -24,16 +24,16 @@ https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/application-
 }
 
 
-// In another class (eg Main):
-public static void CreateFile()
+// In another class:
+public static void CreateFile<T>(string path, List<T> list)
 {
     try
     {
         // pathName is a .bin file
-        using (Stream stream = File.Open(pathName, FileMode.Create))
+        using (Stream stream = File.Open(path, FileMode.Create))
         {
-            BinaryFormatter bin = new BinaryFormatter();
-            bin.Serialize(stream, listName);
+            var bin = new BinaryFormatter();
+            bin.Serialize(stream, list);
         }
     }
     catch (IOException)
@@ -41,18 +41,20 @@ public static void CreateFile()
     }
 }
 
-public static void OpenFile()
+public static List<T> OpenFile<T>(string path)
 {
     try
     {
-        using (Stream stream = File.Open(pathName, FileMode.Open))
+        using (Stream stream = File.Open(path, FileMode.Open))
         {
-            BinaryFormatter bin = new BinaryFormatter();
-            var listName = (List<T>)bin.Deserialize(stream);
+            var bin = new BinaryFormatter();
+            var list = (List<T>)bin.Deserialize(stream);
+	    return list;
         }
     }
     catch (IOException)
     {
+        return new List<T>();
     }
 }
 ```
