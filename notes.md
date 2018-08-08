@@ -41,10 +41,11 @@ static void CreateFile<T>(string path, List<T> list)
     }
 }
 
-public static List<T> OpenFile<T>(string path)
+public static List<T> OpenFile<T>(string fileName)
 {
     try
     {
+        string path = dataDir + fileName;
         using (Stream stream = File.Open(path, FileMode.Open))
         {
             var bin = new BinaryFormatter();
