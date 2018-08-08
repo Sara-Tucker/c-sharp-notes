@@ -17,7 +17,7 @@ https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/application-
 
 **Serializing a List to store it to a file**:  
 ```c#
-[Serializable()] public class ClassName
+[Serializable] public class ClassName
 {
     public string IdName { get; set; }
     public int Number { get; set; }
