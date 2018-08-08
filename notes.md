@@ -14,6 +14,53 @@ https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/application-
 <br>
 <br>
 
+
+**Serializing a List to store it to a file**:  
+```c#
+[Serializable()] public class ClassName
+{
+    public string IdName { get; set; }
+    public int Number { get; set; }
+}
+
+
+// In another class (eg Main):
+public static void CreateFile
+{
+    try
+    {
+        // pathName is a .bin file
+        using (Stream stream = File.Open(pathName, FileMode.Create))
+        {
+            BinaryFormatter bin = new BinaryFormatter();
+            bin.Serialize(stream, listName);
+        }
+    }
+    catch (IOException)
+    {
+    }
+
+}
+
+public static void OpenFile
+{
+    try
+    {
+	    using (Stream stream = File.Open(pathName, FileMode.Open))
+	    {
+		    BinaryFormatter bin = new BinaryFormatter();
+		    var listName = (List<T>)bin.Deserialize(stream);
+	    }
+    }
+    catch (IOException)
+    {
+    }
+}
+```
+
+<br>
+<br>
+
 **Exception Handling:**  
 An exception is a problem that arises during the execution of a program.
 
