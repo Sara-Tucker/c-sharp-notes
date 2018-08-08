@@ -39,7 +39,6 @@ public static void CreateFile
     catch (IOException)
     {
     }
-
 }
 
 public static void OpenFile
