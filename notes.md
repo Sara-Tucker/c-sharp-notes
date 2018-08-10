@@ -553,7 +553,7 @@ Attributes add metadata to your program. Metadata is information about the types
 using System;
 
 // Create a DateTime:
-var dateTime = new DataTime(2015, 1, 1);
+var dateTime = new DateTime(2015, 1, 1);
 
 // Get current date:
 var now = DateTime.Now;
