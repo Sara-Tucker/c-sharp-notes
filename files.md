@@ -62,9 +62,9 @@ DirectoryInfo directory = new DirectoryInfo(@"c:\temp\folder1");
 
 
 // .GetFiles()
-string[] files = directory.GetFiles(*., SearchOption.AllDirectories); //*.jpg, *.txt, etc
-foreach (string file in files)
-    Console.WriteLine(file);
+FileInfo[] files = directory.GetFiles("*.", SearchOption.AllDirectories); //*.jpg, *.txt, etc
+foreach (FileInfo file in files)
+    Console.WriteLine(file.Name);
 
 
 // .GetDirectories()
