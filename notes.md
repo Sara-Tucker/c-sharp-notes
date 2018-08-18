@@ -1,5 +1,16 @@
 # C# Notes
 
+**SQLite**:  
+```
+https://stackoverflow.com/questions/15292880/create-sqlite-database-and-table
+https://blog.tigrangasparian.com/2012/02/09/getting-started-with-sqlite-in-c-part-one/
+http://www.technical-recipes.com/2016/using-sqlite-in-c-net-environments/
+https://github.com/SethTucker/python-notes/blob/master/databases.md
+```
+
+<br>
+<br>
+
 **WPF and saving state**:  
 ```
 https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf
