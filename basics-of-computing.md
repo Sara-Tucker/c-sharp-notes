@@ -1,16 +1,5 @@
 # Programming Notes
 
-## Keyboard shortcuts:
-```
-Ctrl + any arrow - move cursor one word at a time  
-End         - move cursor to end of the line
-Home        - move cursor to beginning of the line
-
-Shift       - activate selection with ^
-
-Ctrl + BS   - delete one word left of the cursor
-```
-
 ## VS / Resharper notes:
 ```
 Ctrl + Alt + ->    - expand selection
@@ -27,6 +16,25 @@ cw                 - Type for Console.WriteLine(); shortcut
 JoinLines:
 Join multiple lines into a one-liner.
 Highlight text, right-click in the editor and select 'Join Lines' or use the keyboard shortcut 'Alt+j'.
+```
+
+## Keyboard shortcuts:
+```
+Ctrl + any arrow - move cursor one word at a time  
+End         - move cursor to end of the line
+Home        - move cursor to beginning of the line
+
+Shift       - activate selection with ^
+
+Ctrl + BS   - delete one word left of the cursor
+```
+
+<br>
+
+## Git:
+```
+https://guides.github.com/introduction/git-handbook/
+http://rogerdudler.github.io/git-guide/
 ```
 
 <br>
