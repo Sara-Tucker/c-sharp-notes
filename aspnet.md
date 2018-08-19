@@ -4,6 +4,9 @@ Show/Hide console: ```Ctrl + ` ```
 Create new project: ```dotnet new angular```  
 Start server: ```dotnet run```  
 
+<br>
+
+Kestrel - in-process HTTP server implementation
 
 ASP.NET Core is a web framework. An ASP.NET Core application is a console app that creates a web server in its Main method.
 
