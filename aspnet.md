@@ -1,5 +1,14 @@
 # ASP.NET Core
-ASP.NET Core is a web framework. An ASP.NET Core application is a console app that creates a web server in its Main method:
+ASP.NET Core is a web framework. An ASP.NET Core application is a console app that creates a web server in its Main method.
+
+File or folder | Purpose
+--- | ---
+wwwroot | Contains static assets.
+Pages | Folder for Razor Pages.
+appsettings.json | Configuration
+Program.cs | Configures the host of the ASP.NET Core app.
+Startup.cs | Configures services and the request pipeline (middleware).
+
 
 The Main method invokes WebHost.CreateDefaultBuilder, which follows the builder pattern to create a web application host. The builder has methods that define the web server (for example, UseKestrel) and the startup class (UseStartup).
 
