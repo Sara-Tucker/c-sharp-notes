@@ -17,4 +17,4 @@
 
 <br>
 
-**[ASP.NET](https://github.com/SethTucker/c-sharp-notes/blob/master/aspnet-mvc.md)**
+**[ASP.NET MVC](https://github.com/SethTucker/c-sharp-notes/blob/master/aspnet-mvc/aspnet-mvc.md)**
