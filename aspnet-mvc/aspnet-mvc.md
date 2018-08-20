@@ -1,5 +1,3 @@
-# ASP.NET MVC
-
 **[Basics (temp)](https://github.com/SethTucker/c-sharp-notes/blob/master/aspnet-mvc/basics-temp.md)**  
 
 <br>
