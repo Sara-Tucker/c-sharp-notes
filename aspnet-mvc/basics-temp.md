@@ -1,6 +1,4 @@
-# ASP.NET MVC Basics
-
-#### Project solution explorer:
+# ASP.NET MVC
 File or folder | Purpose
 --- | ---
 App_Data | database file
