@@ -1,6 +1,6 @@
 # Views
 
-Views for a Controlelr are put in a folder with the same name.
+Views for a Controller are put in a folder with the same name.
 
 - Controllers
   - AccountController
