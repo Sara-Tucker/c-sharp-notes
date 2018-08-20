@@ -3,9 +3,12 @@
 #### Project solution explorer:
 File or folder | Purpose
 --- | ---
-App_Data | Database file location
-App_Start | Classes that are called when the app is started
+App_Data | database file
+App_Start | classes that are called when the app is started
 &nbsp;&nbsp;&nbsp;&nbsp;RouteConfig | URL patterns
+Content | stores static assets (.css, images)
+Models | stores domain classes
+Scripts | JS files
 
 <br>
 
@@ -27,31 +30,8 @@ url: The controller used, a method of that controller, an ID passed as an argume
 
 defaults: Where it redirects to if a {} wasn't given.
 
+<br>
 
-
-- App_Data - where the database file will be stored
-- App_Start - classes that are called when the application is started
-    - RouteConfig - the configuration of the routing rules
-        - url: "{controller}/{action}/{id}"
-            - the controller used, the Action of that controller, id is an argument passed to that Action
-            - Example: request to /movies/popular
-            - {controller} = MoviesController
-            - {action} = Popular()
-            - Example: request to /movies/edit/351
-            - {controller} = MoviesController
-            - {action} = Edit(int id)
-        - defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            - Example: if url doesn't have anything in the url ^ thing above -> passed to HomeController
-            - Example: /movies -> handled by the MoviesController.Index() Action
-            - id is an optional parameter
-- Content - store client side assets (.css, images)
-- Controllers
-    - AccountController - Actions for sign in, log out, etc
-    - HomeController - homepage
-    - ManageController - Actions for users to manage their profiles
-- Models - all the domain classes will be here
-- Scripts - JS files
-- Views
 - Startup.cs (old ver is Global.asax) - provides hooks for various events in the application's life cycle. Contains method that is called when app is started. It registers a few things, like the routes.
 packages.config - used by NuGet package manager. Package managers manage the dependencies of the app.
     - Example: if app has dependencies on 5 external libraries. instead of going to 5 different sites and downloading them, NuGet gets all the packages for you.
