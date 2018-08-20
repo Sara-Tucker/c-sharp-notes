@@ -7,16 +7,25 @@ App_Data | Database file location
 App_Start | Classes that are called when the app is started
 &nbsp;&nbsp;&nbsp;&nbsp;RouteConfig | URL patterns
 
+<br>
+
 #### RouteConfig
 RouteConfig - URL patterns
-        - url: "{controller}/{action}/{id}"
-            - the controller used, the Action of that controller, id is an argument passed to that Action
-            - Example: request to /movies/popular
-            - {controller} = MoviesController
-            - {action} = Popular()
-            - Example: request to /movies/edit/351
-            - {controller} = MoviesController
-            - {action} = Edit(int id)
+```c#
+routes.MapRoute(
+    name: "Default",
+    url: "{controller}/{action}/{id}",
+    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+```
+url: The controller used, a method of that controller, an ID passed as an argument to that method
+- /movies/popular
+    - Controller = MoviesController, Method = Popular()
+- /movies/edit/351
+    - Controller = MoviesController, Method = Edit(int id)
+
+<br>
+
+defaults: Where it redirects to if a {} wasn't given.
 
 
 
