@@ -3,10 +3,13 @@ File or folder | Purpose
 --- | ---
 App_Data | database file
 App_Start | classes that are called when the app is started
-&nbsp;&nbsp;&nbsp;&nbsp;RouteConfig | URL patterns
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RouteConfig | URL patterns
 Content | stores static assets (.css, images)
 Models | stores domain classes
 Scripts | JS files
+Global.asax | provides hooks for various events in the application's life cycle
+packages.config | used by NuGet; package managers manage the dependencies of the app
+Web.config | xml doc of the apps config; \<connectionStrings\> and \<appSettings\> are used most
 
 <br>
 
@@ -30,10 +33,6 @@ defaults: Where it redirects to if a {} wasn't given.
 
 <br>
 
-- Startup.cs (old ver is Global.asax) - provides hooks for various events in the application's life cycle. Contains method that is called when app is started. It registers a few things, like the routes.
-packages.config - used by NuGet package manager. Package managers manage the dependencies of the app.
-    - Example: if app has dependencies on 5 external libraries. instead of going to 5 different sites and downloading them, NuGet gets all the packages for you.
-- Web.config - xml doc of the apps config. <connectionStrings> and <appSettings> are most used.
 
 
 
