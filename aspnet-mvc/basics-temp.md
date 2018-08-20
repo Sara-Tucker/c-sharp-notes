@@ -21,7 +21,7 @@ routes.MapRoute(
     url: "{controller}/{action}/{id}",
     defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
 ```
-- url - The controller used, a method of that controller, an ID passed as an argument to that method
+- url - {The controller used}/{a method of that controller}/{an ID passed as an argument to that method}
   - /movies/popular
     - Controller = MoviesController, Method = Popular()
   - /movies/edit/351
