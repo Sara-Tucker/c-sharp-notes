@@ -4,6 +4,7 @@ ASP.NET MVC 4 is a web framework.
 
 MVC is an architectural pattern for implementing user interfaces. MVC allows for: Separation of concerns and More maintainable applications.
 
+
 Model:  
 Application data and behaviour in terms of its problem domain, and independent of the UI.
 
@@ -15,8 +16,13 @@ Domain Model of the movie app (classes):
 
 These classes have properties and methods which represent the application state and rules. They are not tied to the user interface, meaning they could be used the same for a desktop or mobile app.
 
+
 View:  
-HTML markup displayed to the user.
+HTML displayed to the user.
+
+Partial View - not a complete page. A widget that can be used on different Views.
+Layout page - a template or master page. if you want all your pages to have the same look and feel use a layout.
+
 
 Controller:
 Responsible for handing a HTTP request.  
@@ -82,8 +88,6 @@ Request delegates are used to build the request pipeline. The request delegates 
 
 Each piece of middleware in ASP.NET Core is an object, and each piece has a very specific, focused, and limited role.
 
-Ultimately, we need many pieces of middleware for an application to behave appropriately.
-
 
 Logging middleware component:
 This logger can see everything about the incoming request, but chances are a logger is simply going to record some information and then pass along this request to the next piece of middleware.
@@ -98,5 +102,3 @@ Every ASP.NET Core web application requires a host to be executed. A host must i
 
 
 
-Partial View - not a complete page. A widget that can be used on different Views.
-Layout page - a template or master page. if you want all your pages to have the same look and feel use a layout.
