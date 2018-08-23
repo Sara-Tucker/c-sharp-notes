@@ -20,7 +20,7 @@ These classes have properties and methods which represent the application state 
 View:  
 HTML displayed to the user.
 
-Partial View - not a complete page. A widget that can be used on different Views.
+Partial View - not a complete page. A widget that can be used on different Views.  
 Layout page - a template or master page. if you want all your pages to have the same look and feel use a layout.
 
 
