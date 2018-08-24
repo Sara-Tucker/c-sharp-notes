@@ -37,6 +37,14 @@ The methods of a Controller are called Actions.
 Example:  
 If a user requests http://vid.io/movies, a Controller will be selected to handle their request. The Controller will get all the movies from the database (Model), put them in a View, and return the View to the user's browser.
 
+Controllers return the type ActionResponse.
+
+#### ActionResponse Sub-Types:
+Type | Return Method | Returns
+--- | --- | ---
+ViewResult | View() | View
+
+
 Router:  
 Selects the right Controller to handle a request. The Router knows that the request for http://vid.io/movies should be handled by the MoviesController class Controller, or more accurately, the request should be handled by a method of that class. The methods of a controller are called Actions. So techincally an Action (method) of the class will handle the request.
 
