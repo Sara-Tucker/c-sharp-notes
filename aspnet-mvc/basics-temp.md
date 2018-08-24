@@ -48,6 +48,7 @@ File or folder | Purpose
 --- | ---
 App_Data | database file
 App_Start | classes that are called when the app is started
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BundleConfig | Set Bootstrap style
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RouteConfig | URL patterns
 Content | stores static assets (.css, images)
 Models | stores domain classes
