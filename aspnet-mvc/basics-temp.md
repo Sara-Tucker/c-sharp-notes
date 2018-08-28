@@ -5,18 +5,6 @@ ASP.NET MVC 4 is a web framework.
 MVC is an architectural pattern for implementing user interfaces. MVC allows for: Separation of concerns and More maintainable applications.
 
 
-Model:  
-Application data and behaviour in terms of its problem domain, and independent of the UI.
-
-Domain Model of the movie app (classes):
-- Movie
-- Customer
-- Rental
-- Transaction
-
-These classes have properties and methods which represent the application state and rules. They are not tied to the user interface, meaning they could be used the same for a desktop or mobile app.
-
-
 ViewModel:  
 A Model specifically built for a View. It contains the data for that View.
 
