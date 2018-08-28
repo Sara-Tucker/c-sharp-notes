@@ -24,6 +24,15 @@ The methods of a Controller are called Actions.
 Example:  
 If a user requests http://vid.io/movies, a Controller will be selected to handle their request. The Controller will get all the movies from the database (Model), put them in a View, and return the View to the user's browser.
 
+#### Attribute Routing:
+```c#
+[Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
+public ActionResult ByReleaseDate(int year, int month)
+{
+}
+```
+
+
 Controllers return the type ActionResponse.
 
 #### ActionResult Sub-Types:
