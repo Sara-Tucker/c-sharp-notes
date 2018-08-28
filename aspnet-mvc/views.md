@@ -24,6 +24,6 @@ Layout page - a template or master page. if you want all your pages to have the 
 ```
 @model VidIO.Models.Movie
 
-<h2>@Model.<h2
+<h2>@Model.<h2>
 ```
 Every View has a property called Model which gives access to the Model that was passed to the View by the Controller.
