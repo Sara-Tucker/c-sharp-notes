@@ -37,7 +37,7 @@ RedirectToRouteResult | RedirectToAction() | Redirect to an Action
 JsonResult | Json() | Serialized JSON object
 FileResult | File() | File
 HttpNotFoundResult | HttpNotFound() | 404
-EmptyResult |   | Void
+EmptyResult | new EmptyResult() | Void
 
 
 Router:  
