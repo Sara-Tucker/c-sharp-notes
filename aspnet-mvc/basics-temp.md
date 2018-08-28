@@ -50,6 +50,15 @@ Parameter Sources:
 - Query string: /movies/edit **?id=1**
 - Form data: **id=1**
 
+Optional parameters:  
+Add a ? at the end of a type to make it nullable. Strings are nullable by default.
+```c#
+public ActionResult Index(int? pageIndex, string sortBy)
+{
+    // We want the pageIndex to be optional, because if no argument is passed we will show page 1.
+}
+```
+
 
 Router:  
 Selects the right Controller to handle a request. The Router knows that the request for http://vid.io/movies should be handled by the MoviesController class Controller, or more accurately, the request should be handled by a method of that class. The methods of a controller are called Actions. So techincally an Action (method) of the class will handle the request.
