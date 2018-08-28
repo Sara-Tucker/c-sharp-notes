@@ -26,11 +26,18 @@ If a user requests http://vid.io/movies, a Controller will be selected to handle
 
 Controllers return the type ActionResponse.
 
-#### ActionResponse Sub-Types:
+#### ActionResult Sub-Types:
 Type | Return Method | Returns
 --- | --- | ---
 ViewResult | View() | View
-
+PartialViewResult | PartialView() | Partial View
+ContentResult | Content() | Text / SQL text
+RedirectResult | Redirect() | Redirect to a URL
+RedirectToRouteResult | RedirectToAction() | Redirect to an Action
+JsonResult | Json() | Serialized JSON object
+FileResult | File() | File
+HttpNotFoundResult | HttpNotFound() | 404
+EmptyResult |   | Void
 
 
 Router:  
