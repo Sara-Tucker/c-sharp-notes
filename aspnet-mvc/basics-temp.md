@@ -17,6 +17,10 @@ Domain Model of the movie app (classes):
 These classes have properties and methods which represent the application state and rules. They are not tied to the user interface, meaning they could be used the same for a desktop or mobile app.
 
 
+ViewModel:  
+A Model specifically built for a View. It contains the data for that View.
+
+
 Controller:
 Responsible for handing a HTTP request.  
 The methods of a Controller are called Actions.
@@ -25,6 +29,8 @@ Example:
 If a user requests http://vid.io/movies, a Controller will be selected to handle their request. The Controller will get all the movies from the database (Model), put them in a View, and return the View to the user's browser.
 
 #### Attribute Routing:
+Add ```routes.MapMvcAttributeRoutes();``` to RouteConfig.
+
 ```c#
 [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
 public ActionResult ByReleaseDate(int year, int month)
