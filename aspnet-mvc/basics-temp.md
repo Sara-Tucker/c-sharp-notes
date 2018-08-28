@@ -39,6 +39,17 @@ FileResult | File() | File
 HttpNotFoundResult | HttpNotFound() | 404
 EmptyResult | new EmptyResult() | Void
 
+#### Action Parameters
+Parameter Binding:  
+Request -> ASP.NET Framework -> Action
+
+When a request is made ASP.NET automatically passes request data as arguments to Action methods.
+
+Parameter Sources:
+- URL: /movies/edit/**1**
+- Query string: /movies/edit**?id=1**
+- Form data: **id=1**
+
 
 Router:  
 Selects the right Controller to handle a request. The Router knows that the request for http://vid.io/movies should be handled by the MoviesController class Controller, or more accurately, the request should be handled by a method of that class. The methods of a controller are called Actions. So techincally an Action (method) of the class will handle the request.
