@@ -47,7 +47,7 @@ When a request is made ASP.NET automatically passes request data as arguments to
 
 Parameter Sources:
 - URL: /movies/edit/**1**
-- Query string: /movies/edit**?id=1**
+- Query string: /movies/edit **?id=1**
 - Form data: **id=1**
 
 
