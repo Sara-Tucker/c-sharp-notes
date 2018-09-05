@@ -1,5 +1,7 @@
 # ASP.NET Core
 
+https://www.youtube.com/watch?v=y0iyLwBrmRE&list=PLrW43fNmjaQUBZv0OiliNY4fStb4Vj1u4
+
 Show/Hide console: ```Ctrl + ` ```  
 Create new project: ```dotnet new angular```  
 Start server: ```dotnet run```  
