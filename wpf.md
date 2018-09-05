@@ -71,3 +71,11 @@ If your application has a window that shouldn't be activated when shown, you can
 
 <br>
 
+## Controls
+Controls are common UI components such as Button, Label, TextBox, etc.  
+[List of Controls](https://docs.microsoft.com/en-us/visualstudio/designers/introduction-to-wpf?view=vs-2017#wpf-controls-by-function)
+
+<br>
+
+## Data binding
+https://docs.microsoft.com/en-us/dotnet/framework/wpf/data/data-binding-overview
