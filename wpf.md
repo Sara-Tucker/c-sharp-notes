@@ -1,4 +1,4 @@
-# C# Notes
+# WPF Notes
 
 **Links**:  
 ```
