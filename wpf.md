@@ -13,7 +13,10 @@
 <br>
 
 ## Layout
-Two main container controls used for layout: StackPanel and Grid. StackPanel stack controls vertically or horizontally and automatically size them. For layouts other than a straight stack, like two columns, use a Grid.
+Two main container controls used for layout: StackPanel and Grid. StackPanel stack controls vertically or horizontally and automatically size controls so they use only the space that they need and no more. For layouts other than a straight stack, like two columns, use a Grid.
+
+Margin = Outside  
+Padding = Inside
 
 <br>
 <br>
