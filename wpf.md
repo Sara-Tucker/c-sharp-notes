@@ -1,6 +1,5 @@
 # WPF
 
-[WPF Overview](https://docs.microsoft.com/en-us/visualstudio/designers/introduction-to-wpf?view=vs-2017)  
 [Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
 
 <br>
