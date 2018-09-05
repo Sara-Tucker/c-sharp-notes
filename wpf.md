@@ -12,6 +12,12 @@
 <br>
 <br>
 
+## Layout
+Two main container controls used for layout: StackPanel and Grid. StackPanel stack controls vertically or horizontally and automatically size them. For layouts other than a straight stack, like two rows, use a Grid.
+
+<br>
+<br>
+
 ## Open a Window
 The first Window that is opened is the apps main window. The Startup event handler opens the main window.
 ```XAML
