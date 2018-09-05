@@ -18,4 +18,4 @@
 <br>
 
 **[ASP.NET MVC](https://github.com/SethTucker/c-sharp-notes/blob/master/aspnet-mvc/aspnet-mvc.md)**  
-**[WPF](https://github.com/SethTucker/c-sharp-notes/blob/master/aspnet-mvc/aspnet-mvc.md)**
+**[WPF](https://github.com/SethTucker/c-sharp-notes/blob/master/wpf.md)**
