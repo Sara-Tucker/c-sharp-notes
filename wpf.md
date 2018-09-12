@@ -13,7 +13,32 @@
 <br>
 
 ## Layout
-Two main container controls used for layout: StackPanel and Grid. StackPanel stack controls vertically or horizontally and automatically size controls so they use only the space that they need and no more. For layouts other than a straight stack, like two columns, use a Grid.
+```c#
+	<Border Padding ="10">
+		<StackPanel>
+
+			<!-- Buttons -->
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="2*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button x:Name="ApplyButton" Click="ApplyButton_OnClick" Margin="0 0 10 0" Grid.Column="0" Content="Apply"/>
+				<Button x:Name="ResetButton" Click="ResetButton_OnClick" Grid.Column="1" Content="Reset"/>
+				<Button Margin="10 0 0 0" Grid.Column="2" Content="Refresh"/>
+			</Grid>
+
+
+
+			<!-- Part Properties -->
+			<TextBlock Text="Part Properties" FontWeight="Bold" Margin="0 10"/>
+
+			<TextBlock Text="Description"/>
+			<TextBox x:Name="DescriptionText" Padding="2"/>
+```
+Put everything inside a border with padding. Two main container controls used for layout: StackPanel and Grid. StackPanel stack controls vertically or horizontally and automatically size controls so they use only the space that they need and no more. For layouts other than a straight stack, like two columns, use a Grid.
 
 Margin = Outside  
 Padding = Inside
