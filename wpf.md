@@ -82,10 +82,11 @@ If your application has a window that shouldn't be activated when shown, you can
 ## Controls
 Controls are common UI components such as Button, Label, TextBox, etc.  
 [List of Controls](https://docs.microsoft.com/en-us/visualstudio/designers/introduction-to-wpf?view=vs-2017#wpf-controls-by-function)
+
+Sender is the object that called the function.
 ```c#
 void Control_Event(object sender, RoutedEventArgs e)
 {
-    // Sender is the object that called the function
     this.Control.Property = ((ControlType)sender).Property;
 }
 ```
