@@ -15,6 +15,13 @@ A particular event feature that is fundamental to WPF is a routed event. Routed 
 <br>
 <br>
 
+#### Naming "elements"
+- Use the `Name=""` property
+- If you cannot find a Name property use `x:Name=""` instead
+
+<br>
+<br>
+
 [Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
 
 <br>
