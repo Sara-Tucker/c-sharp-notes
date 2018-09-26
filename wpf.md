@@ -1,5 +1,20 @@
 # WPF
 
+XAML is a markup language. You can create visible UI elements in the declarative XAML markup, and then separate the UI definition from the run-time logic by using code-behind files, joined to the markup through partial class definitions. XAML directly represents the instantiation of objects.
+
+When you specify an object element tag, you create a new instance of that class. `<ObjectElement/>`
+
+The location of the XAML code-behind file for a XAML file is identified by specifying a namespace and class as the x:Class attribute of the root element of the XAML.
+
+<br>
+<br>
+
+#### Routed events
+A particular event feature that is fundamental to WPF is a routed event. Routed events enable an element to handle an event that was raised by a different element, as long as the elements are connected through a tree relationship.
+
+<br>
+<br>
+
 [Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
 
 <br>
