@@ -34,11 +34,38 @@ A particular event feature that is fundamental to WPF is a routed event. Routed 
 <br>
 <br>
 
-## Layout
-```c#
+Margin = Outside  
+Padding = Inside
+
+#### Border
+Put everything inside a border with padding.
+```xaml
+<Border Padding ="10">
+
+<Border/>
+```
+
+<br>
+
+There are two main container controls used for layout: StackPanel and Grid.
+
+#### Stack Panel
+Arranges child elements vertically or horizontally into a single straight stack and automatically sizes controls so they use only the space that they need and no more.
+```xaml
 <Border Padding ="10">
     <StackPanel>
 
+    <StackPanel/>
+<Border/>
+```
+
+<br>
+
+#### Grid
+For layouts other than a straight stack, like two columns, use a Grid. Grids use ColumnDefinition and RowDefinition classes to define columns and rows. Then use the Grid.Column="#" and Grid.Row="#" properties for the child elements.
+```xaml
+<Border Padding ="10">
+    <StackPanel>
         <!-- Buttons -->
         <Grid>
             <Grid.ColumnDefinitions>
@@ -52,17 +79,33 @@ A particular event feature that is fundamental to WPF is a routed event. Routed 
             <Button Margin="10 0 0 0" Grid.Column="2" Content="Refresh"/>
         </Grid>
 
-
         <!-- Part Properties -->
         <TextBlock Text="Part Properties" FontWeight="Bold" Margin="0 10"/>
         <TextBlock Text="Description"/>
         <TextBox x:Name="DescriptionText" Padding="2"/>
+    <StackPanel/>
+<Border/>
 ```
-Put everything inside a border with padding. Two main container controls used for layout: StackPanel and Grid. StackPanel stack controls vertically or horizontally and automatically size controls so they use only the space that they need and no more. For layouts other than a straight stack, like two columns, use a Grid.
 
-Margin = Outside  
-Padding = Inside
+<br>
 
+#### TextBlock
+Use for text.
+```xaml
+<TextBlock Text="Part Properties" FontWeight="Bold" Margin="0 10"/>
+<TextBlock Text="Description"/>
+<TextBox x:Name="DescriptionText" Padding="2"/>
+```
+
+<br>
+
+#### TextBox
+Use for input.
+```xaml
+<TextBox x:Name="DescriptionText" Padding="2"/>
+```
+
+<br>
 <br>
 <br>
 
