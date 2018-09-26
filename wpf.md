@@ -13,13 +13,11 @@ The location of the XAML code-behind file for a XAML file is identified by speci
 A particular event feature that is fundamental to WPF is a routed event. Routed events enable an element to handle an event that was raised by a different element, as long as the elements are connected through a tree relationship.
 
 <br>
-<br>
 
 #### Naming "elements"
 - Use the `Name=""` property
 - If you cannot find a Name property use `x:Name=""` instead
 
-<br>
 <br>
 
 [Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
@@ -33,9 +31,13 @@ A particular event feature that is fundamental to WPF is a routed event. Routed 
 
 <br>
 <br>
+<br>
+<br>
 
 Margin = Outside  
 Padding = Inside
+
+<br>
 
 #### Border
 Put everything inside a border with padding.
@@ -48,6 +50,8 @@ Put everything inside a border with padding.
 <br>
 
 There are two main container controls used for layout: StackPanel and Grid.
+
+<br>
 
 #### Stack Panel
 Arranges child elements vertically or horizontally into a single straight stack and automatically sizes controls so they use only the space that they need and no more.
@@ -78,11 +82,6 @@ For layouts other than a straight stack, like two columns, use a Grid. Grids use
             <Button x:Name="ResetButton" Click="ResetButton_OnClick" Grid.Column="1" Content="Reset"/>
             <Button Margin="10 0 0 0" Grid.Column="2" Content="Refresh"/>
         </Grid>
-
-        <!-- Part Properties -->
-        <TextBlock Text="Part Properties" FontWeight="Bold" Margin="0 10"/>
-        <TextBlock Text="Description"/>
-        <TextBox x:Name="DescriptionText" Padding="2"/>
     <StackPanel/>
 <Border/>
 ```
