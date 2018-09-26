@@ -88,20 +88,13 @@ For layouts other than a straight stack, like two columns, use a Grid. Grids use
 
 <br>
 
-#### TextBlock
-Use for text.
+#### Other
 ```xaml
+<!-- TextBlock - Use for text. -->
 <TextBlock Text="Part Properties" FontWeight="Bold" Margin="0 10"/>
-<TextBlock Text="Description"/>
-<TextBox x:Name="DescriptionText" Padding="2"/>
-```
 
-<br>
-
-#### TextBox
-Use for input.
-```xaml
-<TextBox x:Name="DescriptionText" Padding="2"/>
+<!-- TextBox - Use for input. -->
+<TextBox x:Name="InputText" Padding="2"/>
 ```
 
 <br>
