@@ -1,3 +1,20 @@
+# MVVM
+
+- View is not connected and knows nothing about the Model or ViewModel
+- ViewModel is not connected and knows nothing about the View
+- The way the View and ViewModel talk to each other is DataBinding with XAML
+
+#### ViewModel
+Program logic.
+
+#### Instructions
+1. Create new project, create Models, Views, ViewModels folders
+
+<br>
+<br>
+<br>
+<br>
+
 # WPF
 
 [Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
