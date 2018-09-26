@@ -1,5 +1,16 @@
 # WPF
 
+[Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
+
+<br>
+
+[Designer vs Blend](https://docs.microsoft.com/en-us/visualstudio/designers/designing-xaml-in-visual-studio?view=vs-2017)  
+[XAML Overview](https://docs.microsoft.com/en-us/dotnet/framework/wpf/advanced/xaml-overview-wpf)  
+[DataGrid (and use from SQL server)](https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/datagrid#related-topics)  
+[WPF with EF](https://docs.microsoft.com/en-us/visualstudio/data-tools/create-a-simple-data-application-with-wpf-and-entity-framework-6?view=vs-2017)
+
+<br>
+
 XAML is a markup language. You can create visible UI elements in the declarative XAML markup, and then separate the UI definition from the run-time logic by using code-behind files, joined to the markup through partial class definitions. XAML directly represents the instantiation of objects.
 
 When you specify an object element tag, you create a new instance of that class. `<ObjectElement/>`
@@ -17,17 +28,6 @@ A particular event feature that is fundamental to WPF is a routed event. Routed 
 #### Naming "elements"
 - Use the `Name=""` property
 - If you cannot find a Name property use `x:Name=""` instead
-
-<br>
-
-[Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
-
-<br>
-
-[Designer vs Blend](https://docs.microsoft.com/en-us/visualstudio/designers/designing-xaml-in-visual-studio?view=vs-2017)  
-[XAML Overview](https://docs.microsoft.com/en-us/dotnet/framework/wpf/advanced/xaml-overview-wpf)  
-[DataGrid (and use from SQL server)](https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/datagrid#related-topics)  
-[WPF with EF](https://docs.microsoft.com/en-us/visualstudio/data-tools/create-a-simple-data-application-with-wpf-and-entity-framework-6?view=vs-2017)
 
 <br>
 <br>
@@ -90,10 +90,10 @@ For layouts other than a straight stack, like two columns, use a Grid. Grids use
 
 #### Other
 ```xaml
-<!-- TextBlock - Use for text. -->
+<!-- TextBlock: Use for text. -->
 <TextBlock Text="Part Properties" FontWeight="Bold" Margin="0 10"/>
 
-<!-- TextBox - Use for input. -->
+<!-- TextBox: Use for input. -->
 <TextBox x:Name="InputText" Padding="2"/>
 ```
 
