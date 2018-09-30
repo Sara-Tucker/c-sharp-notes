@@ -17,7 +17,7 @@ public App()
 ```
 
 App.xaml
-```c#
+```xaml
 // Remove StartupUri
 
     <Application.Resources>
@@ -34,18 +34,30 @@ App.xaml
 
 Bootstrapper.cs
 ```c#
-	public class Bootstrapper : BootstrapperBase
-	{
-		public Bootstrapper()
-		{
-			Initialize();
-		}
+using Namespace.ViewModels;
 
-		protected override void OnStartup(object sender, StartupEventArgs e)
-		{
-			DisplayRootViewFor<MyViewModel>();
-		}
-	}
+    public class Bootstrapper : BootstrapperBase
+    {
+        public Bootstrapper()
+        {
+            Initialize();
+        }
+
+        // Overriding the OnStartup method from BootstrapperBase
+        protected override void OnStartup(object sender, StartupEventArgs e)
+        {
+            // The startup View for the app will be the View for the specified ViewModel
+            DisplayRootViewFor<ShellViewModel>();
+        }
+    }
+```
+
+make your startup viewmodel
+```c#
+// Inherit from Screen class which gives more control for opening/closing app
+public class ShellViewModel : Screen
+{
+}
 ```
 
 <br>
