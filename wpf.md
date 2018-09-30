@@ -78,6 +78,12 @@ Use BindableCollection<> instead of List<>
 Mode:
 OneWayToSource - data goes from the form to the property
 
+Inherit from Screen if only one page, Inherit from Conductor<object> if multiple.
+
+screen = only one page
+
+Conductor = only one child page
+
 <br>
 <br>
 <br>
