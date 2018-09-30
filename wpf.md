@@ -1,3 +1,38 @@
+# Caliburn.Micro
+#### Instructions
+1. Create new project, create Models, Views, ViewModels folders
+
+App.xaml.cs
+```
+public App()
+{
+    InitializeComponent();
+}
+```
+
+App.xaml
+```
+// Remove StartupUri
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary>
+					<local:Bootstrapper x:Key="Bootstrapper" />
+				</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>
+```
+
+delete default window
+add folders
+
+<br>
+<br>
+<br>
+<br>
+
 # MVVM
 
 - ViewModel = Program logic
