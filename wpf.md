@@ -65,6 +65,19 @@ Associating Properties with Controls:
 prop name == x:Name of control
 ```
 
+NotifyOfPropertyChange:
+```c#
+set
+{
+    NotifyOfPropertyChange(() => Property/ControlName)
+}
+```
+
+Use BindableCollection<> instead of List<>
+
+Mode:
+OneWayToSource - data goes from the form to the property
+
 <br>
 <br>
 <br>
