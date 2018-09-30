@@ -1,6 +1,9 @@
 # Caliburn.Micro
 #### Instructions
 1. Create new project, create Models, Views, ViewModels folders
+delete default window
+add folders
+
 
 App.xaml.cs
 ```
@@ -13,20 +16,18 @@ public App()
 App.xaml
 ```
 // Remove StartupUri
-	<Application.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary>
-					<local:Bootstrapper x:Key="Bootstrapper" />
-				</ResourceDictionary>
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</Application.Resources>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:Bootstrapper x:Key="Bootstrapper" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
 ```
-
-delete default window
-add folders
 
 <br>
 <br>
