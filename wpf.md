@@ -1,12 +1,15 @@
 # Caliburn.Micro
 #### Instructions
-1. Create new project, create Models, Views, ViewModels folders
-delete default window
-add folders
+1. Delete MainWindow  
+2. Create folders: Models, Views, ViewModels
 
+- app starts at App.xaml
+- App.xaml uses Bootstrapper for startup
 
-App.xaml.cs
-```
+<br>
+
+App.xaml.cs - need this???
+```c#
 public App()
 {
     InitializeComponent();
@@ -14,7 +17,7 @@ public App()
 ```
 
 App.xaml
-```
+```c#
 // Remove StartupUri
 
     <Application.Resources>
@@ -27,6 +30,22 @@ App.xaml
         </ResourceDictionary>
     </Application.Resources>
 </Application>
+```
+
+Bootstrapper.cs
+```c#
+	public class Bootstrapper : BootstrapperBase
+	{
+		public Bootstrapper()
+		{
+			Initialize();
+		}
+
+		protected override void OnStartup(object sender, StartupEventArgs e)
+		{
+			DisplayRootViewFor<MyViewModel>();
+		}
+	}
 ```
 
 <br>
