@@ -52,12 +52,17 @@ using Namespace.ViewModels;
     }
 ```
 
-make your startup viewmodel
+make your startup viewmodel and View
 ```c#
 // Inherit from Screen class which gives more control for opening/closing app
 public class ShellViewModel : Screen
 {
 }
+```
+
+Associating Properties with Controls:
+```
+prop name == x:Name of control
 ```
 
 <br>
