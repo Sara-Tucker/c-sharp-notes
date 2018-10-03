@@ -4,13 +4,9 @@
 #### Project -> Quick Install Package -> 'n':  
 ```Caliburn.Micro -Version 4.0.0-alpha.1```
 
-<br>
-
 #### Solution Explorer:
 Delete MainWindow.  
 Create folders: Models, Views, ViewModels
-
-<br>
 
 #### App.xaml.cs - need this??? don't do unless error.
 ```c#
@@ -19,9 +15,6 @@ public App()
     InitializeComponent();
 }
 ```
-
-<br>
-
 
 #### App.xaml
 ```xaml
@@ -65,13 +58,15 @@ using Namespace.ViewModels;
 
 <br>
 
-#### Create your startup ViewModel and View
+#### Create your startup ViewModel and View - inherit from PropertyChangedBase??
 ```c#
 // Inherit from Screen class which gives more control for opening/closing app
 public class ShellViewModel : Screen
 {
 }
 ```
+
+---
 
 <br>
 <br>
@@ -125,6 +120,8 @@ Explicit
 ```xaml
 <TextBox Text="{Binding Path=FirstName, Mode=TwoWay}" />
 ```
+
+---
 
 <br>
 <br>
