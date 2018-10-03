@@ -129,6 +129,36 @@ $this
 
 <br>
 
+#### Apply methods between your View and ViewModel automatically with parameters and guard methods
+```xaml
+<StackPanel>
+    <TextBox x:Name="Username" />
+    <PasswordBox x:Name="Password" />
+    <Button x:Name="Login" Content="Log in" />
+</StackPanel>
+```
+```c#
+public bool CanLogin(string username, string password)
+{
+    return !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password);
+}
+
+public string Login(string username, string password)
+{
+    ...
+}
+```
+
+<br>
+
+#### Action Messages
+The Action mechanism allows you to “bind” UI triggers, such as a Button’s “Click” event, to methods on your View-Model. The mechanism allows for passing parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger. When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method. This is why we call them messages. The “bubbling” nature of Action Messages is extremely powerful and very helpful especially in master/detail scenarios. In addition to invocation, the mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
+
+<br>
+
+#### Action Conventions
+Out of the box, we support a set of binding conventions around the ActionMessage feature. These conventions are based on x:Name. So, if you have a method called “Save” on your ViewModel and a Button named “Save” in your UI, we will automatically create an EventTrigger for the “Click” event and assign an ActionMessage for the “Save” method. Furthermore, we will inspect the method’s signature and properly construct the ActionMessage parameters.
+
 ---
 
 <br>
@@ -159,28 +189,6 @@ Conductor = only one child page
 <br>
 <br>
 
-#### Apply methods between your View and ViewModel automatically with parameters and guard methods
-```xaml
-<StackPanel>
-    <TextBox x:Name="Username" />
-    <PasswordBox x:Name="Password" />
-    <Button x:Name="Login" Content="Log in" />
-</StackPanel>
-```
-```c#
-public bool CanLogin(string username, string password)
-{
-    return !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password);
-}
-
-public string Login(string username, string password)
-{
-    ...
-}
-```
-
-<br>
-
 #### Decouple ViewModels with built in composition patterns and event aggregation
 ```c#
 public class DocumentTabsViewModel : Conductor<TabViewModel>.Collection.OneActive
@@ -193,16 +201,6 @@ public class CartSummaryViewModel : IHandle<CartChangedMessage>
 	...
 }
 ```
-
-<br>
-
-#### Action Messages
-The Action mechanism allows you to “bind” UI triggers, such as a Button’s “Click” event, to methods on your View-Model. The mechanism allows for passing parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger. When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method. This is why we call them messages. The “bubbling” nature of Action Messages is extremely powerful and very helpful especially in master/detail scenarios. In addition to invocation, the mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
-
-<br>
-
-#### Action Conventions
-Out of the box, we support a set of binding conventions around the ActionMessage feature. These conventions are based on x:Name. So, if you have a method called “Save” on your ViewModel and a Button named “Save” in your UI, we will automatically create an EventTrigger for the “Click” event and assign an ActionMessage for the “Save” method. Furthermore, we will inspect the method’s signature and properly construct the ActionMessage parameters.
 
 <br>
 
