@@ -1,17 +1,18 @@
 # Caliburn.Micro
 
 ## Setup
-Project -> Quick Install Package -> 'n':  
+#### Project -> Quick Install Package -> 'n':  
 ```Caliburn.Micro -Version 4.0.0-alpha.1```
 
 <br>
 
+#### Solution Explorer:
 Delete MainWindow.  
 Create folders: Models, Views, ViewModels
 
 <br>
 
-App.xaml.cs - need this??? don't do unless error.
+#### App.xaml.cs - need this??? don't do unless error.
 ```c#
 public App()
 {
@@ -21,11 +22,11 @@ public App()
 
 <br>
 
-The app starts at App.xaml, App.xaml uses Bootstrapper for startup.
 
-App.xaml
+#### App.xaml
 ```xaml
-// Remove StartupUri
+The app starts at App.xaml, App.xaml uses Bootstrapper for startup.
+Remove StartupUri
 
     <Application.Resources>
         <ResourceDictionary>
@@ -41,9 +42,10 @@ App.xaml
 
 <br>
 
-Bootstrapper.cs
+#### Bootstrapper.cs
 ```c#
 using Namespace.ViewModels;
+
 
     public class Bootstrapper : BootstrapperBase
     {
@@ -61,13 +63,19 @@ using Namespace.ViewModels;
     }
 ```
 
-make your startup viewmodel and View
+<br>
+
+#### Create your startup ViewModel and View
 ```c#
 // Inherit from Screen class which gives more control for opening/closing app
 public class ShellViewModel : Screen
 {
 }
 ```
+
+<br>
+<br>
+<br>
 
 Associating Properties with Controls:
 ```
