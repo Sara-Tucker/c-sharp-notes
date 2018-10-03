@@ -76,60 +76,17 @@ public class ShellViewModel : Screen
 <br>
 <br>
 
-## View Locator and View Model Locator
-For every ViewModel in your application, Caliburn.Micro has a basic strategy for locating the View that should render it. We do this based on naming conventions. For example, if your VM is called MyApplication.ViewModels.ShellViewModel, we will look for MyApplication.Views.ShellView. Additionally, we support multiple views over the same View-Model by attaching a View.Context in Xaml. So, given the same model as above, but with a View.Context=”Master” we would search for MyApplication.Views.Shell.Master. Of course, all this is customizable.
-
-Though Caliburn.Micro favors the ViewModel-First approach, we also support View-First by providing a ViewModelLocator with the same mapping semantics as the ViewLocator.
-
----
-
-<br>
-<br>
-<br>
-
 ## Databinding
-This is automatically binding dependency properties on controls to properties on the ViewModel.
-
-Convention
+Automatically bind ViewModel properties to properties on controls with naming convention.
 ```xaml
 <TextBox x:Name="FirstName" />
 ```
-Will cause the “Text” property of the TextBox to be bound to the “FirstName” property on the ViewModel.
+This will cause the “Text” property of the TextBox to be bound to the “FirstName” property on the ViewModel.
 
-Explicit
+Explicit:
 ```xaml
 <TextBox Text="{Binding Path=FirstName, Mode=TwoWay}" />
 ```
-
-<br>
-
-#### Bind ViewModel properties to your View with naming convention
-```xaml
-<ListBox x:Name="Products" />
-```
-```c#
-public BindableCollection<ProductViewModel> Products
-{
-    get; private set; 
-}
-
-public ProductViewModel SelectedProduct
-{
-    get { return _selectedProduct; }
-    set
-    {
-        _selectedProduct = value;
-        NotifyOfPropertyChange(() => SelectedProduct);
-    }
-}
-```
-
-<br>
-
-#### Binding Conventions
-We also support convention-based databinding. This too works with x:Name. If you have a property on your ViewModel with the same name as an element, we will attempt to databind them. Whereas the framework understands convention events for Actions, it additionally understands convention binding properties (which you can customize or extend). When a binding name match occurs, we then proceed through several steps to build up the binding (all of which are customizable), configuring such details as BindingMode, StringFormat, ValueConverter, Validation and UpdateSourceTrigger (works for SL TextBox and PasswordBox too).
-
-<br>
 
 ---
 
