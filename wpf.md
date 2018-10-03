@@ -1,20 +1,27 @@
 # Caliburn.Micro
-#### Instructions
-1. Delete MainWindow  
-2. Create folders: Models, Views, ViewModels
 
-- app starts at App.xaml
-- App.xaml uses Bootstrapper for startup
+## Setup
+Project -> Quick Install Package -> 'n':  
+```Caliburn.Micro -Version 4.0.0-alpha.1```
 
 <br>
 
-App.xaml.cs - need this???
+Delete MainWindow.  
+Create folders: Models, Views, ViewModels
+
+<br>
+
+App.xaml.cs - need this??? don't do unless error.
 ```c#
 public App()
 {
     InitializeComponent();
 }
 ```
+
+<br>
+
+The app starts at App.xaml, App.xaml uses Bootstrapper for startup.
 
 App.xaml
 ```xaml
@@ -31,6 +38,8 @@ App.xaml
     </Application.Resources>
 </Application>
 ```
+
+<br>
 
 Bootstrapper.cs
 ```c#
@@ -83,6 +92,97 @@ Inherit from Screen if only one page, Inherit from Conductor<object> if multiple
 screen = only one page
 
 Conductor = only one child page
+
+<br>
+<br>
+<br>
+<br>
+
+#### Bind ViewModel properties to your View with naming convention
+```xaml
+<ListBox x:Name="Products" />
+```
+```c#
+public BindableCollection<ProductViewModel> Products
+{
+    get; private set; 
+}
+
+public ProductViewModel SelectedProduct
+{
+    get { return _selectedProduct; }
+    set
+    {
+        _selectedProduct = value;
+        NotifyOfPropertyChange(() => SelectedProduct);
+    }
+}
+```
+
+<br>
+
+#### Apply methods between your View and ViewModel automatically with parameters and guard methods
+```xaml
+<StackPanel>
+    <TextBox x:Name="Username" />
+    <PasswordBox x:Name="Password" />
+    <Button x:Name="Login" Content="Log in" />
+</StackPanel>
+```
+```c#
+public bool CanLogin(string username, string password)
+{
+    return !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password);
+}
+
+public string Login(string username, string password)
+{
+    ...
+}
+```
+
+<br>
+
+#### Decouple ViewModels with built in composition patterns and event aggregation
+```c#
+public class DocumentTabsViewModel : Conductor<TabViewModel>.Collection.OneActive
+{
+	...
+}
+
+public class CartSummaryViewModel : IHandle<CartChangedMessage>
+{
+	...
+}
+```
+
+<br>
+
+#### Action Messages
+The Action mechanism allows you to “bind” UI triggers, such as a Button’s “Click” event, to methods on your View-Model. The mechanism allows for passing parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger. When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method. This is why we call them messages. The “bubbling” nature of Action Messages is extremely powerful and very helpful especially in master/detail scenarios. In addition to invocation, the mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
+
+<br>
+
+#### Action Conventions
+Out of the box, we support a set of binding conventions around the ActionMessage feature. These conventions are based on x:Name. So, if you have a method called “Save” on your ViewModel and a Button named “Save” in your UI, we will automatically create an EventTrigger for the “Click” event and assign an ActionMessage for the “Save” method. Furthermore, we will inspect the method’s signature and properly construct the ActionMessage parameters.
+
+<br>
+
+#### Binding Conventions
+We also support convention-based databinding. This too works with x:Name. If you have a property on your ViewModel with the same name as an element, we will attempt to databind them. Whereas the framework understands convention events for Actions, it additionally understands convention binding properties (which you can customize or extend). When a binding name match occurs, we then proceed through several steps to build up the binding (all of which are customizable), configuring such details as BindingMode, StringFormat, ValueConverter, Validation and UpdateSourceTrigger (works for SL TextBox and PasswordBox too).
+
+<br>
+
+#### View Locator and View Model Locator
+For every ViewModel in your application, Caliburn.Micro has a basic strategy for locating the View that should render it. We do this based on naming conventions. For example, if your VM is called MyApplication.ViewModels.ShellViewModel, we will look for MyApplication.Views.ShellView. Additionally, we support multiple views over the same View-Model by attaching a View.Context in Xaml. So, given the same model as above, but with a View.Context=”Master” we would search for MyApplication.Views.Shell.Master. Of course, all this is customizable.
+
+Though Caliburn.Micro favors the ViewModel-First approach, we also support View-First by providing a ViewModelLocator with the same mapping semantics as the ViewLocator.
+
+
+<br>
+
+#### PropertyChangedBase and BindableCollection
+What self respecting WPF/SL framework could go without a base implementation of INotifyPropertyChanged? The Caliburn.Micro implementation enables string and lambda-based change notification. It also ensures that all events are raised on the UI thread. BindableCollection is a simple collection that inherits from ObservableCollection, but that ensures that all its events are raised on the UI thread as well.
 
 <br>
 <br>
