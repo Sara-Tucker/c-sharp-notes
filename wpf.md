@@ -151,6 +151,13 @@ public string Login(string username, string password)
 
 <br>
 
+#### Event guards
+Event guards are used to only allow the handling of an event if a certain condition is met. To demonstrate this we will prevent the user from pressing the button more than 10 times. Add a new property to ShellViewModel called CanChangeMessage and also add a new NotifyOfPropertyChange to the Message setter.
+
+Every time Caliburn Micro hooks up an event is also looks for a boolean property with the same name plus the word Can before it. It then uses the result of that property to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
+
+<br>
+
 #### Action Messages
 The Action mechanism allows you to “bind” UI triggers, such as a Button’s “Click” event, to methods on your View-Model. The mechanism allows for passing parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger. When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method. This is why we call them messages. The “bubbling” nature of Action Messages is extremely powerful and very helpful especially in master/detail scenarios. In addition to invocation, the mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
 
@@ -172,6 +179,14 @@ set
     NotifyOfPropertyChange(() => Property/ControlName)
 }
 ```
+Rather than implementing INotifyPropertyChanged in all of your models, you can simply call the NotifyOfPropertyChange method within the setter of your properties.
+
+Traditional way:
+```xaml
+<TextBlock Text="{Binding PROPERTYNAME}" />
+```
+
+<br>
 
 Use BindableCollection<> instead of List<>
 
