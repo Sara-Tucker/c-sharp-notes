@@ -94,6 +94,15 @@ Explicit:
 <br>
 <br>
 
+## Actions
+You can use anything that inherits from System.Windows.Interactivity.TriggerBase to trigger the sending of an ActionMessage. Perhaps the most common trigger is an EventTrigger, but you can create almost any kind of trigger imaginable or leverage some common triggers already created by the community.
+
+#### ActionTrigger
+It indicates that when the trigger occurs, we should send a message of “SayHello.” So, why do I use the language “send a message” instead of “execute a method” when describing this functionality? ActionMessage bubbles through the Visual Tree searching for a target instance that can handle it. If a target is found, but does not have a “SayHello” method, the framework will continue to bubble until it finds one, throwing an exception if no “handler” is found.2 This bubbling nature of ActionMessage comes in handy in a number of interesting scenarios, Master/Details being a key use case. 
+
+#### Action guard
+When a handler is found for the “SayHello” message, it will check to see if that class also has either a property or a method named “CanSayHello.” If you have a guard property and your class implements INotifyPropertyChanged, then the framework will observe changes in that property and re-evaluate the guard accordingly.
+
 #### Wiring Events
 This is automatically wiring events on controls to call methods on the ViewModel.
 ```xaml
@@ -208,6 +217,63 @@ The Action mechanism allows you to “bind” UI triggers, such as a Button’s 
 
 #### Action Conventions
 Out of the box, we support a set of binding conventions around the ActionMessage feature. These conventions are based on x:Name. So, if you have a method called “Save” on your ViewModel and a Button named “Save” in your UI, we will automatically create an EventTrigger for the “Click” event and assign an ActionMessage for the “Save” method. Furthermore, we will inspect the method’s signature and properly construct the ActionMessage parameters.
+
+Example
+```c#
+public class ShellViewModel : IShell
+{
+    public BindableCollection<Model> Items { get; private set; }
+
+    public ShellViewModel()
+    {
+        Items = new BindableCollection<Model>{
+            new Model { Id = Guid.NewGuid() },
+            new Model { Id = Guid.NewGuid() },
+            new Model { Id = Guid.NewGuid() },
+            new Model { Id = Guid.NewGuid() }
+        };
+    }
+
+    public void Add()
+    {
+        Items.Add(new Model { Id = Guid.NewGuid() });
+    }
+
+    public void Remove(Model child)
+    {
+        Items.Remove(child);
+    }
+}
+```
+```xaml
+    <StackPanel>
+        <ItemsControl x:Name="Items">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Remove" cal:Message.Attach="Remove($dataContext)" />
+                        <TextBlock Text="{Binding Id}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button Content="Add" cal:Message.Attach="Add" />
+    </StackPanel>
+```
+
+Message.Attach
+
+The first thing to notice is that we are using a more Xaml-developer-friendly mechanism for declaring our ActionMessages. The Message.Attach property is backed by a simple parser which takes its textual input and transforms it into the full Interaction.Trigger/ActionMessage that you’ve seen previously. If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach. Notice that neither Message.Attach declarations specify which event should send the message. If you leave off the event, the parser will use the ConventionManager to determine the default event to use for the trigger. In the case of Button, it’s Click. You can always be explicit of coarse. Here’s what the full syntax for our Remove message would look like if we were declaring everything:
+
+<Button Content="Remove" cal:Message.Attach="[Event Click] = [Action Remove($dataContext)]" />
+
+Suppose we were to re-write our parameterized SayHello action with the Message.Attach syntax. It would look like this:
+
+<Button Content="Click Me" cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
+
+But we could also leverage some smart defaults of the parser and do it like this:
+
+<Button Content="Click Me" cal:Message.Attach="SayHello(Name)" />
 
 ---
 
