@@ -98,18 +98,19 @@ Explicit:
 You can use anything that inherits from System.Windows.Interactivity.TriggerBase to trigger the sending of an ActionMessage. Perhaps the most common trigger is an EventTrigger, but you can create almost any kind of trigger imaginable or leverage some common triggers already created by the community.
 
 #### ActionTrigger
-It indicates that when the trigger occurs, we should send a message of “SayHello.” So, why do I use the language “send a message” instead of “execute a method” when describing this functionality? ActionMessage bubbles through the Visual Tree searching for a target instance that can handle it. If a target is found, but does not have a “SayHello” method, the framework will continue to bubble until it finds one, throwing an exception if no “handler” is found.2 This bubbling nature of ActionMessage comes in handy in a number of interesting scenarios, Master/Details being a key use case. 
+When an ActionTrigger occurs, it executes the specified method by creating an ActionMessage.
 
 #### Action guard
 When a handler is found for the “SayHello” message, it will check to see if that class also has either a property or a method named “CanSayHello.” If you have a guard property and your class implements INotifyPropertyChanged, then the framework will observe changes in that property and re-evaluate the guard accordingly.
 
 #### Wiring Events
-This is automatically wiring events on controls to call methods on the ViewModel.
+To wire events on controls to call methods on the ViewModel, give them the same name.
 ```xaml
 <Button x:Name="Save">
 ```
 This will cause the Click event of the Button to call “Save” method on the ViewModel.
 
+<br>
 
 Different events can be used like this:
 ```xaml
@@ -120,21 +121,16 @@ Different parameters can be passed to the method like this:
 ```xaml
 <Button cal:Message.Attach="[Event MouseEnter] = [Action Save($this)]"> 
 ```
-
-$eventArgs
-- Passes the EventArgs or input parameter to your Action. Note: This will be null for guard methods since the trigger hasn’t actually occurred.
-
-$dataContext
-- Passes the DataContext of the element that the ActionMessage is attached to. This is very useful in Master/Detail scenarios where the ActionMessage may bubble to a parent VM but needs to carry with it the child instance to be acted upon.
-
-$source
-- The actual FrameworkElement that triggered the ActionMessage to be sent.
-
-$view
-- The view (usually a UserControl or Window) that is bound to the ViewModel.
-
-$this
-- The actual UI element to which the action is attached. In this case, the element itself won't be passed as a parameter, but rather its default property.
+- $eventArgs
+  - Passes the EventArgs or input parameter to your Action. Note: This will be null for guard methods since the trigger hasn’t actually occurred.
+- $dataContext
+  - Passes the DataContext of the element that the ActionMessage is attached to. This is very useful in Master/Detail scenarios where the ActionMessage may bubble to a parent VM but needs to carry with it the child instance to be acted upon.
+- $source
+  - The actual FrameworkElement that triggered the ActionMessage to be sent.
+- $view
+  - The view (usually a UserControl or Window) that is bound to the ViewModel.
+- $this
+  - The actual UI element to which the action is attached. In this case, the element itself won't be passed as a parameter, but rather its default property.
 
 <br>
 
