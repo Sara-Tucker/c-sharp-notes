@@ -100,8 +100,45 @@ Explicit:
 <br>
 <br>
 
+#### Event guards
+Event guards are used to only allow the handling of an event if a certain condition is met. To demonstrate this we will prevent the user from pressing the button more than 10 times. Add a new property to ShellViewModel called CanChangeMessage and also add a new NotifyOfPropertyChange to the Message setter.
+
+Every time Caliburn Micro hooks up an event is also looks for a boolean property with the same name plus the word Can before it. It then uses the result of that property to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
+
+The mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
+
+#### Action guard
+When a handler is found for the “SayHello” message, it will check to see if that class also has either a property or a method named “CanSayHello.” If you have a guard property and your class implements INotifyPropertyChanged, then the framework will observe changes in that property and re-evaluate the guard accordingly.
+
+<br>
+
+#### Apply methods between your View and ViewModel automatically with parameters and guard methods
+```xaml
+<StackPanel>
+    <TextBox x:Name="Username" />
+    <PasswordBox x:Name="Password" />
+    <Button x:Name="Login" Content="Log in" />
+</StackPanel>
+```
+```c#
+public bool CanLogin(string username, string password)
+{
+    return !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password);
+}
+
+public string Login(string username, string password)
+{
+    ...
+}
+```
+
+<br>
+<br>
+<br>
+<br>
+
 #### Action Messages
-The Action mechanism allows you to “bind” UI triggers, such as a Button’s “Click” event, to methods on your View-Model. The mechanism allows for passing parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger. When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method. This is why we call them messages. The “bubbling” nature of Action Messages is extremely powerful and very helpful especially in master/detail scenarios. In addition to invocation, the mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
+You can also pass parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger. When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method. This is why we call them messages. The “bubbling” nature of Action Messages is extremely powerful and very helpful especially in master/detail scenarios.
 
 <br>
 
@@ -109,15 +146,13 @@ The Action mechanism allows you to “bind” UI triggers, such as a Button’s 
 Out of the box, we support a set of binding conventions around the ActionMessage feature. These conventions are based on x:Name. So, if you have a method called “Save” on your ViewModel and a Button named “Save” in your UI, we will automatically create an EventTrigger for the “Click” event and assign an ActionMessage for the “Save” method. Furthermore, we will inspect the method’s signature and properly construct the ActionMessage parameters.
 
 
-
 ## Actions
-You can use anything that inherits from System.Windows.Interactivity.TriggerBase to trigger the sending of an ActionMessage. Perhaps the most common trigger is an EventTrigger, but you can create almost any kind of trigger imaginable or leverage some common triggers already created by the community.
+EventTriggers trigger the sending of an ActionMessage.
+
+Actions allow you to “bind” UI triggers, such as a Button’s “Click” event, to methods on your View-Model.
 
 #### ActionTrigger
 When an ActionTrigger occurs, it executes the specified method by creating an ActionMessage.
-
-#### Action guard
-When a handler is found for the “SayHello” message, it will check to see if that class also has either a property or a method named “CanSayHello.” If you have a guard property and your class implements INotifyPropertyChanged, then the framework will observe changes in that property and re-evaluate the guard accordingly.
 
 #### Wiring Events
 To wire events on controls to call methods on the ViewModel, give them the same name.
@@ -191,35 +226,6 @@ To understand this convention more easily, lets try this out in the application.
 </UniformGrid>
 
 <br>
-<br>
-
-#### Apply methods between your View and ViewModel automatically with parameters and guard methods
-```xaml
-<StackPanel>
-    <TextBox x:Name="Username" />
-    <PasswordBox x:Name="Password" />
-    <Button x:Name="Login" Content="Log in" />
-</StackPanel>
-```
-```c#
-public bool CanLogin(string username, string password)
-{
-    return !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password);
-}
-
-public string Login(string username, string password)
-{
-    ...
-}
-```
-
-<br>
-
-#### Event guards
-Event guards are used to only allow the handling of an event if a certain condition is met. To demonstrate this we will prevent the user from pressing the button more than 10 times. Add a new property to ShellViewModel called CanChangeMessage and also add a new NotifyOfPropertyChange to the Message setter.
-
-Every time Caliburn Micro hooks up an event is also looks for a boolean property with the same name plus the word Can before it. It then uses the result of that property to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
-
 <br>
 
 Example
