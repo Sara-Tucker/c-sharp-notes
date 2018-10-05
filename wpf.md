@@ -100,15 +100,10 @@ Explicit:
 <br>
 <br>
 
-#### Event guards
-Event guards are used to only allow the handling of an event if a certain condition is met. To demonstrate this we will prevent the user from pressing the button more than 10 times. Add a new property to ShellViewModel called CanChangeMessage and also add a new NotifyOfPropertyChange to the Message setter.
+#### Event(+Action?) guards
+Every time Caliburn Micro hooks up an event is also looks for a boolean property or method with the same name plus the word Can before it. It then uses the boolean result to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
 
-Every time Caliburn Micro hooks up an event is also looks for a boolean property with the same name plus the word Can before it. It then uses the result of that property to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
-
-The mechanism supports a “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can,” the invocation of the Action will be blocked and the UI will be disabled.
-
-#### Action guard
-When a handler is found for the “SayHello” message, it will check to see if that class also has either a property or a method named “CanSayHello.” If you have a guard property and your class implements INotifyPropertyChanged, then the framework will observe changes in that property and re-evaluate the guard accordingly.
+“CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can”, the invocation of the Action will be blocked and the UI will be disabled.
 
 <br>
 
