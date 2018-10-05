@@ -172,15 +172,7 @@ Different events can be used like this:
 You can also pass parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger.
 
 #### Automatically Finding Parameters
-To finish off this tutorial I’ll mention that Caliburn Micro even has conventions for automatically picking up parameters when you don’t explicitly set them. If you do not explicitly specify a parameter, Caliburn Micro will look at the parameter name in the method signiture and try find any user control in the view that matches this name (ignoring the case). If a matching user control is found, an appropriate property on the control will be used to provide the parameter. For example, if the user control is a TextBlock, the Text property value will be used as the parameter. Again, Caliburn Micro can automatically convert strings to ints and so on if necessary.
-
-To understand this convention more easily, lets try this out in the application. Add a slider to the application and call it “Delta”. Then add another button called “IncrementCount”. As explained in the previous blog post, the button is going to automatically call the IncrementCount method when it is clicked. This time however, the method has a parameter, but we havn’t specified what value the button should use. Notice that the slider we added is the same name as the parameter (delta). Thus Caliburn Micro will automatically use the Value property of the slider as the parameter to the method whenever the button is clicked. Here is all the code we needed to add to do this:
-
-<UniformGrid Columns="2" VerticalAlignment="Bottom">
-  <Slider Name="Delta" Minimum="0" Maximum="5" Margin="15" />
-  <Button Name="IncrementCount" Content="Increment" Margin="15" />
-</UniformGrid>
-
+Caliburn Micro even has conventions for automatically picking up parameters when you don’t explicitly set them. If you do not explicitly specify a parameter, Caliburn Micro will look at the parameter name in the method signiture and try find any user control in the view that matches this name (ignoring the case). If a matching user control is found, an appropriate property on the control will be used to provide the parameter. For example, if the user control is a TextBlock, the Text property value will be used as the parameter.
 
 Different parameters can be passed to the method like this:
 ```xaml
@@ -234,6 +226,8 @@ Here I have set the parameter to be Count.Text. This sets up a binding to the Te
 
 <br>
 <br>
+<br>
+<br>
 
 Example
 ```c#
@@ -278,8 +272,12 @@ public class ShellViewModel : IShell
     </StackPanel>
 ```
 
-Message.Attach
+<br>
+<br>
+<br>
+<br>
 
+#### Message.Attach
 The first thing to notice is that we are using a more Xaml-developer-friendly mechanism for declaring our ActionMessages. The Message.Attach property is backed by a simple parser which takes its textual input and transforms it into the full Interaction.Trigger/ActionMessage that you’ve seen previously. If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach. Notice that neither Message.Attach declarations specify which event should send the message. If you leave off the event, the parser will use the ConventionManager to determine the default event to use for the trigger. In the case of Button, it’s Click. You can always be explicit of coarse. Here’s what the full syntax for our Remove message would look like if we were declaring everything:
 
 <Button Content="Remove" cal:Message.Attach="[Event Click] = [Action Remove($dataContext)]" />
@@ -292,9 +290,11 @@ But we could also leverage some smart defaults of the parser and do it like this
 
 <Button Content="Click Me" cal:Message.Attach="SayHello(Name)" />
 
+<br>
+<br>
+
 ---
 
-<br>
 <br>
 <br>
 
@@ -348,6 +348,10 @@ public class CartSummaryViewModel : IHandle<CartChangedMessage>
 #### PropertyChangedBase and BindableCollection
 What self respecting WPF/SL framework could go without a base implementation of INotifyPropertyChanged? The Caliburn.Micro implementation enables string and lambda-based change notification. It also ensures that all events are raised on the UI thread. BindableCollection is a simple collection that inherits from ObservableCollection, but that ensures that all its events are raised on the UI thread as well.
 
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
