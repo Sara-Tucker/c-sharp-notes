@@ -129,12 +129,12 @@ All we have done this time is use one of Caliburn Micro’s attached properties 
 
 <br>
 
+In the EventTrigger we can specify which event we want to listen to, and using the Caliburn Micro ActionMessage we can specify which method should be called. Using this approach you can include any number of event triggers to listen to other events on the same control. So you could listen to MouseEnter and MouseLeave to perform additional actions.
+
 #### Message.Attach (property)
-If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach, it is a more Xaml-developer-friendly mechanism for declaring our ActionMessages. Message.Attach declarations don't need to specify which event should send the message. If you leave oout the event the parser will determine the default event to use for the trigger, for example for a Button it’s Click. You can always be explicit of course. Here’s what the full syntax for our Remove message would look like if we were declaring everything:
-```xaml
-<Button Content="Remove" cal:Message.Attach="[Event Click] = [Action Remove($dataContext)]" />
-```
-Suppose we were to re-write our parameterized SayHello action with the Message.Attach syntax. It would look like this:
+If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach, it is a more Xaml-developer-friendly mechanism for declaring our ActionMessages. Message.Attach declarations don't need to specify which event should send the message. If you leave oout the event the parser will determine the default event to use for the trigger, for example for a Button it’s Click. You can always be explicit of course.
+
+Our parameterized SayHello action with the Message.Attach syntax would look like this:
 ```xaml
 <Button Content="Click Me" cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
 ```
@@ -184,6 +184,24 @@ You can also pass parameters to the method as well. Parameters can be databound 
 #### Automatically Finding Parameters
 If you do not explicitly specify a parameter, Caliburn Micro will look at the parameter name in the method signiture and try find any user control in the view that matches this name (ignoring the case). If a matching user control is found, an appropriate property on the control will be used to provide the parameter. For example, if the user control is a TextBlock, the Text property value will be used as the parameter.
 
+Next let’s look at event parameters. To demonstrate this, we will add another button that increments the count by 2. In AppViewModel.cs we need to modify the IncrementCount method to include an integer parameter. This parameter will be used to change the Count property.
+
+Add a Caliburn Micro Parameter to the ActionMessage. The Value property of the Caliburn Micro Parameter is a dependency property, which means it also supports the usual WPF data binding.
+
+Because of the flexibity of using data binding to set the parameter value, it is possible to pass UI elements from the view into the view-model. You should try to avoid doing this as hard as you possibly can! UI elements in the ViewModel can fracture your MVVM archetecture and cause issues.
+
+Including an event parameter using Message.Attach will look like this:
+```xaml
+cal:Message.Attach="[Event Click] = [Action IncrementCount(1)]"
+```
+The short syntax even supports a special form of data binding. To demonstrate this, let’s add a button that increments the count by the count value itself. In other words, a button that doubles the count value.
+```xaml
+<RepeatButton Content="Double" Margin="15" cal:Message.Attach="[Event Click] = [Action IncrementCount(Count.Text)]" />
+```
+Here I have set the parameter to be Count.Text. This sets up a binding to the Text property of the TextBlock (named Count) which is displaying the current value. Notice that Caliburn Micro automatically converts string values that we want to pass into a method that takes a numerical value. Caliburn Micro provides will automatically use an appropriate property on a user control if we do not specify a property. In the example above, we could just write the name of the TextBlock (“Count”) as the parameter and Caliburn Micro will bind to the Text property by default.
+
+<br>
+
 Different parameters can be passed to the method like this:
 ```xaml
 <Button cal:Message.Attach="[Event MouseEnter] = [Action Save($this)]"> 
@@ -198,28 +216,6 @@ Different parameters can be passed to the method like this:
   - The view (usually a UserControl or Window) that is bound to the ViewModel.
 - $this
   - The actual UI element to which the action is attached. In this case, the element itself won't be passed as a parameter, but rather its default property.
-
-<br>
-<br>
-<br>
-
-In the EventTrigger we can specify which event we want to listen to, and using the Caliburn Micro ActionMessage we can specify which method should be called. Using this approach you can include any number of event triggers to listen to other events on the same control. So you could listen to MouseEnter and MouseLeave to perform additional actions.
-
-Next let’s look at event parameters. To demonstrate this, we will add another button that increments the count by 2. In AppViewModel.cs we need to modify the IncrementCount method to include an integer parameter. This parameter will be used to change the Count property.
-
-Back in AppView.xaml, update the existing repeat button by adding a Caliburn Micro Parameter to the ActionMessage. The Value property of the Caliburn Micro Parameter is a dependency property, which means it also supports the usual WPF data binding.
-
-Because of the flexibity of using data binding to set the parameter value, it is possible to pass UI elements from the view into the view-model. You should try to avoid doing this as hard as you possibly can! UI elements in the view-model can fracture your MVVM archetecture and can cause maintenance issues in the future.
-
-Next we look at event parameters using this short syntax. Modify the IncrementCount method in same way we did for the long syntax. Including an event parameter using Message.Attach will look like this:
-```xaml
-cal:Message.Attach="[Event Click] = [Action IncrementCount(1)]"
-```
-The short syntax even supports a special form of data binding. To demonstrate this, let’s add a button that increments the count by the count value itself. In other words, a button that doubles the count value. You can remove the CanIncrementCount event guard mentioned in the previous blog post to make the value go higher than 100. The repeat button code would look something like this:
-```xaml
-<RepeatButton Content="Double" Margin="15" cal:Message.Attach="[Event Click] = [Action IncrementCount(Count.Text)]" />
-```
-Here I have set the parameter to be Count.Text. This sets up a binding to the Text property of the TextBlock (named Count) which is displaying the current value. Notice that Caliburn Micro automatically converts string values that we want to pass into a method that takes a numerical value. Caliburn Micro provides will automatically use an appropriate property on a user control if we do not specify a property. In the example above, we could just write the name of the TextBlock (“Count”) as the parameter and Caliburn Micro will bind to the Text property by default.
 
 <br>
 <br>
