@@ -115,24 +115,15 @@ This will cause the Click event of the Button to call “Save” method on the V
 
 <br>
 
-Different events can be used like this:
-```xaml
-<Button cal:Message.Attach="[Event MouseEnter] = [Action Save]">
-```
-All we have done this time is use one of Caliburn Micro’s attached properties (Message.Attach) to specify which event we are interested in, and which method to call.
-
-<br>
-
-In the EventTrigger we can specify which event we want to listen to, and using the Caliburn Micro ActionMessage we can specify which method should be called. Using this approach you can include any number of event triggers to listen to other events on the same control. So you could listen to MouseEnter and MouseLeave to perform additional actions.
-
-#### Message.Attach (property)
-If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach, it is a more Xaml-developer-friendly mechanism for declaring our ActionMessages. Message.Attach declarations don't need to specify which event should send the message. If you leave oout the event the parser will determine the default event to use for the trigger, for example for a Button it’s Click. You can always be explicit of course.
-
-Our parameterized SayHello action with the Message.Attach syntax would look like this:
+#### Message.Attach
+Use the Message.Attach property to specify which event(s) to listen for, and which method should be called.
 ```xaml
 <Button Content="Click Me" cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
 ```
-But we could also leverage some smart defaults of the parser and do it like this:
+
+<br>
+
+If you leave out the event the parser will determine the default event to use for the trigger, for example a Button's Click. You can always be explicit of course.
 ```xaml
 <Button Content="Click Me" cal:Message.Attach="SayHello(Name)" />
 ```
