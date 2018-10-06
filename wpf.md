@@ -72,9 +72,7 @@ public class ShellViewModel : Screen
 
 <br>
 <br>
-
----
-
+<br>
 <br>
 <br>
 
@@ -94,9 +92,7 @@ Explicit:
 
 <br>
 <br>
-
----
-
+<br>
 <br>
 <br>
 
@@ -189,7 +185,6 @@ Different parameters can be passed to the method like this:
 <br>
 <br>
 <br>
-<br>
 
 This works well if you only want to bind to the default event but what if you wanted to bind to a different event or even pass parameters? All we have done here is explicitly say which event we are listening for and which function in the View Model should be called.
 
@@ -221,7 +216,6 @@ The short syntax even supports a special form of data binding. To demonstrate th
 ```
 Here I have set the parameter to be Count.Text. This sets up a binding to the Text property of the TextBlock (named Count) which is displaying the current value. Notice that Caliburn Micro automatically converts string values that we want to pass into a method that takes a numerical value. Caliburn Micro provides will automatically use an appropriate property on a user control if we do not specify a property. In the example above, we could just write the name of the TextBlock (“Count”) as the parameter and Caliburn Micro will bind to the Text property by default.
 
-<br>
 <br>
 <br>
 <br>
@@ -271,7 +265,6 @@ public class ShellViewModel : IShell
 <br>
 <br>
 <br>
-<br>
 
 #### Message.Attach
 The first thing to notice is that we are using a more Xaml-developer-friendly mechanism for declaring our ActionMessages. The Message.Attach property is backed by a simple parser which takes its textual input and transforms it into the full Interaction.Trigger/ActionMessage that you’ve seen previously. If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach. Notice that neither Message.Attach declarations specify which event should send the message. If you leave off the event, the parser will use the ConventionManager to determine the default event to use for the trigger. In the case of Button, it’s Click. You can always be explicit of coarse. Here’s what the full syntax for our Remove message would look like if we were declaring everything:
@@ -289,9 +282,7 @@ But we could also leverage some smart defaults of the parser and do it like this
 
 <br>
 <br>
-
----
-
+<br>
 <br>
 <br>
 
