@@ -96,17 +96,11 @@ Explicit:
 <br>
 <br>
 
-## Actions
-Actions allow you to “bind” UI EventTriggers, such as a Button’s “Click” event, to methods on your View-Model.
+## Bind events on controls to call methods on the ViewModel
+Actions allow you to “bind” UI EventTriggers (like a Button's "Click" event) to methods on your View-Model.
 
-#### Event(+Action?)Trigger
-An EventTrigger triggers the sending of an ActionMessage.
-When an ActionTrigger occurs, it executes the specified method by creating an ActionMessage.
+When an EventTrigger occurs, it executes the specified method by creating, then sending, an ActionMessage.
 
-#### ActionMessage
-When a trigger occurs, the “message” bubbles through the element tree looking for an Action.Target (handler) that is capable of invoking the specified method, this is why we call them messages.
-
-#### Action Conventions
 You use a set of binding conventions around the ActionMessage feature. These conventions are based on x:Name. So, if you have a method called “Save” on your ViewModel and a Button named “Save” in your UI, we will automatically create an EventTrigger for the “Click” event and assign an ActionMessage for the “Save” method. Furthermore, we will inspect the method’s signature and properly construct the ActionMessage parameters.
 
 <br>
