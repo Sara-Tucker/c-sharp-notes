@@ -264,6 +264,43 @@ public class ShellViewModel : IShell
 <br>
 <br>
 
+## The Window Manager
+Most commonly, a screen is part of an application that goes through a life cycle. It can be activated, deactivated or closed. A good example of this which is used well in the documentation are the code editors in Visual Studio. A code editor is “activated” when a user opens a file to edit, it is “deactivated” when the user switches to a different tab, and it can be “closed” if the user closes the tab. An event is raised when the state of a screen changes so that external logic can be applied such as changing a toolbar based on the currently active screen. So far it sounds like screens are a special type of view-model, but this is not always the case. It is advised that screens are thought of more like roles, not view-models.
+
+Conductors manage the life cycle state of one or more screens. They are responsible for activating, deactivating and closing the screens that it manages.
+
+- Conductor<T>
+  – Manages a single screen at a time. Once it activates a new screen, any previous screen is deactivated, closed and forgotten by the conductor. This is used for very simple navigation/display scenarios.
+- Conductor<T>.Collection.OneActive
+  – This one manages many screens at once and allows one screen to be active at one time, much like a tab control. When a screen is activated, the previously active screen is simply deactivated, it is not closed and remains under the management of the conductor. Screens can be explicitly closed to remove them. This type of conductor is also responsible for activating one of its screens if the active screen is closed. This has simple default logic that you can override if you need to.
+- Conductor<T>.Collection.AllActive
+  – Very similar to the previous conductor, but allows multiple screens to be in the active state at once.
+
+One common aspect of all the Caliburn Micro conductor implementations is that they extend the Screen class. This means the conductors can also be managed by other conductors which creates a very flexible model for building up applications in composable bits.
+
+```c#
+public class AppViewModel : Conductor<object>
+{
+    public void ShowRedScreen()
+    {
+        ActivateItem(new RedViewModel());
+    }
+    public void ShowGreenScreen()
+    {
+        ActivateItem(new GreenViewModel());
+    }
+}
+```
+```xaml
+<ContentControl x:Name="ActiveItem" />
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Screens, Conductors, and Composition
 Screen = subsection of a page, like github edit window. could kinda say it's only one page
 
@@ -310,6 +347,11 @@ public class CartSummaryViewModel : IHandle<CartChangedMessage>
 
 #### PropertyChangedBase and BindableCollection
 Use BindableCollection<> instead of List<>
+
+<br>
+
+#### Data context
+A data context is the source of data binding. In an MVVM application, the data context of a view is a view-model.
 
 <br>
 <br>
