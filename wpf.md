@@ -133,22 +133,28 @@ If you leave out the event the parser will determine the default event to use fo
 <br>
 
 ### Parameters
-You can also pass parameters to the method as well. All parameters are automatically type converted to the method’s signature.
-
-#### Automatically Finding Parameters
-If you do not explicitly specify a parameter, Caliburn Micro will look at the parameter name in the method signiture and try find any user control in the view that matches this name (ignoring the case). If a matching user control is found, an appropriate property on the control will be used to provide the parameter. For example, if the user control is a TextBlock, the Text property value will be used as the parameter.
-
-Because of the flexibity of using data binding to set the parameter value, it is possible to pass UI elements from the view into the view-model. You should try to avoid doing this as hard as you possibly can! UI elements in the ViewModel can fracture your MVVM archetecture and cause issues.
-
-Including an event parameter using Message.Attach will look like this:
+You can also pass parameters to the method as well. All parameters are automatically type converted.
 ```xaml
 <Button cal:Message.Attach="[Event Click] = [Action IncrementCount(1)]" />
 ```
-The short syntax even supports a special form of data binding. To demonstrate this, let’s add a button that increments the count by the count value itself. In other words, a button that doubles the count value.
+
+<br>
+
+The short syntax even supports a special form of data binding. To demonstrate this, let’s increments the count by the count value itself (a button that doubles the count value).
 ```xaml
 <Button cal:Message.Attach="[Event Click] = [Action IncrementCount(Count.Text)]" />
 ```
 Here I have set the parameter to be Count.Text. This sets up a binding to the Text property of the TextBlock (named Count) which is displaying the current value. Caliburn Micro will automatically use an appropriate property on a user control if we do not specify a property. In the example above, we could just write the name of the TextBlock (“Count”) as the parameter and Caliburn Micro will bind to the Text property by default.
+
+<br>
+
+#### Automatically Finding Parameters
+If you do not explicitly specify a parameter, Caliburn Micro will look at the parameter name in the method signiture and try find any user control in the view that matches this name (ignoring the case). If a matching user control is found, an appropriate property on the control will be used to provide the parameter. For example, if the user control is a TextBlock, the Text property value will be used as the parameter.
+
+<br>
+
+#### Warning:
+Because of the flexibity of using data binding to set the parameter value, it is possible to pass UI elements from the view into the view-model. You should try to avoid doing this as hard as you possibly can! UI elements in the ViewModel can fracture your MVVM archetecture and cause issues.
 
 <br>
 
