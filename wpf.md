@@ -128,6 +128,22 @@ Different events can be used like this:
 All we have done this time is use one of Caliburn Micro’s attached properties (Message.Attach) to specify which event we are interested in, and which method to call.
 
 <br>
+
+#### Message.Attach (property)
+If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach, it is a more Xaml-developer-friendly mechanism for declaring our ActionMessages. Message.Attach declarations don't need to specify which event should send the message. If you leave oout the event the parser will determine the default event to use for the trigger, for example for a Button it’s Click. You can always be explicit of course. Here’s what the full syntax for our Remove message would look like if we were declaring everything:
+```xaml
+<Button Content="Remove" cal:Message.Attach="[Event Click] = [Action Remove($dataContext)]" />
+```
+Suppose we were to re-write our parameterized SayHello action with the Message.Attach syntax. It would look like this:
+```xaml
+<Button Content="Click Me" cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
+```
+But we could also leverage some smart defaults of the parser and do it like this:
+```xaml
+<Button Content="Click Me" cal:Message.Attach="SayHello(Name)" />
+```
+
+<br>
 <br>
 <br>
 
@@ -249,24 +265,6 @@ public class ShellViewModel : IShell
         </ItemsControl>
         <Button Content="Add" cal:Message.Attach="Add" />
     </StackPanel>
-```
-
-<br>
-<br>
-<br>
-
-#### Message.Attach
-The first thing to notice is that we are using a more Xaml-developer-friendly mechanism for declaring our ActionMessages. The Message.Attach property is backed by a simple parser which takes its textual input and transforms it into the full Interaction.Trigger/ActionMessage that you’ve seen previously. If you work primarily in the Xaml editor and not in the designer, you’re going to like Message.Attach. Notice that neither Message.Attach declarations specify which event should send the message. If you leave off the event, the parser will use the ConventionManager to determine the default event to use for the trigger. In the case of Button, it’s Click. You can always be explicit of coarse. Here’s what the full syntax for our Remove message would look like if we were declaring everything:
-```xaml
-<Button Content="Remove" cal:Message.Attach="[Event Click] = [Action Remove($dataContext)]" />
-```
-Suppose we were to re-write our parameterized SayHello action with the Message.Attach syntax. It would look like this:
-```xaml
-<Button Content="Click Me" cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
-```
-But we could also leverage some smart defaults of the parser and do it like this:
-```xaml
-<Button Content="Click Me" cal:Message.Attach="SayHello(Name)" />
 ```
 
 <br>
