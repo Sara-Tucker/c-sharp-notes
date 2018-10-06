@@ -1,6 +1,6 @@
 # Caliburn.Micro
-#### Project -> Quick Install Package -> 'n':
-```Caliburn.Micro -Version 4.0.0-alpha.1```
+#### View -> Package Manager:
+```Install-Package Caliburn.Micro -Version 4.0.0-alpha.1```
 
 <br>
 
