@@ -134,7 +134,7 @@ Different events can be used like this:
 <br>
 <br>
 
-#### Event(+Action?) guards
+### Event(+Action?) guards
 Every time Caliburn Micro hooks up an event is also looks for a boolean property or method with the same name plus the word Can before it. It then uses the boolean result to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
 
 “CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can”, the invocation of the Action will be blocked and the UI will be disabled.
@@ -165,7 +165,7 @@ public string Login(string username, string password)
 <br>
 <br>
 
-## Parameters
+### Parameters
 You can also pass parameters to the method as well. Parameters can be databound to other FrameworkElements or can pass special values, such as the DataContext or EventArgs. All parameters are automatically type converted to the method’s signature. This mechanism also allows the “Action.Target” to vary independently of the DataContext and enables it to be declared at different points in the UI from the trigger.
 
 #### Automatically Finding Parameters
@@ -193,7 +193,7 @@ Different parameters can be passed to the method like this:
 
 This works well if you only want to bind to the default event but what if you wanted to bind to a different event or even pass parameters? All we have done here is explicitly say which event we are listening for and which function in the View Model should be called.
 
-Next lets look at how we can pass parameters with the action message, modify ShellView as follows so that it passes a parameter when the button is clicked. Next edit the ChangeMessage function in ShellViewModel so that it takes an integer parameter. If you run the app again you should notice that the count is now increased by two, this is because when the button is clicked it sends the action message to the View Model with the specified parameter which is then added to the count.
+Next lets look at how we can pass parameters with the action message, modify ShellView as follows so that it passes a parameter when the button is clicked. Next edit the ChangeMessage function in ShellViewModel so that it takes an integer parameter. If you run the app again you should notice that the count is now increased by two, this is because when the button is clicked it sends the ActionMessage to the ViewModel with the specified parameter which is then added to the count.
 
 <br>
 
@@ -219,7 +219,7 @@ The short syntax even supports a special form of data binding. To demonstrate th
 ```xaml
 <RepeatButton Content="Double" Margin="15" cal:Message.Attach="[Event Click] = [Action IncrementCount(Count.Text)]" />
 ```
-Here I have set the parameter to be Count.Text. This sets up a binding to the Text property of the TextBlock (named Count) which is displaying the current value. Notice that Caliburn Micro automatically converts string values that we want to pass into a method that takes a numerical value. Another shortcut that Caliburn Micro provides here is that it will automatically use an appropriate property on a user control if we do not specify a property. In the example above, we could just write the name of the TextBlock (“Count”) as the parameter and Caliburn Micro will bind to the Text property by default.
+Here I have set the parameter to be Count.Text. This sets up a binding to the Text property of the TextBlock (named Count) which is displaying the current value. Notice that Caliburn Micro automatically converts string values that we want to pass into a method that takes a numerical value. Caliburn Micro provides will automatically use an appropriate property on a user control if we do not specify a property. In the example above, we could just write the name of the TextBlock (“Count”) as the parameter and Caliburn Micro will bind to the Text property by default.
 
 <br>
 <br>
