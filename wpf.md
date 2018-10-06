@@ -153,15 +153,12 @@ If you do not explicitly specify a parameter, Caliburn Micro will look at the pa
 
 <br>
 
-#### Warning:
+#### Warning
 Because of the flexibity of using data binding to set the parameter value, it is possible to pass UI elements from the view into the view-model. You should try to avoid doing this as hard as you possibly can! UI elements in the ViewModel can fracture your MVVM archetecture and cause issues.
 
 <br>
 
-Different parameters can be passed to the method like this:
-```xaml
-<Button cal:Message.Attach="[Event Click] = [Action Save($this)]"> 
-```
+#### Special parameters
 - $eventArgs
   - Passes the EventArgs or input parameter to your Action. Note: This will be null for guard methods since the trigger hasn’t actually occurred.
 - $dataContext
@@ -177,14 +174,9 @@ Different parameters can be passed to the method like this:
 <br>
 <br>
 
-### Event(+Action?) guards
+### Event guards
 Every time Caliburn Micro hooks up an event is also looks for a boolean property or method with the same name plus the word Can before it. It then uses the boolean result to determine whether the event should be handled or not. If not, Caliburn Micro automatically disables the control.
 
-“CanExecute” guard. If the Action has a corresponding Property or Method with the same name, but preceded by the word “Can”, the invocation of the Action will be blocked and the UI will be disabled.
-
-<br>
-
-#### Apply methods between your View and ViewModel automatically with parameters and guard methods
 ```xaml
 <StackPanel>
     <TextBox x:Name="Username" />
@@ -208,6 +200,7 @@ public string Login(string username, string password)
 <br>
 <br>
 
+#### Master/Detail stuff
 ```c#
 public class ShellViewModel : IShell
 {
