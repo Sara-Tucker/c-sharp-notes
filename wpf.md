@@ -82,14 +82,29 @@ Automatically bind ViewModel properties to properties on controls with naming co
 This will cause the “Text” property of the TextBox to be bound to the “FirstName” property on the ViewModel:
 ```xaml
 <TextBox x:Name="FirstName" />
+
+<!-- Explicitly -->
+<TextBox Text="{Binding Path=FirstName, Mode=TwoWay}" />
+
+<!-- Traditional way -->
+<TextBlock Text="{Binding PROPERTYNAME}" />
 ```
 
 <br>
 
-Explicit:
-```xaml
-<TextBox Text="{Binding Path=FirstName, Mode=TwoWay}" />
+Mode:
+- OneWayToSource - data goes from the form to the property
+
+<br>
+
+NotifyOfPropertyChange:
+```c#
+set
+{
+    NotifyOfPropertyChange(() => Property/ControlName)
+}
 ```
+Rather than implementing INotifyPropertyChanged in all of your models, you can simply call the NotifyOfPropertyChange method within the setter of your properties.
 
 <br>
 <br>
@@ -249,32 +264,29 @@ public class ShellViewModel : IShell
 <br>
 <br>
 
-NotifyOfPropertyChange:
-```c#
-set
-{
-    NotifyOfPropertyChange(() => Property/ControlName)
-}
-```
-Rather than implementing INotifyPropertyChanged in all of your models, you can simply call the NotifyOfPropertyChange method within the setter of your properties.
+## Screens, Conductors, and Composition
+Screen = subsection of a page, like github edit window. could kinda say it's only one page
 
-Traditional way:
-```xaml
-<TextBlock Text="{Binding PROPERTYNAME}" />
-```
-
-<br>
-
-Use BindableCollection<> instead of List<>
-
-Mode:
-OneWayToSource - data goes from the form to the property
+Conductor = only one child page
 
 Inherit from Screen if only one page, Inherit from Conductor<object> if multiple.
 
-screen = only one page
+https://caliburnmicro.com/documentation/composition
 
-Conductor = only one child page
+<br>
+
+#### Screen
+Often times a screen has a lifecycle associated with it which allows the screen to perform custom activation and deactivation logic. This is the ScreenActivator. For example, take the Visual Studio code editor window. If you are editing a C# code file in one tab, then you switch to a tab containing an XML document, you will notice that the toolbar icons change. Each one of those screens has custom activation/deactivation logic that enables it to setup/teardown the application toolbars such that they provide the appropriate icons based on the active screen. In simple scenarios, the ScreenActivator is often the same class as the Screen. However, you should remember that these are two separate roles. If a particular screen has complex activation logic, it may be necessary to factor the ScreenActivator into its own class in order to reduce the complexity of the Screen. This is particularly important if you have an application with many different screens, but all with the same activation/deactivation logic.
+
+<br>
+
+#### Screen Conductor
+Once you introduce the notion of a Screen Activation Lifecycle into your application, you need some way to enforce it. This is the role of the ScreenConductor. When you show a screen, the conductor makes sure it is properly activated. If you are transitioning away from a screen, it makes sure it gets deactivated.
+
+<br>
+
+#### Screen Collection
+In an application like Visual Studio, you would not only have a ScreenConductor managing activation and deactivation but would also have a ScreenCollection maintaining the list of currently opened screens or documents. Anything that is in the ScreenCollection remains open, but only one of those items is active at a time. In an MDI-style application like VS, the conductor would manage switching the active screen between members of the ScreenCollection. Opening a new document would add it to the ScreenCollection and switch it to the active screen. Closing a document would not only deactivate it, but would remove it from the ScreenCollection. All that would be dependent on whether or not it answers the question “Can you close?” positively. Of course, after the document is closed, the conductor needs to decide which of the other items in the ScreenCollection should become the next active document.
 
 <br>
 <br>
@@ -297,7 +309,7 @@ public class CartSummaryViewModel : IHandle<CartChangedMessage>
 <br>
 
 #### PropertyChangedBase and BindableCollection
-What self respecting WPF/SL framework could go without a base implementation of INotifyPropertyChanged? The Caliburn.Micro implementation enables string and lambda-based change notification. It also ensures that all events are raised on the UI thread. BindableCollection is a simple collection that inherits from ObservableCollection, but that ensures that all its events are raised on the UI thread as well.
+Use BindableCollection<> instead of List<>
 
 <br>
 <br>
@@ -309,22 +321,14 @@ What self respecting WPF/SL framework could go without a base implementation of 
 <br>
 
 # MVVM
-
 - ViewModel = Program logic
-- View is not connected and knows nothing about the Model or ViewModel
-- ViewModel is not connected and knows nothing about the View
 - The way the View and ViewModel talk to each other is databinding with XAML
 
-#### Instructions
-1. Create new project, create Models, Views, ViewModels folders
-
-<br>
 <br>
 <br>
 <br>
 
 # WPF
-
 [Great YouTube series](https://www.youtube.com/watch?v=Vjldip84CXQ&list=PLrW43fNmjaQVYF4zgsD0oL9Iv6u23PI6M)
 
 <br>
