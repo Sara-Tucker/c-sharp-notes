@@ -1,6 +1,6 @@
 # Caliburn.Micro
 #### View -> Package Manager:
-```Install-Package Caliburn.Micro -Version 4.0.0-alpha.1```
+```Install-Package Caliburn.Micro```
 
 <br>
 
@@ -131,17 +131,17 @@ This will cause the Click event of the Button to call “Save” method on the V
 
 <br>
 
-#### Message.Attach
+#### cal:Message.Attach=""
 Use the Message.Attach property to specify which event(s) to listen for, and which method should be called.
 ```xaml
-<Button Content="Click Me" cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
+<Button cal:Message.Attach="[Event Click] = [Action SayHello(Name.Text)]" />
 ```
 
 <br>
 
 If you leave out the event the parser will determine the default event to use for the trigger, for example a Button's Click. You can always be explicit of course.
 ```xaml
-<Button Content="Click Me" cal:Message.Attach="SayHello(Name)" />
+<Button cal:Message.Attach="SayHello(Name)" />
 ```
 <br>
 <br>
