@@ -265,6 +265,38 @@ public class ShellViewModel : IShell
 <br>
 
 ## The Window Manager
+http://www.mindscapehq.com/blog/index.php/2012/3/13/caliburn-micro-part-5-the-window-manager/  
+https://claytonone.wordpress.com/2015/01/16/caliburn-micro-part-6-the-window-manager/
+
+<br>
+<br>
+
+## Screens, Conductors, and Composition
+Screen = subsection of a page, like github edit window. could kinda say it's only one page
+
+Conductor = only one child page
+
+Inherit from Screen if only one page, Inherit from Conductor<object> if multiple.
+
+https://caliburnmicro.com/documentation/composition
+
+<br>
+
+#### Screen
+Often times a screen has a lifecycle associated with it which allows the screen to perform custom activation and deactivation logic. This is the ScreenActivator. For example, take the Visual Studio code editor window. If you are editing a C# code file in one tab, then you switch to a tab containing an XML document, you will notice that the toolbar icons change. Each one of those screens has custom activation/deactivation logic that enables it to setup/teardown the application toolbars such that they provide the appropriate icons based on the active screen. In simple scenarios, the ScreenActivator is often the same class as the Screen. However, you should remember that these are two separate roles. If a particular screen has complex activation logic, it may be necessary to factor the ScreenActivator into its own class in order to reduce the complexity of the Screen. This is particularly important if you have an application with many different screens, but all with the same activation/deactivation logic.
+
+<br>
+
+#### Screen Conductor
+Once you introduce the notion of a Screen Activation Lifecycle into your application, you need some way to enforce it. This is the role of the ScreenConductor. When you show a screen, the conductor makes sure it is properly activated. If you are transitioning away from a screen, it makes sure it gets deactivated.
+
+<br>
+
+#### Screen Collection
+In an application like Visual Studio, you would not only have a ScreenConductor managing activation and deactivation but would also have a ScreenCollection maintaining the list of currently opened screens or documents. Anything that is in the ScreenCollection remains open, but only one of those items is active at a time. In an MDI-style application like VS, the conductor would manage switching the active screen between members of the ScreenCollection. Opening a new document would add it to the ScreenCollection and switch it to the active screen. Closing a document would not only deactivate it, but would remove it from the ScreenCollection. All that would be dependent on whether or not it answers the question “Can you close?” positively. Of course, after the document is closed, the conductor needs to decide which of the other items in the ScreenCollection should become the next active document.
+
+<br>
+
 Most commonly, a screen is part of an application that goes through a life cycle. It can be activated, deactivated or closed. A good example of this which is used well in the documentation are the code editors in Visual Studio. A code editor is “activated” when a user opens a file to edit, it is “deactivated” when the user switches to a different tab, and it can be “closed” if the user closes the tab. An event is raised when the state of a screen changes so that external logic can be applied such as changing a toolbar based on the currently active screen. So far it sounds like screens are a special type of view-model, but this is not always the case. It is advised that screens are thought of more like roles, not view-models.
 
 Conductors manage the life cycle state of one or more screens. They are responsible for activating, deactivating and closing the screens that it manages.
@@ -295,35 +327,6 @@ public class AppViewModel : Conductor<object>
 <ContentControl x:Name="ActiveItem" />
 ```
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Screens, Conductors, and Composition
-Screen = subsection of a page, like github edit window. could kinda say it's only one page
-
-Conductor = only one child page
-
-Inherit from Screen if only one page, Inherit from Conductor<object> if multiple.
-
-https://caliburnmicro.com/documentation/composition
-
-<br>
-
-#### Screen
-Often times a screen has a lifecycle associated with it which allows the screen to perform custom activation and deactivation logic. This is the ScreenActivator. For example, take the Visual Studio code editor window. If you are editing a C# code file in one tab, then you switch to a tab containing an XML document, you will notice that the toolbar icons change. Each one of those screens has custom activation/deactivation logic that enables it to setup/teardown the application toolbars such that they provide the appropriate icons based on the active screen. In simple scenarios, the ScreenActivator is often the same class as the Screen. However, you should remember that these are two separate roles. If a particular screen has complex activation logic, it may be necessary to factor the ScreenActivator into its own class in order to reduce the complexity of the Screen. This is particularly important if you have an application with many different screens, but all with the same activation/deactivation logic.
-
-<br>
-
-#### Screen Conductor
-Once you introduce the notion of a Screen Activation Lifecycle into your application, you need some way to enforce it. This is the role of the ScreenConductor. When you show a screen, the conductor makes sure it is properly activated. If you are transitioning away from a screen, it makes sure it gets deactivated.
-
-<br>
-
-#### Screen Collection
-In an application like Visual Studio, you would not only have a ScreenConductor managing activation and deactivation but would also have a ScreenCollection maintaining the list of currently opened screens or documents. Anything that is in the ScreenCollection remains open, but only one of those items is active at a time. In an MDI-style application like VS, the conductor would manage switching the active screen between members of the ScreenCollection. Opening a new document would add it to the ScreenCollection and switch it to the active screen. Closing a document would not only deactivate it, but would remove it from the ScreenCollection. All that would be dependent on whether or not it answers the question “Can you close?” positively. Of course, after the document is closed, the conductor needs to decide which of the other items in the ScreenCollection should become the next active document.
 
 <br>
 <br>
