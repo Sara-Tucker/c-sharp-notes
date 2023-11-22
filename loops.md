@@ -32,10 +32,10 @@ foreach (int purchase in myReceipt)
 Repeats a codeblock until a condition evaluates to false.
 
 How to make:  
-The while condition should be made with: ==  or  >  or  <  
-The condition should be defined outside of the loop.  
-The code block will alter a variable that is part of the condition.  
-Eventually the condition will evaluate to false.
+- The while condition should be made with: ==  or  >  or  <  
+- The condition should be defined outside of the loop.  
+- The code block will alter a variable that is part of the condition.  
+- Eventually the condition will evaluate to false.
 ```c#
 defined condition;
 while (condition is true)
