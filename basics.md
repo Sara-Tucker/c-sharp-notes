@@ -11,7 +11,9 @@ Member - things that a class contains: Fields, Properties, Constructors, Methods
 Field - a variable defined in a class<br>
 Property - allows setting and getting a private field<br>
 Constructor - a method that is called when an object is created<br>
-Namespace - a container for classes. "using Namespace;"
+Namespace - a container for classes. "using Namespace;"<br>
+Static classes - a static class cannot be instantiated<br>
+Static members - you can't access static members from objects, only from the class
 
 <br>
 <br>
