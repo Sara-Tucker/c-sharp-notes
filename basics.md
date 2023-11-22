@@ -1,5 +1,17 @@
 # C# Notes
 
+**Basics:**  
+Variable - a container for data<br>
+Function - reusable code that preforms an action and can optionally return data<br>
+Parameter - a variable named in the declaration of a function<br>
+Argument - the value of the variable that gets passed to a function<br>
+Class - a template for creating objects<br>
+Field - a variable defined in a class<br>
+Property - allows setting and getting a private field
+
+<br>
+<br>
+
 **String interpolation:**  
 ```c#
 // Example 1
