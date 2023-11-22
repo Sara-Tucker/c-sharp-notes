@@ -1,7 +1,7 @@
 # C# Notes
 
 **Basics:**  
-Object - an instance of a class
+Object - an instance of a class<br>
 Variable - a container for data<br>
 Function - reusable code that preforms an action and can optionally return data<br>
 Parameter - a variable named in the declaration of a function<br>
@@ -10,7 +10,7 @@ Class - a template for creating objects<br>
 Member - things that a class contains: Fields, Properties, Constructors, Methods<br>
 Field - a variable defined in a class<br>
 Property - allows setting and getting a private field<br>
-Constructor - a method that is called when an object is created
+Constructor - a method that is called when an object is created<br>
 Namespace - a container for classes. "using Namespace;"
 
 <br>
