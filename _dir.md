@@ -1,4 +1,4 @@
-**[Basics of Computing](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/basics-of-computing.md)**
+**[Basics of Computing](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/basics-of-computing.md)**  
 **[Basics](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/basics.md)**  
 
 <br>
