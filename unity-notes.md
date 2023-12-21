@@ -30,7 +30,7 @@ They are globally accessible and scene-independent.
 
 **Component:**  
 Components are classes.  
-The base class for everything attached to GameObjects & ScriptableObjects.
+The base class for everything attached to GameObjects.
 
 <br>
 
@@ -58,6 +58,7 @@ You should use Awake to set up references between scripts, and use Start to pass
 ### Awake():
 - Awake is the constructor of a script and is called when the script instance is being loaded.
 - Awake is used to initialize any variables or game state before the game starts.
+<br>
 Awake is called only once during the lifetime of the script instance. A script's lifetime lasts until the Scene that contains it is unloaded.  
 Each GameObject's Awake is called in a random order between objects. Because of this, you should use Awake to set up references between scripts, and use Start to pass any information back and forth.  
 Awake is called even if the script is a disabled component of an active GameObject.  
@@ -65,6 +66,7 @@ Awake is called either when an active GameObject that contains the script is ini
 
 ### Start():
 - Start is called on the frame when a script is enabled just before any of the Update methods are called the first time.
+<br>
 Like the Awake function, Start is called exactly once in the lifetime of the script. However, Awake is called when the script object is initialised, regardless of whether or not the script is enabled. Start may not be called on the same frame as Awake if the script is not enabled at initialisation time.
 The Awake function is called on all objects in the Scene before any object's Start function is called. This fact is useful in cases where object A's initialisation code needs to rely on object B's already being initialised; B's initialisation should be done in Awake, while A's should be done in Start.
 
@@ -186,7 +188,7 @@ https://docs.unity3d.com/Manual/DirectionDistanceFromOneObjectToAnother.html
 <br>
 
 ### [System.Serializable] and [HideInInspector] Attributes:
-I think public variables will always show in the editor, but they aren't serializable (can be changed in the inspector) unless you add the [Serializable] attribute. I think. Or maybe you only serialize classes, then the entire class is becomes serializable? Also I think [HideInInspector] only hides the value it doesn't make it nonserializable and to do that you need to use the [System.NonSerializable] attribute when declaring the variable.
+I think public variables will always show in the editor, but they aren't serializable (can be changed in the inspector) unless you add the [Serializable] attribute. I think. Or maybe you only serialize classes, then the entire class is/becomes serializable? Also I think [HideInInspector] only hides the value it doesn't make it nonserializable and to do that you need to use the [System.NonSerializable] attribute when declaring the variable.
 
 The Serializable attribute lets you embed a class with sub properties in the inspector. You can use this to display variables in the inspector. To do this the class must derive from System.Object.
 
@@ -203,6 +205,9 @@ Be aware that when adjusting values of public variables in the Inspector, at sto
 <br>
 
 ### Prefabs and Instantiating them
+https://docs.unity3d.com/Manual/Prefabs.html  
+https://docs.unity3d.com/ScriptReference/Object.Instantiate.html  
+https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
 The prefab asset type allows you to store a GameObject with components and settings. The prefab acts as a template from which you can create new object instances in the scene. Any edits made to a prefab asset are immediately reflected in all instances produced from it but you can also override components and settings for each instance individually. This could be used for trees, bullet shells, swords, etc. Prefabs only exist as unused GameObjects in the asset folder, but instatiated prefabs exist as GameObjects in the scene.
 
 ```c#
