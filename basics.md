@@ -13,7 +13,8 @@ Property - allows setting and getting a private field<br>
 Constructor - a method that is called when an object is created<br>
 Namespace - a container for classes. "using Namespace;"<br>
 Static classes - a static class cannot be instantiated<br>
-Static members - you can't access static members from objects, only from the class
+Static members - you can't access static members from objects, only from the class<br>
+Scope - the region where variables and methods are visable/accessible
 
 <br>
 <br>
