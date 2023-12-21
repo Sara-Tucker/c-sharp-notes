@@ -13,7 +13,8 @@
 
 <br>
 
-**[Files](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/files.md)**
+**[Files](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/files.md)**  
+**[Events](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/events.md)**
 
 <br>
 <br>
