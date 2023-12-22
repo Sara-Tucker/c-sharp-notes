@@ -24,7 +24,7 @@ A data structure with a fixed size used to store variables of the same type.
     array[array.Length - 1];
 
 // Print all items in an array on seperate lines:
-    foreach (elementName in collectionName)
+    foreach (dateType elementName in collectionName)
         Console.WriteLine(elementName);
 ```
 
@@ -34,6 +34,10 @@ A data structure with a fixed size used to store variables of the same type.
 ```c#
 // Find number of objects in an array:
     arrayName.Length;
+
+// Check if element exists in an array:
+    Array.Exists(arrayName, element => element == elementValue);// Does not use Linq
+    arrayName.Contains(element);// Uses Linq
 
 // Find the largest and smallest elements in an array:
     int max = arrayName.Max();
@@ -121,7 +125,7 @@ List\<T\> &nbsp;&nbsp;T = element type (data type)
     list[list.Count - 1];
 
 // Print all items in a list on seperate lines:
-    foreach (elementName in collectionName)
+    foreach (dateType elementName in collectionName)
         Console.WriteLine(elementName);
 
 // Access lists in a list: ?
@@ -133,6 +137,9 @@ List\<T\> &nbsp;&nbsp;T = element type (data type)
 ```c#
 // Find number of objects in a list:
     listName.Count;
+
+// Check if element exists in a list:
+    listName.Contains(element);
 
 // Find the largest and smallest elements in a list:
     int max = listName.Max();
