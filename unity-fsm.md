@@ -193,6 +193,11 @@ public class AppleGrowingState : AppleBaseState
 
 <br>
 <br>
+<br>
+
+Enemy/FSM/FSMAction - Move, Patrol, Attack  
+Enemy/FSM/FSMDecision  
+Enemy/FSM/FSMTransition - PlayerInRangeOfAttack
 
 Manager
 ```c#
@@ -235,6 +240,40 @@ public class EnemyBrain : MonoBehaviour
 
         return null;
     }
+}
+```
+
+Action - Move, Patrol, Attack
+```c#
+using UnityEngine;
+
+public abstract class FSMAction : MonoBehaviour
+{
+    public abstract void Act();
+}
+
+```
+
+Decision
+```c#
+using UnityEngine;
+
+public abstract class FSMDecision : MonoBehaviour
+{
+    public abstract bool Decide();
+}
+```
+
+Transition
+```c#
+using System;
+
+[Serializable]
+public class FSMTransition
+{
+    public FSMDecision Decision;// Example: PlayerInRangeOfAttack -> True or False
+    public string TrueState;// Example: CurrentState -> AttackState
+    public string FalseState;// Example: CurrentState -> PatrolState
 }
 ```
 
@@ -283,38 +322,4 @@ public class FSMState// Example: AttackState
     }
 }
 
-```
-
-Action
-```c#
-using UnityEngine;
-
-public abstract class FSMAction : MonoBehaviour
-{
-    public abstract void Act();
-}
-
-```
-
-Decision
-```c#
-using UnityEngine;
-
-public abstract class FSMDecision : MonoBehaviour
-{
-    public abstract bool Decide();
-}
-```
-
-Transition
-```c#
-using System;
-
-[Serializable]
-public class FSMTransition
-{
-    public FSMDecision Decision;// Example: PlayerInRangeOfAttack -> True or False
-    public string TrueState;// Example: CurrentState -> AttackState
-    public string FalseState;// Example: CurrentState -> PatrolState
-}
 ```
