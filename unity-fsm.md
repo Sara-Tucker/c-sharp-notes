@@ -199,6 +199,17 @@ Enemy/FSM/FSMAction - Move, Patrol, Attack
 Enemy/FSM/FSMDecision  
 Enemy/FSM/FSMTransition - PlayerInRangeOfAttack
 
+**Core concepts**
+| Class  | Description |
+| --- | --- |
+| AIState  | A State is a combination of one or more actions, and one or more transitions. An example of a state could be “patrolling until an enemy gets in range”.  |
+| AIAction  | Actions are behaviours and describe what your character is doing. Examples include patrolling, shooting, jumping, etc. The engine comes with a lot of predefined actions, and it’s very easy to create your own.  |
+| AIDecision  | Decisions are components that will be evaluated by transitions, every frame, and will return true or false. Examples include time spent in a state, distance to a target, or object detection within an area.  |
+| AITransition  | Transitions are a combination of one or more decisions and destination states whether or not these transitions are true or false. An example of a transition could be “if an enemy gets in range, transition to the Shooting state”.  |
+| AIBrain  | the AI brain is responsible from going from one state to the other based on the defined transitions. It’s basically just a collection of states, and it’s where you’ll link all the actions, decisions, states and transitions together.  |
+
+<br>
+
 Manager
 ```c#
 using UnityEngine;
