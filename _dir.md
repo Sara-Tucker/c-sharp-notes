@@ -21,4 +21,5 @@
 
 **[Unity](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/unity-notes.md)**  
 **[Unity Physics](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/unity-physics.md)**  
-**[Unity FSM](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/unity-fsm.md)**
+**[Unity FSM](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/unity-fsm.md)**  
+**[Unity Misc.](https://github.com/Sara-Tucker/c-sharp-notes/blob/master/unity-misc.md)**
