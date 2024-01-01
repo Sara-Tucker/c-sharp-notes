@@ -17,6 +17,8 @@ public class MyObject : MonoBehaviour
 }
 ```
 
+<br>
+
 Set object rotation:
 ```c#
 public class MyObject : MonoBehaviour
@@ -28,6 +30,8 @@ public class MyObject : MonoBehaviour
     }
 }
 ```
+
+<br>
 
 Set object scale:
 ```c#
@@ -44,6 +48,8 @@ public class MyObject : MonoBehaviour
     }
 }
 ```
+
+<br>
 
 Set random sprite:
 ```c#
