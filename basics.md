@@ -1,20 +1,28 @@
 # C# Notes
 
 **Basics:**  
-Object - an instance of a class<br>
-Variable - a container for data<br>
-Function - reusable code that preforms an action and can optionally return data<br>
-Parameter - a variable named in the declaration of a function<br>
-Argument - the value of the variable that gets passed to a function<br>
-Class - a template for creating objects<br>
-Member - things that a class contains: Fields, Properties, Constructors, Methods<br>
-Field - a variable defined in a class<br>
-Property - allows setting and getting a private field<br>
-Constructor - a method that is called when an object is created<br>
-Namespace - a container for classes. "using Namespace;"<br>
-Static classes - a static class cannot be instantiated<br>
-Static members - you can't access static members from objects, only from the class<br>
+Object - an instance of a class  
+Variable - a container for data  
+Function - reusable code that preforms an action and can optionally return data  
+Parameter - a variable named in the declaration of a function  
+Argument - the value of the variable that gets passed to a function  
+Class - a template for creating objects  
+Member - things that a class contains: Fields, Properties, Constructors, Methods  
+Field - a variable defined in a class  
+Property - allows setting and getting a private field  
+Constructor - a method that is called when an object is created  
+Namespace - a container for classes. "using Namespace;"  
+Static classes - a static class cannot be instantiated  
+Static members - you can't access static members from objects, only from the class  
 Scope - the region where variables and methods are visable/accessible
+
+<br>
+
+Struct - a lightweight data structure similar to a class used to represent small data  
+Abstract modifier - enables you to create classes and class members that are incomplete and must be implemented in a derived class  
+Interface - a completely abstract class  
+Protected access modifier - an access modifier (like public & private) that is only accessible within the same class, or in a class that is inherited from that class  
+Virtual modifier - used to modify a method or property and allow for it to be overridden in a derived class
 
 <br>
 <br>
