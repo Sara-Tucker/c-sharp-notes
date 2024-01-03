@@ -20,9 +20,9 @@ Scope - the region where variables and methods are visable/accessible
 
 Struct - a lightweight data structure similar to a class used to represent small data  
 Abstract modifier - enables you to create classes and class members that are incomplete and must be implemented in a derived class  
+Virtual modifier - used to modify a method or property and allow for it to be overridden in a derived class  
 Interface - a completely abstract class  
-Protected access modifier - an access modifier (like public & private) that is only accessible within the same class, or in a class that is inherited from that class  
-Virtual modifier - used to modify a method or property and allow for it to be overridden in a derived class
+Protected access modifier - an access modifier (like public & private) that is only accessible within the same class, or in a class that is inherited from that class
 
 <br>
 <br>
